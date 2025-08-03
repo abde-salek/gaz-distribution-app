@@ -101,8 +101,8 @@ lib/
 
 2. **Installation**
    ```bash
-   git clone <repository-url>
-   cd gaz
+   git clone https://github.com/abde-salek/gaz-distribution-app.git
+   cd gaz-distribution-app
    flutter pub get
    flutter run
    ```
@@ -156,6 +156,12 @@ lib/
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👨‍💻 Author
+
+**Abdelghani Salek**
+- [LinkedIn](https://www.linkedin.com/in/abde-salek/)
+- [X](https://x.com/abde_salek)
 
 ---
 

@@ -7,6 +7,7 @@ import '../widgets/quick_action_button.dart';
 import '../../../delivery/presentation/pages/delivery_details_page.dart';
 import '../../../delivery/presentation/pages/new_delivery_page.dart';
 import '../../../payment/presentation/pages/payment_collection_page.dart';
+import '../../../main/presentation/pages/main_navigation_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -154,7 +155,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Delivery Tracker'),
+        title: const Text('Dashboard'),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),

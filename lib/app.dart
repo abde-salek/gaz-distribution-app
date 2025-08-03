@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'core/theme/app_theme.dart';
-import 'features/dashboard/presentation/pages/dashboard_page.dart';
+import 'core/services/auth_service.dart';
+import 'features/auth/presentation/pages/splash_page.dart';
+import 'features/main/presentation/pages/main_navigation_page.dart';
 
 class ProductDeliveryTrackerApp extends StatelessWidget {
   const ProductDeliveryTrackerApp({super.key});
@@ -10,8 +12,11 @@ class ProductDeliveryTrackerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Product Delivery Tracker',
       theme: AppTheme.lightTheme,
-      home: const DashboardPage(),
+      home:
+          AuthService.isLoggedIn
+              ? const MainNavigationPage()
+              : const SplashPage(),
       debugShowCheckedModeBanner: false,
     );
   }
-} 
+}

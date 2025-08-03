@@ -51,6 +51,7 @@ class ClientsPage extends StatelessWidget {
       {'name': 'David Lee', 'phone': '+1444333222', 'balance': 0.0, 'status': 'paid'},
     ];
 
+
     final client = clients[index];
     final hasBalance = (client['balance'] as double) > 0;
 

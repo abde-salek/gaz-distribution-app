@@ -36,4 +36,5 @@ The UI/UX design for all core screens (Dashboard, My Clients, Client Details, Se
   [Abdelghani Salek]
 
 -[[LinkedIn](https://www.linkedin.com/in/abde-salek/)]
+
 -[[X](https://x.com/abde_salek)]

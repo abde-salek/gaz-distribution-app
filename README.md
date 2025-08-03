@@ -1,7 +1,8 @@
-##Amana Gaz Distribution App
+# Amana Gaz Distribution App
+
 A cross-platform mobile application built with Flutter and Dart to streamline the delivery and payment process for AMANA GAZ bottle distribution. This app serves as a command center for delivery drivers ('Captains') to manage their clients and daily transactions efficiently.
 
-#Features
+## Features
 *Client Management*: An intuitive UI for tracking clients, their outstanding balances, and handling one-off sales for unregistered customers.
 
 *Performance Dashboard*: Provides Captains with a quick overview of key daily metrics, including total outstanding balance, deliveries, and payments.
@@ -12,14 +13,14 @@ A cross-platform mobile application built with Flutter and Dart to streamline th
 
 *App Settings*: Includes options for language, data synchronization, and a direct link to report problems.
 
-#UI/UX Design
+## UI/UX Design
 The application's design is centered around clarity and fast decision-making. A custom visual hierarchy is used to make critical information easily scannable:
 
 Deep Navy (#1B3F77) is used for the app's primary UI elements, representing deliveries, outstanding balances, and money owed.
 
 Teal (#00A3B5) is used as an accent color to highlight positive actions like payments collected and to indicate settled accounts.
 
-#Technologies Used
+## Technologies Used
 *Framework*: Flutter
 
 *Language*: Dart
@@ -28,10 +29,10 @@ Teal (#00A3B5) is used as an accent color to highlight positive actions like pay
 
 *Code Editor*: VS Code, Cursor
 
-Status
+### Status
 The UI/UX design for all core screens (Dashboard, My Clients, Client Details, Settings) is complete. The project is now moving into the Flutter implementation phase.
 
-Author
-[Abdelghani Salek] - [[LinkeIn](https://www.linkedin.com/in/abde-salek/)]
+**Author**
+[Abdelghani Salek] - [[LinkedIn](https://www.linkedin.com/in/abde-salek/)]
 
 [[X](https://x.com/abde_salek)]

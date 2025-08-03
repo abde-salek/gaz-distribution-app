@@ -1,85 +1,67 @@
-enum DeliveryStatus {
-  pending,
-  inTransit,
-  delivered,
-  cancelled,
-}
+// enum DeliveryStatus {
+//   pending,
+//   inProgress,
+//   delivered,
+//   cancelled,
+// }
 
-enum PaymentStatus {
-  pending,
-  partial,
-  paid,
-  overdue,
-}
+// enum PaymentStatus {
+//   pending,
+//   partial,
+//   completed,
+//   overdue,
+// }
 
-class Delivery {
-  final String id;
-  final String clientName;
-  final String clientPhone;
-  final String address;
-  final String productName;
-  final int quantity;
-  final double unitPrice;
-  final double totalAmount;
-  final double amountPaid;
-  final DeliveryStatus deliveryStatus;
-  final PaymentStatus paymentStatus;
-  final DateTime deliveryDate;
-  final DateTime? completedDate;
-  final String? notes;
+// class Delivery {
+//   final String id;
+//   final String clientName;
+//   final String product;
+//   final double totalAmount;
+//   final double paidAmount;
+//   final DeliveryStatus deliveryStatus;
+//   final PaymentStatus paymentStatus;
+//   final DateTime deliveryDate;
+//   final DateTime createdAt;
 
-  Delivery({
-    required this.id,
-    required this.clientName,
-    required this.clientPhone,
-    required this.address,
-    required this.productName,
-    required this.quantity,
-    required this.unitPrice,
-    required this.totalAmount,
-    required this.amountPaid,
-    required this.deliveryStatus,
-    required this.paymentStatus,
-    required this.deliveryDate,
-    this.completedDate,
-    this.notes,
-  });
+//   Delivery({
+//     required this.id,
+//     required this.clientName,
+//     required this.product,
+//     required this.totalAmount,
+//     required this.paidAmount,
+//     required this.deliveryStatus,
+//     required this.paymentStatus,
+//     required this.deliveryDate,
+//     required this.createdAt,
+//   });
 
-  double get remainingAmount => totalAmount - amountPaid;
-  bool get isFullyPaid => amountPaid >= totalAmount;
-  bool get isOverdue => paymentStatus == PaymentStatus.overdue;
+//   double get remainingAmount => totalAmount - paidAmount;
 
-  Delivery copyWith({
-    String? id,
-    String? clientName,
-    String? clientPhone,
-    String? address,
-    String? productName,
-    int? quantity,
-    double? unitPrice,
-    double? totalAmount,
-    double? amountPaid,
-    DeliveryStatus? deliveryStatus,
-    PaymentStatus? paymentStatus,
-    DateTime? deliveryDate,
-    DateTime? completedDate,
-    String? notes,
-  }) {
-    return Delivery(
-      id: id ?? this.id,
-      clientName: clientName ?? this.clientName,
-      clientPhone: clientPhone ?? this.clientPhone,
-      address: address ?? this.address,
-      productName: productName ?? this.productName,
-      quantity: quantity ?? this.quantity,
-      unitPrice: unitPrice ?? this.unitPrice,
-      totalAmount: totalAmount ?? this.totalAmount,
-      amountPaid: amountPaid ?? this.amountPaid,
-      deliveryStatus: deliveryStatus ?? this.deliveryStatus,
-      paymentStatus: paymentStatus ?? this.paymentStatus,
-      deliveryDate: deliveryDate ?? this.deliveryDate,
-      completedDate: completedDate ?? this.completedDate,
-      notes: notes ?? this.notes,
-    );
-  }
-} 
+//   bool get isFullyPaid => paidAmount >= totalAmount;
+
+//   bool get isOverdue => deliveryDate.isBefore(DateTime.now()) && deliveryStatus != DeliveryStatus.delivered;
+
+//   Delivery copyWith({
+//     String? id,
+//     String? clientName,
+//     String? product,
+//     double? totalAmount,
+//     double? paidAmount,
+//     DeliveryStatus? deliveryStatus,
+//     PaymentStatus? paymentStatus,
+//     DateTime? deliveryDate,
+//     DateTime? createdAt,
+//   }) {
+//     return Delivery(
+//       id: id ?? this.id,
+//       clientName: clientName ?? this.clientName,
+//       product: product ?? this.product,
+//       totalAmount: totalAmount ?? this.totalAmount,
+//       paidAmount: paidAmount ?? this.paidAmount,
+//       deliveryStatus: deliveryStatus ?? this.deliveryStatus,
+//       paymentStatus: paymentStatus ?? this.paymentStatus,
+//       deliveryDate: deliveryDate ?? this.deliveryDate,
+//       createdAt: createdAt ?? this.createdAt,
+//     );
+//   }
+// } 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'signup_page.dart';
 
 /// Gaz Distribution App - Splash Screen
 /// Beautiful gradient design with bilingual branding (English/Arabic).
@@ -27,8 +28,39 @@ class FigmaToCodeApp extends StatelessWidget {
 
 /// Splash screen widget displaying app branding and logo.
 /// Features custom gradient background, bilingual text, and professional typography.
-/// Optimized with StatelessWidget for better performance.
-class Splach extends StatelessWidget {
+/// Now includes automatic navigation to signup page after delay.
+class Splach extends StatefulWidget {
+  @override
+  _SplachState createState() => _SplachState();
+}
+
+class _SplachState extends State<Splach> {
+  @override
+  void initState() {
+    super.initState();
+    // Navigate to signup page after 1.5 seconds
+    Future.delayed(const Duration(milliseconds: 800), () {
+      if (mounted) {
+        Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+            pageBuilder:
+                (context, animation, secondaryAnimation) => const SignupPage(),
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+            transitionDuration: const Duration(milliseconds: 500),
+          ),
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // Set fullscreen mode to hide system UI
@@ -113,6 +145,13 @@ class Splach extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            SizedBox(height: 40),
+            // Loading indicator
+            CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(
+                const Color(0xFF1B3F77),
+              ),
             ),
           ],
         ),

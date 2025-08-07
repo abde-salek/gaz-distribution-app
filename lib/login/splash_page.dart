@@ -63,9 +63,6 @@ class _SplachState extends State<Splach> {
 
   @override
   Widget build(BuildContext context) {
-    // Set fullscreen mode to hide system UI
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,

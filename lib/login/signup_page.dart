@@ -68,13 +68,13 @@ class _SignupPageState extends State<SignupPage> {
     // ----------------------------------------------------------------------------
 
     /// Bottom-right decorative circle size (teal color)
-    /// Scales with screen width: 40% of device width
-    final double bottomCircleSize = screenWidth * 0.4;
+    /// Scales with screen width: 70% of device width
+    final double bottomCircleSize = screenWidth * 0.7;
 
     /// Top-left decorative circle size (navy blue color)
     /// Scales with screen width: 55% of device width
     /// This circle contains the "Create Account" title
-    final double topCircleSize = screenWidth * 0.55;
+    final double topCircleSize = screenWidth * 0.8;
 
     // ----------------------------------------------------------------------------
     // CIRCLE POSITIONING CALCULATIONS
@@ -152,7 +152,7 @@ class _SignupPageState extends State<SignupPage> {
             // Position from left edge (negative value to show partial circle)
             left: -topCircleOffset,
             // Position from top (50% of offset for better visibility)
-            top: -topCircleOffset * 0.5,
+            top: -topCircleOffset * 0.3,
             child: Container(
               width: topCircleSize,
               height: topCircleSize,

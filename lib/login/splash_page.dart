@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'signup_page.dart';
 
 /// Gaz Distribution App - Splash Screen
@@ -30,6 +29,8 @@ class FigmaToCodeApp extends StatelessWidget {
 /// Features custom gradient background, bilingual text, and professional typography.
 /// Now includes automatic navigation to signup page after delay.
 class Splach extends StatefulWidget {
+  const Splach({super.key});
+
   @override
   _SplachState createState() => _SplachState();
 }

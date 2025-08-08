@@ -161,16 +161,32 @@ class _SignupPageState extends State<SignupPage> {
               child: Align(
                 // Adjust alignment to re-center text in the new visible area
                 alignment: const Alignment(0, 0.66),
-                child: Text(
-                  'Create\nAccount',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    // Responsive font size with min/max constraints
-                    fontSize: titleFontSize.clamp(24.0, 36.0),
-                    fontFamily: 'Futura Hv BT',
-                    fontWeight: FontWeight.w900,
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Create',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        // Responsive font size with min/max constraints
+                        fontSize: titleFontSize.clamp(24.0, 36.0),
+                        fontFamily: 'Futura Hv BT',
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    Text(
+                      'Account',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        // Responsive font size with min/max constraints
+                        fontSize: titleFontSize.clamp(24.0, 36.0),
+                        fontFamily: 'Futura Hv BT',
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -386,7 +402,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
 
                       // Spacing before navigation link
-                      SizedBox(height: screenHeight * 0.04),
+                      SizedBox(height: screenHeight * 0.01),
 
                       // // --------------------------------------------------------------------------
                       // NAVIGATION LINK
@@ -418,7 +434,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
 
                       // Small spacing before progress indicators
-                      SizedBox(height: screenHeight * 0.02),
+                      SizedBox(height: screenHeight * 0.04),
 
                       // --------------------------------------------------------------------------
                       // PROGRESS INDICATORS

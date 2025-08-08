@@ -125,13 +125,12 @@ class _SignupPageState extends State<SignupPage> {
           // ==========================================================================
 
           // --------------------------------------------------------------------------
-          // BOTTOM-RIGHT DECORATIVE CIRCLE
-          // Teal colored circle for visual interest
+          // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
           // --------------------------------------------------------------------------
           Positioned(
-            // Position from right edge (negative value to show partial circle)
-            right: -bottomCircleOffset,
-            // Position from bottom edge (negative value to show partial circle)
+            // Less negative offset on the right to make the right side dominate
+            right: -bottomCircleOffset * 0.5,
+            // More negative offset on the bottom to push it further down
             bottom: -bottomCircleOffset,
             child: Container(
               width: bottomCircleSize,
@@ -145,14 +144,13 @@ class _SignupPageState extends State<SignupPage> {
           ),
 
           // --------------------------------------------------------------------------
-          // TOP-LEFT DECORATIVE CIRCLE WITH TITLE
-          // Navy blue circle containing "Create Account" text
+          // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
           // --------------------------------------------------------------------------
           Positioned(
-            // Position from left edge (negative value to show partial circle)
-            left: -topCircleOffset,
-            // Position from top (50% of offset for better visibility)
-            top: -topCircleOffset * 0.3,
+            // Less negative offset on the left to make the left side dominate
+            left: -topCircleOffset * 0.5,
+            // More negative offset on the top to push it further up
+            top: -topCircleOffset,
             child: Container(
               width: topCircleSize,
               height: topCircleSize,
@@ -162,8 +160,8 @@ class _SignupPageState extends State<SignupPage> {
                 shape: BoxShape.circle,
               ),
               child: Align(
-                // Custom alignment to position text within the visible part
-                alignment: const Alignment(0.3, 0.2),
+                // Custom alignment to re-center text in the visible part of the circle
+                alignment: const Alignment(0.3, 0.6),
                 child: Text(
                   'Create\nAccount',
                   textAlign: TextAlign.center,

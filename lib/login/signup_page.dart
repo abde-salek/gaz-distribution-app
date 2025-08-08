@@ -69,12 +69,12 @@ class _SignupPageState extends State<SignupPage> {
 
     /// Bottom-right decorative circle size (teal color)
     /// Scales with screen width: 70% of device width
-    final double bottomCircleSize = screenWidth * 0.7;
+    final double bottomCircleSize = screenWidth * 0.88;
 
     /// Top-left decorative circle size (navy blue color)
     /// Scales with screen width: 55% of device width
     /// This circle contains the "Create Account" title
-    final double topCircleSize = screenWidth * 0.8;
+    final double topCircleSize = screenWidth * 1.33;
 
     // ----------------------------------------------------------------------------
     // CIRCLE POSITIONING CALCULATIONS
@@ -86,7 +86,7 @@ class _SignupPageState extends State<SignupPage> {
 
     /// Offset for top circle - controls how much is visible
     /// 40% offset means 60% of the circle is visible on screen
-    final double topCircleOffset = topCircleSize * 0.4;
+    final double topCircleOffset = topCircleSize * 0.5;
 
     // ----------------------------------------------------------------------------
     // RESPONSIVE FONT SIZES
@@ -129,7 +129,7 @@ class _SignupPageState extends State<SignupPage> {
           // --------------------------------------------------------------------------
           Positioned(
             // Less negative offset on the right to make the right side dominate
-            right: -bottomCircleOffset * 0.5,
+            right: -bottomCircleOffset * 1.33,
             // More negative offset on the bottom to push it further down
             bottom: -bottomCircleOffset,
             child: Container(
@@ -142,26 +142,25 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
           ),
-
           // --------------------------------------------------------------------------
           // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
           // --------------------------------------------------------------------------
           Positioned(
-            // Less negative offset on the left to make the left side dominate
+            // More negative offset to push it further off-screen to the left
             left: -topCircleOffset * 0.5,
-            // More negative offset on the top to push it further up
+            // Less negative offset on the top to make it appear "dragged down"
             top: -topCircleOffset,
             child: Container(
               width: topCircleSize,
               height: topCircleSize,
               decoration: const BoxDecoration(
                 // Navy blue - primary brand color
-                color: Color(0xFF1B3F77),
+                color: Color(0xFF0D47A1), // Navy Blue
                 shape: BoxShape.circle,
               ),
               child: Align(
-                // Custom alignment to re-center text in the visible part of the circle
-                alignment: const Alignment(0.3, 0.6),
+                // Adjust alignment to re-center text in the new visible area
+                alignment: const Alignment(0, 0.66),
                 child: Text(
                   'Create\nAccount',
                   textAlign: TextAlign.center,
@@ -387,7 +386,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
 
                       // Spacing before navigation link
-                      SizedBox(height: screenHeight * 0.02),
+                      SizedBox(height: screenHeight * 0.04),
 
                       // // --------------------------------------------------------------------------
                       // NAVIGATION LINK
@@ -419,7 +418,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
 
                       // Small spacing before progress indicators
-                      SizedBox(height: screenHeight * 0.015),
+                      SizedBox(height: screenHeight * 0.02),
 
                       // --------------------------------------------------------------------------
                       // PROGRESS INDICATORS

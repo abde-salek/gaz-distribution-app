@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/login/otp_verification_page.dart';
 
 /// SignupPage - User Registration Screen
 ///
@@ -130,10 +131,26 @@ class _SignupPageState extends State<SignupPage> {
                             color: Colors.white.withOpacity(0.2),
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(
-                            Icons.arrow_forward,
-                            color: Colors.white,
-                            size: bottomCircleSize * 0.23,
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Navigate to OTP verification page with phone number
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => OtpVerificationPage(
+                                          phoneNumber: _phoneController.text,
+                                        ),
+                                  ),
+                                );
+                              }
+                            },
                           ),
                         ),
                       ),

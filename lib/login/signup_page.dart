@@ -93,7 +93,7 @@ class _SignupPageState extends State<SignupPage> {
           // --------------------------------------------------------------------------
           // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
           // --------------------------------------------------------------------------
-            Positioned(
+          Positioned(
             // Less negative offset on the right to make the right side dominate
             right: -bottomCircleOffset * 1.33,
             // More negative offset on the bottom to push it further down
@@ -102,30 +102,47 @@ class _SignupPageState extends State<SignupPage> {
               width: bottomCircleSize,
               height: bottomCircleSize,
               decoration: const BoxDecoration(
-              // Teal color - secondary brand color
-              color: Color(0xFF0C8C96),
-              shape: BoxShape.circle,
+                // Teal color - secondary brand color
+                color: Color(0xFF0C8C96),
+                shape: BoxShape.circle,
               ),
               // Adding a bold right arrow as a button
               child: Align(
-              // Position it where the circle is visible (top-left quadrant)
-              alignment: const Alignment(-0.5, -0.5),
-              child: Container(
-                padding: EdgeInsets.all(bottomCircleSize * 0.04),
-                decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                shape: BoxShape.circle,
-                ),
-                child: Icon(
-                Icons.navigate_next,
-                size: bottomCircleSize * 0.18,
-                color: Colors.white,
-                weight: 900,
+                // Position it where the circle is visible (top-left quadrant)
+                alignment: const Alignment(-0.66, -0.5),
+                child: Container(
+                  padding: EdgeInsets.all(bottomCircleSize * 0.05),
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: Stack(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // Validate form and proceed if valid
+                          if (_formKey.currentState!.validate()) {
+                            // Handle signup or navigation to next screen
+                            print('Form validated, proceeding to next step');
+                            // TODO: Implement signup logic or navigation
+                          }
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(bottomCircleSize * 0.02),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                            size: bottomCircleSize * 0.23,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              ),
             ),
-            ),
+          ),
           // --------------------------------------------------------------------------
           // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
           // --------------------------------------------------------------------------

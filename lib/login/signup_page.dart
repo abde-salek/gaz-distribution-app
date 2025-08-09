@@ -22,17 +22,8 @@ class _SignupPageState extends State<SignupPage> {
   // ============================================================================
   // FORM CONTROLLERS & KEYS
   // ============================================================================
-
-  /// Text controller for the name input field
-  /// Used to retrieve and manage the user's name input
   final _nameController = TextEditingController();
-
-  /// Text controller for the phone number input field
-  /// Used to retrieve and manage the user's phone number input
   final _phoneController = TextEditingController();
-
-  /// Form key for validation
-  /// Enables form validation before submission
   final _formKey = GlobalKey<FormState>();
 
   // ============================================================================
@@ -64,28 +55,14 @@ class _SignupPageState extends State<SignupPage> {
 
     // ----------------------------------------------------------------------------
     // DECORATIVE CIRCLE SIZES
-    // These circles add visual interest to the design
     // ----------------------------------------------------------------------------
-
-    /// Bottom-right decorative circle size (teal color)
-    /// Scales with screen width: 70% of device width
     final double bottomCircleSize = screenWidth * 0.88;
-
-    /// Top-left decorative circle size (navy blue color)
-    /// Scales with screen width: 55% of device width
-    /// This circle contains the "Create Account" title
     final double topCircleSize = screenWidth * 1.33;
 
     // ----------------------------------------------------------------------------
     // CIRCLE POSITIONING CALCULATIONS
     // ----------------------------------------------------------------------------
-
-    /// Offset for bottom circle - controls how much is visible
-    /// 40% offset means 60% of the circle is visible on screen
     final double bottomCircleOffset = bottomCircleSize * 0.4;
-
-    /// Offset for top circle - controls how much is visible
-    /// 40% offset means 60% of the circle is visible on screen
     final double topCircleOffset = topCircleSize * 0.5;
 
     // ----------------------------------------------------------------------------
@@ -93,20 +70,9 @@ class _SignupPageState extends State<SignupPage> {
     // All font sizes scale with screen width for consistency
     // ----------------------------------------------------------------------------
 
-    /// Font size for "Create Account" title in the circle
-    /// 7.5% of screen width, clamped between 24-36px
     final double titleFontSize = screenWidth * 0.075;
-
-    /// Font size for "Enter Your Details" subtitle
-    /// 5.5% of screen width, clamped between 18-28px
     final double subtitleFontSize = screenWidth * 0.055;
-
-    /// Font size for input field text and hints
-    /// 4.5% of screen width, clamped between 14-20px
     final double inputFontSize = screenWidth * 0.045;
-
-    /// Font size for "Already have an account?" link
-    /// 3.8% of screen width, clamped between 12-18px
     final double linkFontSize = screenWidth * 0.038;
 
     // ============================================================================
@@ -127,7 +93,7 @@ class _SignupPageState extends State<SignupPage> {
           // --------------------------------------------------------------------------
           // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
           // --------------------------------------------------------------------------
-          Positioned(
+            Positioned(
             // Less negative offset on the right to make the right side dominate
             right: -bottomCircleOffset * 1.33,
             // More negative offset on the bottom to push it further down
@@ -136,12 +102,30 @@ class _SignupPageState extends State<SignupPage> {
               width: bottomCircleSize,
               height: bottomCircleSize,
               decoration: const BoxDecoration(
-                // Teal color - secondary brand color
-                color: Color(0xFF0C8C96),
+              // Teal color - secondary brand color
+              color: Color(0xFF0C8C96),
+              shape: BoxShape.circle,
+              ),
+              // Adding a bold right arrow as a button
+              child: Align(
+              // Position it where the circle is visible (top-left quadrant)
+              alignment: const Alignment(-0.5, -0.5),
+              child: Container(
+                padding: EdgeInsets.all(bottomCircleSize * 0.04),
+                decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
                 shape: BoxShape.circle,
+                ),
+                child: Icon(
+                Icons.navigate_next,
+                size: bottomCircleSize * 0.18,
+                color: Colors.white,
+                weight: 900,
+                ),
+              ),
               ),
             ),
-          ),
+            ),
           // --------------------------------------------------------------------------
           // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
           // --------------------------------------------------------------------------
@@ -162,7 +146,7 @@ class _SignupPageState extends State<SignupPage> {
                 // Adjust alignment to re-center text in the new visible area
                 alignment: const Alignment(0, 0.66),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       'Create',
@@ -176,7 +160,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                     Text(
-                      'Account',
+                      '  Account',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.white,

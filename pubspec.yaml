@@ -60,7 +60,7 @@ flutter:
   fonts:
     - family: SpaceGrotesk
       fonts:
-        - assets: fonts/SpaceGrotesk-VariableFont_wght.ttf
+        - asset: fonts/SpaceGrotesk-VariableFont_wght.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

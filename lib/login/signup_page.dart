@@ -304,7 +304,7 @@ class _SignupPageState extends State<SignupPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFFE0E0E0),
+                                color: const Color(0xFF0C8C96),
                                 width: 1,
                               ),
                             ),

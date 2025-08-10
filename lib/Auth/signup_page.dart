@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/login/otp_verification_page.dart';
+import 'package:gaz/Auth/otp_verification_page.dart';
 
 /// SignupPage - User Registration Screen
 ///

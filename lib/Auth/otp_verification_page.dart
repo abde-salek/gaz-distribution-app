@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gaz/Core/Dash.dart';
 
 class OtpVerificationPage extends StatefulWidget {
   final String phoneNumber;
@@ -85,18 +86,69 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
             // --------------------------------------------------------------------------
             Positioned(
-              right: -bottomCircleOffset * 0.5,
-              bottom: -bottomCircleOffset,
-              child: Container(
-                width: bottomCircleSize,
-                height: bottomCircleSize,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF26A69A), // Teal
-                  shape: BoxShape.circle,
+            // Less negative offset on the right to make the right side dominate
+            right: -bottomCircleOffset * 1.33,
+            // More negative offset on the bottom to push it further down
+            bottom: -bottomCircleOffset,
+            child: Container(
+              width: bottomCircleSize,
+              height: bottomCircleSize,
+              decoration: const BoxDecoration(
+                // Teal color - secondary brand color
+                color: Color(0xFF0C8C96),
+                shape: BoxShape.circle,
+              ),
+              // Adding a bold right arrow as a button
+              child: Align(
+                // Position it where the circle is visible (top-left quadrant)
+                alignment: const Alignment(-0.66, -0.5),
+                child: Container(
+                  padding: EdgeInsets.all(bottomCircleSize * 0.05),
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: Stack(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // Validate form and proceed if valid
+                          if (_formKey.currentState!.validate()) {
+                            // Handle signup or navigation to next screen
+                            print('Form validated, proceeding to next step');
+                            // TODO: Implement signup logic or navigation
+                          }
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(bottomCircleSize * 0.02),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Navigate to OTP verification page with phone number
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder:
+                                        (context) => Dash()
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-
+          ),
             // --------------------------------------------------------------------------
             // BACK BUTTON
             // --------------------------------------------------------------------------

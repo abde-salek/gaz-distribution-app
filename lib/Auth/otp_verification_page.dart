@@ -86,69 +86,68 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
             // --------------------------------------------------------------------------
             Positioned(
-            // Less negative offset on the right to make the right side dominate
-            right: -bottomCircleOffset * 1.33,
-            // More negative offset on the bottom to push it further down
-            bottom: -bottomCircleOffset,
-            child: Container(
-              width: bottomCircleSize,
-              height: bottomCircleSize,
-              decoration: const BoxDecoration(
-                // Teal color - secondary brand color
-                color: Color(0xFF0C8C96),
-                shape: BoxShape.circle,
-              ),
-              // Adding a bold right arrow as a button
-              child: Align(
-                // Position it where the circle is visible (top-left quadrant)
-                alignment: const Alignment(-0.66, -0.5),
-                child: Container(
-                  padding: EdgeInsets.all(bottomCircleSize * 0.05),
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Stack(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          // Validate form and proceed if valid
-                          if (_formKey.currentState!.validate()) {
-                            // Handle signup or navigation to next screen
-                            print('Form validated, proceeding to next step');
-                            // TODO: Implement signup logic or navigation
-                          }
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(bottomCircleSize * 0.02),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            icon: const Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 35,
+              // Less negative offset on the right to make the right side dominate
+              right: -bottomCircleOffset * 1.33,
+              // More negative offset on the bottom to push it further down
+              bottom: -bottomCircleOffset,
+              child: Container(
+                width: bottomCircleSize,
+                height: bottomCircleSize,
+                decoration: const BoxDecoration(
+                  // Teal color - secondary brand color
+                  color: Color(0xFF0C8C96),
+                  shape: BoxShape.circle,
+                ),
+                // Adding a bold right arrow as a button
+                child: Align(
+                  // Position it where the circle is visible (top-left quadrant)
+                  alignment: const Alignment(-0.66, -0.5),
+                  child: Container(
+                    padding: EdgeInsets.all(bottomCircleSize * 0.05),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Stack(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            // Validate form and proceed if valid
+                            if (_formKey.currentState!.validate()) {
+                              // Handle signup or navigation to next screen
+                              print('Form validated, proceeding to next step');
+                              // TODO: Implement signup logic or navigation
+                            }
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(bottomCircleSize * 0.02),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              shape: BoxShape.circle,
                             ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                // Navigate to OTP verification page with phone number
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder:
-                                        (context) => Dash()
-                                  ),
-                                );
-                              }
-                            },
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: screenWidth * 0.08,
+                              ),
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  // Navigate to OTP verification page with phone number
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Dash(),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
             // --------------------------------------------------------------------------
             // BACK BUTTON
             // --------------------------------------------------------------------------
@@ -259,19 +258,32 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         SizedBox(height: screenHeight * 0.025),
 
                         // Phone number information text
-                        Text(
-                          'We sent OTP code to /n${widget.phoneNumber}',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: bodyFontSize,
-                            color: const Color.fromARGB(255, 94, 93, 93),
-                          ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'We sent OTP code to:',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: bodyFontSize,
+                                color: const Color.fromARGB(255, 96, 95, 95),
+                              ),
+                            ),
+                            Text(
+                              '${widget.phoneNumber}',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: bodyFontSize,
+                                color: const Color.fromARGB(255, 87, 87, 87),
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(height: screenHeight * 0.02),
 
                         // OTP input fields
                         Container(
-                          padding: EdgeInsets.all(8),
+                          padding: EdgeInsets.all(4),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: List.generate(
@@ -291,7 +303,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           child: Text(
                             'Resend Code',
                             style: TextStyle(
-                              color: const Color(0xFF0D47A1),
+                              color: const Color.fromARGB(255, 87, 87, 87),
                               fontSize: bodyFontSize,
                               decoration: TextDecoration.underline,
                             ),

@@ -66,9 +66,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
     // ----------------------------------------------------------------------------
 
     final double titleFontSize = screenWidth * 0.075;
-    final double subtitleFontSize = screenWidth * 0.055;
-    final double inputFontSize = screenWidth * 0.045;
-    final double linkFontSize = screenWidth * 0.038;
     final double bodyFontSize = screenWidth * 0.04;
 
     return Scaffold(

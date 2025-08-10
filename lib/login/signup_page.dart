@@ -190,7 +190,7 @@ class _SignupPageState extends State<SignupPage> {
                         // Responsive font size with min/max constraints
                         fontSize: titleFontSize.clamp(24.0, 36.0),
                         fontFamily: 'Futura Hv BT',
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
@@ -201,7 +201,7 @@ class _SignupPageState extends State<SignupPage> {
                         // Responsive font size with min/max constraints
                         fontSize: titleFontSize.clamp(24.0, 36.0),
                         fontFamily: 'Futura Hv BT',
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/login/otp_verification_page.dart';
 import 'login/splash_page.dart';
 
 /// Gaz Distribution App - Main Entry Point
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const FigmaToCodeApp(),
+      home: const OtpVerificationPage(phoneNumber: '0634223445'),
     );
   }
 }

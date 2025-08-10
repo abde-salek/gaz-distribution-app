@@ -40,29 +40,36 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   // ============================================================================
   @override
   Widget build(BuildContext context) {
+    // ============================================================================
+    // RESPONSIVE DESIGN CALCULATIONS
+    // ============================================================================
+
     // Get device screen dimensions for responsive design
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     // ----------------------------------------------------------------------------
-    // RESPONSIVE FONT SIZES
-    // ----------------------------------------------------------------------------
-    final titleFontSize = screenWidth * 0.08;
-    final bodyFontSize = screenWidth * 0.04;
-    final subtitleFontSize = screenWidth * 0.045;
-
-    // ----------------------------------------------------------------------------
     // DECORATIVE CIRCLE SIZES
-    // These circles add visual interest to the design
     // ----------------------------------------------------------------------------
-    final double bottomCircleSize = screenWidth * 0.8;
-    final double topCircleSize = screenWidth * 0.9;
+    final double bottomCircleSize = screenWidth * 0.88;
+    final double topCircleSize = screenWidth * 1.33;
 
     // ----------------------------------------------------------------------------
     // CIRCLE POSITIONING CALCULATIONS
     // ----------------------------------------------------------------------------
-    final double bottomCircleOffset = screenWidth * 0.4;
-    final double topCircleOffset = screenWidth * 0.4;
+    final double bottomCircleOffset = bottomCircleSize * 0.4;
+    final double topCircleOffset = topCircleSize * 0.5;
+
+    // ----------------------------------------------------------------------------
+    // RESPONSIVE FONT SIZES
+    // All font sizes scale with screen width for consistency
+    // ----------------------------------------------------------------------------
+
+    final double titleFontSize = screenWidth * 0.075;
+    final double subtitleFontSize = screenWidth * 0.055;
+    final double inputFontSize = screenWidth * 0.045;
+    final double linkFontSize = screenWidth * 0.038;
+    final double bodyFontSize = screenWidth * 0.04;
 
     return Scaffold(
       body: Container(
@@ -111,38 +118,44 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
             // --------------------------------------------------------------------------
             Positioned(
-              left: -topCircleOffset,
-              top: -topCircleOffset * 0.5,
+              // More negative offset to push it further off-screen to the left
+              left: -topCircleOffset * 0.5,
+              // Less negative offset on the top to make it appear "dragged down"
+              top: -topCircleOffset,
               child: Container(
                 width: topCircleSize,
                 height: topCircleSize,
                 decoration: const BoxDecoration(
+                  // Navy blue - primary brand color
                   color: Color(0xFF0D47A1), // Navy Blue
                   shape: BoxShape.circle,
                 ),
                 child: Align(
-                  alignment: const Alignment(0.6, 0.3),
+                  // Adjust alignment to re-center text in the new visible area
+                  alignment: const Alignment(0, 0.66),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Verify',
+                        'Create',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
+                          // Responsive font size with min/max constraints
                           fontSize: titleFontSize.clamp(24.0, 36.0),
                           fontFamily: 'Futura Hv BT',
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        'Number',
+                        '  Account',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
+                          // Responsive font size with min/max constraints
                           fontSize: titleFontSize.clamp(24.0, 36.0),
                           fontFamily: 'Futura Hv BT',
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
@@ -158,7 +171,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             SafeArea(
               child: Center(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -168,36 +181,58 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         SizedBox(height: screenHeight * 0.22),
 
                         // "Enter Verification Code" Title
+                        Container(
+                          width: screenWidth,
+                          height: 100,
+                          padding: const EdgeInsets.all(16),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            spacing: 10,
+                            children: [
+                              SizedBox(
+                                width: 206,
+                                child: Text(
+                                  'Verification Needed!',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: const Color(0xFF1B3F77),
+                                    fontSize: 22,
+                                    fontFamily: 'Space Grotesk',
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.025),
+
+                        // Phone number information text
                         Text(
-                          'Enter Verification Code',
+                          'We sent OTP code to /n${widget.phoneNumber}',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: subtitleFontSize,
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xFF0D47A1),
+                            fontSize: bodyFontSize,
+                            color: const Color.fromARGB(255, 94, 93, 93),
                           ),
                         ),
                         SizedBox(height: screenHeight * 0.02),
 
-                        // Phone number information text
-                        Text(
-                          'We sent a code to ${widget.phoneNumber}',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: bodyFontSize * 0.9,
-                            color: Colors.grey[600],
-                          ),
-                        ),
-                        SizedBox(height: screenHeight * 0.05),
-
                         // OTP input fields
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: List.generate(
-                            4,
-                            (index) => _buildOtpField(index),
+                        Container(
+                          padding: EdgeInsets.all(8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: List.generate(
+                              4,
+                              (index) => _buildOtpField(index),
+                            ),
                           ),
                         ),
-                        SizedBox(height: screenHeight * 0.05),
+
+                        ///SizedBox(height: screenHeight * 0.02),
 
                         // "Resend Code" Button
                         TextButton(
@@ -213,7 +248,26 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             ),
                           ),
                         ),
-                        SizedBox(height: screenHeight * 0.04),
+                        SizedBox(height: screenHeight * 0.01),
+
+                        // Edit Phone Number GETS back to Sign Up first page
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: Text(
+                            'Edit Phone Number ?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: const Color(0xFF1B3F77),
+                              fontSize: 15,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                              decoration: TextDecoration.underline,
+                              letterSpacing: -0.75,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.05),
 
                         // Page indicator dots
                         Row(
@@ -240,7 +294,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         ),
 
                         // This SizedBox creates space from the bottom circle
-                        SizedBox(height: screenHeight * 0.15),
+                        SizedBox(height: screenHeight * 0.2),
                       ],
                     ),
                   ),
@@ -289,7 +343,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.grey.withOpacity(0.2),
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Auth/splash_page.dart';
+import 'Auth/splash.dart';
 
 /// Gaz Distribution App - Main Entry Point
 /// Comprehensive Flutter app for gas distribution management with delivery tracking,

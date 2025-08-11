@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gaz/Auth/signup_page.dart';
+import 'package:gaz/Auth/signup.dart';
 import 'package:gaz/Core/Dash.dart';
+import 'dart:math';
 
 class OtpVerificationPage extends StatefulWidget {
   final String phoneNumber;
@@ -84,84 +85,9 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
         ),
         child: Stack(
           children: [
-            // --------------------------------------------------------------------------
-            // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
-            // --------------------------------------------------------------------------
-            Positioned(
-              // Less negative offset on the right to make the right side dominate
-              right: -bottomCircleOffset * 1.33,
-              // More negative offset on the bottom to push it further down
-              bottom: -bottomCircleOffset,
-              child: Container(
-                width: bottomCircleSize,
-                height: bottomCircleSize,
-                decoration: const BoxDecoration(
-                  // Teal color - secondary brand color
-                  color: Color(0xFF0C8C96),
-                  shape: BoxShape.circle,
-                ),
-                // Adding a bold right arrow as a button
-                child: Align(
-                  // Position it where the circle is visible (top-left quadrant)
-                  alignment: const Alignment(-0.66, -0.5),
-                  child: Container(
-                    padding: EdgeInsets.all(bottomCircleSize * 0.05),
-                    decoration: BoxDecoration(shape: BoxShape.circle),
-                    child: Stack(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            // Validate form and proceed if valid
-                            if (_formKey.currentState!.validate()) {
-                              // Handle signup or navigation to next screen
-                              print('Form validated, proceeding to next step');
-                            }
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(bottomCircleSize * 0.02),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
-                              shape: BoxShape.circle,
-                            ),
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.arrow_forward,
-                                color: Colors.white,
-                                size: screenWidth * 0.08,
-                              ),
-                              onPressed: () {
-                                if (_formKey.currentState!.validate()) {
-                                  // Navigate to OTP verification page with phone number
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Dash(),
-                                    ),
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            // --------------------------------------------------------------------------
-            // BACK BUTTON
-            // --------------------------------------------------------------------------
-            Positioned(
-              top: 40,
-              left: 20,
-              child: SafeArea(
-                child: IconButton(
-                  icon: const Icon(Icons.arrow_back, size: 28),
-                  onPressed: () => Navigator.pop(context),
-                ),
-              ),
-            ),
+            // ==========================================================================
+            // DECORATIVE ELEMENTS LAYER
+            // ==========================================================================
 
             // --------------------------------------------------------------------------
             // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
@@ -172,8 +98,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
               // Less negative offset on the top to make it appear "dragged down"
               top: -topCircleOffset,
               child: Container(
-                width: topCircleSize,
-                height: topCircleSize,
+                width: screenWidth * 1.339,
+                height: screenHeight * 0.66,
                 decoration: const BoxDecoration(
                   // Navy blue - primary brand color
                   color: Color(0xFF0D47A1), // Navy Blue
@@ -214,6 +140,80 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
             ),
 
             // --------------------------------------------------------------------------
+            // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
+            // --------------------------------------------------------------------------
+            Positioned(
+              // Less negative offset on the right to make the right side dominate
+              right: -bottomCircleOffset * 1.3,
+              // More negative offset on the bottom to push it further down
+              bottom: -bottomCircleOffset,
+              child: Container(
+                width: screenWidth,
+                height: screenHeight * 0.38,
+                decoration: const BoxDecoration(
+                  // Teal color - secondary brand color
+                  color: Color(0xFF0C8C96),
+                  shape: BoxShape.circle,
+                ),
+                // Adding a bold right arrow as a button
+                child: Align(
+                  // Position it where the circle is visible (top-left quadrant)
+                  alignment: const Alignment(-0.66, -0.5),
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      // Responsive padding based on screen width
+                      left: screenWidth * 0.15,
+                    ),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: Stack(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            // Validate form and proceed if valid
+                            if (_formKey.currentState!.validate()) {
+                              // Handle signup or navigation to next screen
+                              print('Form validated, proceeding to next step');
+                              // TODO: Implement signup logic or navigation
+                            }
+                          },
+                          child: Container(
+                            padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
+                            decoration: BoxDecoration(
+                              //color: Colors.white.withOpacity(0.2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.arrow_forward,
+                                color: Colors.white,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  // Verify OTP and navigate to the main app screen
+                                  String otp =
+                                      _otpControllers.map((c) => c.text).join();
+                                  print('OTP entered: $otp');
+                                  // Navigate to main dashboard
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Dash(),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            // --------------------------------------------------------------------------
             // MAIN CONTENT AREA
             // This is centered and contains the form elements
             // --------------------------------------------------------------------------
@@ -227,8 +227,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         // This SizedBox creates space from the top circle/title
-                        SizedBox(height: screenHeight * 0.22),
-
+                        SizedBox(height: screenHeight * 0.33),
                         // "Enter Verification Code" Title
                         SizedBox(
                           width: 206,
@@ -243,7 +242,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             ),
                           ),
                         ),
-                        //SizedBox(height: screenHeight * 0.025),
+                        SizedBox(height: screenHeight * 0.02),
                         // Phone number information text
                         Text(
                           'OTP code sent to:',
@@ -257,27 +256,27 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           widget.phoneNumber,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
                             fontSize: bodyFontSize,
                             color: const Color.fromARGB(255, 87, 87, 87),
                           ),
                         ),
                         SizedBox(height: screenHeight * 0.02),
-
                         // OTP input fields
                         Container(
-                          padding: EdgeInsets.all(4),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(
-                              4,
-                              (index) => _buildOtpField(index),
-                            ),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              for (int i = 0; i < 4; i++) ...[
+                                _buildOtpField(i),
+                                SizedBox(
+                                  width: screenWidth / pow(10, 6),
+                                  height: screenHeight / pow(10, 6),
+                                ), // Control spacing by adjusting this width
+                              ],
+                            ],
                           ),
                         ),
-
-                        SizedBox(height: screenHeight * 0.008),
-
+                        SizedBox(height: screenHeight * 0.01),
                         // "Resend Code" Button
                         GestureDetector(
                           onTap: () {
@@ -315,9 +314,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             ],
                           ),
                         ),
-
-                        SizedBox(height: screenHeight * 0.01),
-
+                        SizedBox(height: screenHeight * 0.03),
                         // Edit Phone Number GETS back to Sign Up first page
                         GestureDetector(
                           onTap: () {
@@ -343,9 +340,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             ),
                           ),
                         ),
-
                         SizedBox(height: screenHeight * 0.05),
-
                         // Page indicator dots
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -369,35 +364,11 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             ),
                           ],
                         ),
-
-                        // This SizedBox creates space from the bottom circle
                         SizedBox(height: screenHeight * 0.2),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ),
-
-            // --------------------------------------------------------------------------
-            // NEXT BUTTON (INSIDE THE TEAL CIRCLE)
-            // --------------------------------------------------------------------------
-            Positioned(
-              bottom: 20,
-              right: 20,
-              child: IconButton(
-                icon: const Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                  size: 35,
-                ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // TODO: Verify OTP and navigate to next screen
-                    String otp = _otpControllers.map((c) => c.text).join();
-                    print('OTP entered: $otp');
-                  }
-                },
               ),
             ),
           ],

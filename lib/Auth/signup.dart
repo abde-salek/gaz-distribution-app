@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Auth/otp_verification_page.dart';
+import 'package:gaz/Auth/otp.dart';
 
 /// SignupPage - User Registration Screen
 ///
@@ -49,7 +49,7 @@ class _SignupPageState extends State<SignupPage> {
     // ============================================================================
     // RESPONSIVE DESIGN CALCULATIONS
     // ============================================================================
-
+    //final late List PhoneNumber = [];
     // Get device screen dimensions for responsive design
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
@@ -89,6 +89,56 @@ class _SignupPageState extends State<SignupPage> {
           // ==========================================================================
           // DECORATIVE ELEMENTS LAYER
           // ==========================================================================
+
+          // --------------------------------------------------------------------------
+          // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
+          // --------------------------------------------------------------------------
+          Positioned(
+            // More negative offset to push it further off-screen to the left
+            left: -topCircleOffset * 0.5,
+            // Less negative offset on the top to make it appear "dragged down"
+            top: -topCircleOffset,
+            child: Container(
+              width: screenWidth * 1.339,
+              height: screenHeight * 0.66,
+              decoration: const BoxDecoration(
+                // Navy blue - primary brand color
+                color: Color(0xFF0D47A1), // Navy Blue
+                shape: BoxShape.circle,
+              ),
+              child: Align(
+                // Adjust alignment to re-center text in the new visible area
+                alignment: const Alignment(0, 0.66),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Create',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        // Responsive font size with min/max constraints
+                        fontSize: titleFontSize.clamp(24.0, 36.0),
+                        fontFamily: 'Futura Hv BT',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '  Account',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        // Responsive font size with min/max constraints
+                        fontSize: titleFontSize.clamp(24.0, 36.0),
+                        fontFamily: 'Futura Hv BT',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
 
           // --------------------------------------------------------------------------
           // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
@@ -158,55 +208,6 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ],
                   ),
-                ),
-              ),
-            ),
-          ),
-          // --------------------------------------------------------------------------
-          // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
-          // --------------------------------------------------------------------------
-          Positioned(
-            // More negative offset to push it further off-screen to the left
-            left: -topCircleOffset * 0.5,
-            // Less negative offset on the top to make it appear "dragged down"
-            top: -topCircleOffset,
-            child: Container(
-              width: screenWidth * 1.339,
-              height: screenHeight * 0.66,
-              decoration: const BoxDecoration(
-                // Navy blue - primary brand color
-                color: Color(0xFF0D47A1), // Navy Blue
-                shape: BoxShape.circle,
-              ),
-              child: Align(
-                // Adjust alignment to re-center text in the new visible area
-                alignment: const Alignment(0, 0.66),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Create',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        // Responsive font size with min/max constraints
-                        fontSize: titleFontSize.clamp(24.0, 36.0),
-                        fontFamily: 'Futura Hv BT',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      '  Account',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        // Responsive font size with min/max constraints
-                        fontSize: titleFontSize.clamp(24.0, 36.0),
-                        fontFamily: 'Futura Hv BT',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Dash extends StatefulWidget {
-  const Dash({Key? key}) : super(key: key);
+  const Dash({super.key});
 
   @override
   _DashState createState() => _DashState();

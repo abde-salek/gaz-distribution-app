@@ -113,7 +113,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             if (_formKey.currentState!.validate()) {
                               // Handle signup or navigation to next screen
                               print('Form validated, proceeding to next step');
-                              // TODO: Implement signup logic or navigation
                             }
                           },
                           child: Container(

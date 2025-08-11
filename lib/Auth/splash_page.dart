@@ -55,7 +55,7 @@ class _SplachState extends State<Splach> {
             ) {
               return FadeTransition(opacity: animation, child: child);
             },
-            transitionDuration: const Duration(milliseconds: 500),
+            transitionDuration: const Duration(milliseconds: 300),
           ),
         );
       }

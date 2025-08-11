@@ -57,13 +57,12 @@ class _SignupPageState extends State<SignupPage> {
     // ----------------------------------------------------------------------------
     // DECORATIVE CIRCLE SIZES
     // ----------------------------------------------------------------------------
-    final double bottomCircleSize = screenWidth * 0.88;
     final double topCircleSize = screenWidth * 1.33;
 
     // ----------------------------------------------------------------------------
     // CIRCLE POSITIONING CALCULATIONS
     // ----------------------------------------------------------------------------
-    final double bottomCircleOffset = bottomCircleSize * 0.4;
+    final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
     final double topCircleOffset = topCircleSize * 0.5;
 
     // ----------------------------------------------------------------------------
@@ -96,12 +95,12 @@ class _SignupPageState extends State<SignupPage> {
           // --------------------------------------------------------------------------
           Positioned(
             // Less negative offset on the right to make the right side dominate
-            right: -bottomCircleOffset * 1.33,
+            right: -bottomCircleOffset * 1.3,
             // More negative offset on the bottom to push it further down
             bottom: -bottomCircleOffset,
             child: Container(
-              width: bottomCircleSize,
-              height: bottomCircleSize,
+              width: screenWidth,
+              height: screenHeight * 0.38,
               decoration: const BoxDecoration(
                 // Teal color - secondary brand color
                 color: Color(0xFF0C8C96),
@@ -112,7 +111,10 @@ class _SignupPageState extends State<SignupPage> {
                 // Position it where the circle is visible (top-left quadrant)
                 alignment: const Alignment(-0.66, -0.5),
                 child: Container(
-                  padding: EdgeInsets.all(bottomCircleSize * 0.05),
+                  padding: EdgeInsets.only(
+                    // Responsive padding based on screen width
+                    left: screenWidth * 0.15,
+                  ),
                   decoration: BoxDecoration(shape: BoxShape.circle),
                   child: Stack(
                     children: [
@@ -126,9 +128,9 @@ class _SignupPageState extends State<SignupPage> {
                           }
                         },
                         child: Container(
-                          padding: EdgeInsets.all(bottomCircleSize * 0.02),
+                          padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
                           decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
+                            //color: Colors.white.withOpacity(0.2),
                             shape: BoxShape.circle,
                           ),
                           child: IconButton(
@@ -169,8 +171,8 @@ class _SignupPageState extends State<SignupPage> {
             // Less negative offset on the top to make it appear "dragged down"
             top: -topCircleOffset,
             child: Container(
-              width: topCircleSize,
-              height: topCircleSize,
+              width: screenWidth * 1.339,
+              height: screenHeight * 0.66,
               decoration: const BoxDecoration(
                 // Navy blue - primary brand color
                 color: Color(0xFF0D47A1), // Navy Blue
@@ -210,7 +212,7 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ),
 
-          // ==========================================================================
+          // =====================.33=====================================================
           // MAIN CONTENT LAYER
           // Contains the form and all interactive elements
           // ==========================================================================
@@ -420,7 +422,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
 
                       // Spacing before navigation link
-                      SizedBox(height: screenHeight * 0.01),
+                      SizedBox(height: screenHeight * 0.02),
 
                       // // --------------------------------------------------------------------------
                       // NAVIGATION LINK
@@ -428,8 +430,7 @@ class _SignupPageState extends State<SignupPage> {
                       // --------------------------------------------------------------------------
                       GestureDetector(
                         onTap: () {
-                          // Navigate back to the previous screen (login page)
-                          Navigator.pop(context);
+                          // Navigate back to login
                         },
                         child: Text(
                           'Already have an account ?',
@@ -466,7 +467,7 @@ class _SignupPageState extends State<SignupPage> {
                           Container(
                             // Size: 2.5% of screen width for responsive scaling
                             width: screenWidth * 0.025,
-                            height: screenWidth * 0.025,
+                            height: screenHeight * 0.025,
                             decoration: const BoxDecoration(
                               // Navy blue for active state
                               color: Color(0xFF1B3F77),
@@ -479,7 +480,7 @@ class _SignupPageState extends State<SignupPage> {
                           Container(
                             // Size: 2.5% of screen width for responsive scaling
                             width: screenWidth * 0.025,
-                            height: screenWidth * 0.025,
+                            height: screenHeight * 0.025,
                             decoration: const BoxDecoration(
                               // Gray for inactive state
                               color: Color(0xFFCCCCCC),

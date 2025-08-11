@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gaz/Auth/signup_page.dart';
 import 'package:gaz/Core/Dash.dart';
 
 class OtpVerificationPage extends StatefulWidget {
@@ -68,6 +69,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
 
     final double titleFontSize = screenWidth * 0.075;
     final double bodyFontSize = screenWidth * 0.04;
+    final double linkFontSize = screenWidth * 0.038;
 
     return Scaffold(
       body: Container(
@@ -228,55 +230,37 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         SizedBox(height: screenHeight * 0.22),
 
                         // "Enter Verification Code" Title
-                        Container(
-                          width: screenWidth,
-                          height: 100,
-                          padding: const EdgeInsets.all(16),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            spacing: 10,
-                            children: [
-                              SizedBox(
-                                width: 206,
-                                child: Text(
-                                  'Verification Needed!',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: const Color(0xFF1B3F77),
-                                    fontSize: 22,
-                                    fontFamily: 'Space Grotesk',
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ),
-                            ],
+                        SizedBox(
+                          width: 206,
+                          child: Text(
+                            'Verification Needed!',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: const Color(0xFF1B3F77),
+                              fontSize: bodyFontSize * 1.8,
+                              fontFamily: 'Space Grotesk',
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
-                        SizedBox(height: screenHeight * 0.025),
-
+                        //SizedBox(height: screenHeight * 0.025),
                         // Phone number information text
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'We sent OTP code to:',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: bodyFontSize,
-                                color: const Color.fromARGB(255, 96, 95, 95),
-                              ),
-                            ),
-                            Text(
-                              '${widget.phoneNumber}',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: bodyFontSize,
-                                color: const Color.fromARGB(255, 87, 87, 87),
-                              ),
-                            ),
-                          ],
+                        Text(
+                          'OTP code sent to:',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: bodyFontSize,
+                            color: const Color.fromARGB(255, 96, 95, 95),
+                          ),
+                        ),
+                        Text(
+                          widget.phoneNumber,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: bodyFontSize,
+                            color: const Color.fromARGB(255, 87, 87, 87),
+                          ),
                         ),
                         SizedBox(height: screenHeight * 0.02),
 
@@ -292,41 +276,74 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           ),
                         ),
 
-                        ///SizedBox(height: screenHeight * 0.02),
+                        SizedBox(height: screenHeight * 0.008),
 
                         // "Resend Code" Button
-                        TextButton(
-                          onPressed: () {
-                            // TODO: Implement resend code functionality
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate back to login
                           },
-                          child: Text(
-                            'Resend Code',
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 87, 87, 87),
-                              fontSize: bodyFontSize,
-                              decoration: TextDecoration.underline,
-                            ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Resend Code',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  // Navy blue to match brand colors
+                                  color: const Color(0xFF1B3F77),
+                                  // Responsive font size
+                                  fontSize: linkFontSize.clamp(
+                                    12.0, // Minimum size
+                                    18.0, // Maximum size
+                                  ),
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  // Underline to indicate it's clickable
+                                  decoration: TextDecoration.underline,
+                                  letterSpacing: -0.5,
+                                ),
+                              ),
+                              SizedBox(width: screenWidth * 0.01),
+                              // Refresh icon
+                              Icon(
+                                Icons.refresh_rounded,
+                                color: const Color(0xFF1B3F77),
+                                size: linkFontSize.clamp(16.0, 20.0),
+                              ),
+                            ],
                           ),
                         ),
+
                         SizedBox(height: screenHeight * 0.01),
 
                         // Edit Phone Number GETS back to Sign Up first page
-                        Positioned(
-                          left: 0,
-                          top: 0,
+                        GestureDetector(
+                          onTap: () {
+                            // Navigate back to login
+                            SignupPage();
+                          },
                           child: Text(
-                            'Edit Phone Number ?',
+                            'Edit phone number?',
                             textAlign: TextAlign.center,
                             style: TextStyle(
+                              // Navy blue to match brand colors
                               color: const Color(0xFF1B3F77),
-                              fontSize: 15,
+                              // Responsive font size
+                              fontSize: linkFontSize.clamp(
+                                12.0, // Minimum size
+                                18.0, // Maximum size
+                              ),
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w500,
+                              // Underline to indicate it's clickable
                               decoration: TextDecoration.underline,
-                              letterSpacing: -0.75,
+                              letterSpacing: -0.5,
                             ),
                           ),
                         ),
+
                         SizedBox(height: screenHeight * 0.05),
 
                         // Page indicator dots

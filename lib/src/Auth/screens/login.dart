@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/Core/Dash.dart';
+import 'package:gaz/Core/responsive_login.dart';
 
 /// LoginPage - User Authentication Screen
 ///
@@ -41,15 +42,13 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     final double topCircleSize = screenWidth * 1.33;
     final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
-    final double topCircleOffset = topCircleSize * 0.5;
+    final double getgetBottomCircleOffset(context);;
     final double titleFontSize = screenWidth * 0.075;
     final double subtitleFontSize = screenWidth * 0.055;
     final double inputFontSize = screenWidth * 0.045;
-    final double linkFontSize = screenWidth * 0.038;
+    final double linkFontSize;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4F6),

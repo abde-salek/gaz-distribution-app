@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/Auth/screens/otp.dart';
 import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/Core/Dash.dart';
 
@@ -172,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                           controller: _nameController,
                           textAlign: TextAlign.start,
                           decoration: InputDecoration(
-                            hintText: 'Username',
+                            hintText: 'Name',
                             hintStyle: TextStyle(
                               color: const Color(0xFF0C8C96),
                               fontSize: inputFontSize.clamp(14.0, 20.0),
@@ -209,7 +208,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your username';
+                              return 'Please enter your name';
                             }
                             return null;
                           },

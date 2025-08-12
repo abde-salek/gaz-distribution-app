@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Auth/otp.dart';
-import 'package:gaz/Auth/signup.dart';
+import 'package:gaz/src/Auth/screens/otp.dart';
+import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/Core/Dash.dart';
 
 /// LoginPage - User Authentication Screen

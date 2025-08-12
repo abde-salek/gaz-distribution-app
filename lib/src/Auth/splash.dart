@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
+import 'screens/signup.dart';
 
 /// Gaz Distribution App - Splash Screen
 /// Beautiful gradient design with bilingual branding (English/Arabic).

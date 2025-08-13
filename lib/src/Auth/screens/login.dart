@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final double topCircleSize = screenWidth * 1.33;
     final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
-    final double getgetBottomCircleOffset(context);;
+    final double getgetBottomCircleOffset(context);
     final double titleFontSize = screenWidth * 0.075;
     final double subtitleFontSize = screenWidth * 0.055;
     final double inputFontSize = screenWidth * 0.045;

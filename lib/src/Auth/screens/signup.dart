@@ -127,18 +127,19 @@ class _SignupPageState extends State<SignupPage> {
                               color: Colors.white,
                               size: 35,
                             ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => OtpVerificationPage(
-                                      phoneNumber: _phoneController.text,
-                                    ),
-                                  ),
-                                );
-                              }
-                            },
+                            onPressed: onArrowPressed(),
+                            //() {
+                            //   if (_formKey.currentState!.validate()) {
+                            //     Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //         builder: (context) => OtpVerificationPage(
+                            //           phoneNumber: _phoneController.text,
+                            //         ),
+                            //       ),
+                            //     );
+                            //   }
+                            // },
                           ),
                         ),
                       ),

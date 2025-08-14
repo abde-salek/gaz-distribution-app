@@ -40,17 +40,13 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // Get the device screen dimensions for responsive layout
-    final double screenWidth = Responsive.width(context);
-    final double screenHeight = Responsive.height(context);
-    
-    // Calculate responsive measurements
-    final double topCircleOffset = screenWidth * 0.75;
-    final double bottomCircleOffset = screenWidth * 0.35;
-    final double titleFontSize = Responsive.getTitleFontSize(context);
-    final double subtitleFontSize = Responsive.getSubtitleFontSize(context);
-    final double inputFontSize = Responsive.getInputFontSize(context);
-    final double linkFontSize = Responsive.getLinkFontSize(context);
+    final double topCircleSize = screenWidth * 1.33;
+    final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
+    final double getgetBottomCircleOffset(context);;
+    final double titleFontSize = screenWidth * 0.075;
+    final double subtitleFontSize = screenWidth * 0.055;
+    final double inputFontSize = screenWidth * 0.045;
+    final double linkFontSize;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4F6),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/src/Auth/screens/auth_background.dart';
 import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/Core/Dash.dart';
-import 'package:gaz/Core/responsive_login.dart';
+import 'package:gaz/Core/responsive_ui.dart';
 
 /// LoginPage - User Authentication Screen
 ///
@@ -10,10 +11,7 @@ import 'package:gaz/Core/responsive_login.dart';
 /// - Decorative circles for visual appeal
 /// - Form validation for user inputs
 /// - Navigation to signup page
-///
-/// This page is part of a Product Delivery Tracker app
-/// Author: [Your Name]
-/// Created for: Portfolio Project
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -42,18 +40,44 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final double topCircleSize = screenWidth * 1.33;
-    final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
-    final double getgetBottomCircleOffset(context);
-    final double titleFontSize = screenWidth * 0.075;
-    final double subtitleFontSize = screenWidth * 0.055;
-    final double inputFontSize = screenWidth * 0.045;
-    final double linkFontSize;
+    // Get the device screen dimensions for responsive layout
+    final double screenWidth = Responsive.width(context);
+    final double screenHeight = Responsive.height(context);
+    
+    // Calculate responsive measurements
+    final double topCircleOffset = screenWidth * 0.75;
+    final double bottomCircleOffset = screenWidth * 0.35;
+    final double titleFontSize = Responsive.getTitleFontSize(context);
+    final double subtitleFontSize = Responsive.getSubtitleFontSize(context);
+    final double inputFontSize = Responsive.getInputFontSize(context);
+    final double linkFontSize = Responsive.getLinkFontSize(context);
 
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4F6),
       body: Stack(
         children: [
+          Positioned(
+            left: -topCircleOffset * 0.5,
+            top: -topCircleOffset,
+            child: Container(
+              width: screenWidth * 1.339,
+              height: screenHeight * 0.66,
+              decoration: const BoxDecoration(
+                color: Color(0xFF0D47A1),
+                shape: BoxShape.circle,
+              ),
+              child: Align(
+                alignment: const Alignment(0, 0.66),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    TopCircleText(text: 'Login', screenWidth: screenWidth)
+                  ],
+                ),
+              ),
+            ),
+          ),
+          
           Positioned(
             right: -bottomCircleOffset * 1.3,
             bottom: -bottomCircleOffset,
@@ -105,36 +129,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          Positioned(
-            left: -topCircleOffset * 0.5,
-            top: -topCircleOffset,
-            child: Container(
-              width: screenWidth * 1.339,
-              height: screenHeight * 0.66,
-              decoration: const BoxDecoration(
-                color: Color(0xFF0D47A1),
-                shape: BoxShape.circle,
-              ),
-              child: Align(
-                alignment: const Alignment(0, 0.66),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Login',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: titleFontSize.clamp(24.0, 36.0),
-                        fontFamily: 'Futura Hv BT',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          
 
           SafeArea(
             child: Center(

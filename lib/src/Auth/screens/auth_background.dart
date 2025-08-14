@@ -1,81 +1,68 @@
 // lib/features/auth/screens/auth_background.dart
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/responsive_login.dart';
+import 'package:gaz/Core/responsive_ui.dart';
 import '../../../core/app_colors.dart'; // Import your colors
 
 class AuthBackground extends StatelessWidget {
-  const AuthBackground({
-    super.key,
-    required this.child,
-    this.onArrowPressed,
-  });
+  const AuthBackground({super.key, this.onArrowPressed});
 
-  final Widget child;
   final VoidCallback? onArrowPressed;
 
   @override
   Widget build(BuildContext context) {
     final double screenWidth = Responsive.width(context);
     final double screenHeight = Responsive.height(context);
+    final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
 
-    // Responsive circle calculations
-    final double topCircleOffset = screenWidth * 1.339 * 0.5;
-    final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
-    final double topCircleSize = screenWidth * 1.339;
-    final double bottomCircleSize = screenWidth;
-
-    return Stack(
-      children: [
-        // Top-left decorative circle (Navy blue)
-        Positioned(
-            left: -topCircleOffset * 0.5,
-            top: -topCircleOffset,
-            child: Container(
-              width: screenWidth * 1.339,
-              height: screenHeight * 0.66,
-              decoration: const BoxDecoration(
-                color: Color(0xFF0D47A1),
-                shape: BoxShape.circle,
-              ),
-              child: Align(
-                alignment: const Alignment(0, 0.66),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                  TopCircleText(
-                    screenWidth: screenWidth,
-                    text: '',
-                  ),
-                ],
-              ),
-            ),
-          ),
+    return
+    // Bottom-right decorative circle (Teal)
+    Positioned(
+      right: -bottomCircleOffset * 1.3,
+      bottom: -bottomCircleOffset,
+      child: Container(
+        width: screenWidth,
+        height: screenHeight * 0.38,
+        decoration: const BoxDecoration(
+          color: Color(0xFF0C8C96),
+          shape: BoxShape.circle,
         ),
-
-        // Bottom-right decorative circle (Teal)
-        Positioned(
-          right: -bottomCircleOffset * 1.3,
-          bottom: -bottomCircleOffset,
+        child: Align(
+          alignment: const Alignment(-0.66, -0.5),
           child: Container(
-            width: bottomCircleSize,
-            height: screenHeight * 0.38,
-            decoration: BoxDecoration(
-              color: AppColors.secondary, // Use your secondary color
-              shape: BoxShape.circle,
+            padding: EdgeInsets.only(left: screenWidth * 0.15),
+            decoration: const BoxDecoration(shape: BoxShape.circle),
+            child: Stack(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    //if (_formKey.currentState!.validate()) {
+                    print('Form validated, proceeding to next step');
+                    //}
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.white,
+                        size: 35,
+                      ),
+                      onPressed: onArrowPressed,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
-
-        // The content of the screen goes here
-        child,
-      ],
+      ),
     );
   }
 }
 
 // ignore: non_constant_identifier_names
 Widget TopCircleText({required String text, required double screenWidth}) {
-  final String text = '';
   return Text(
     text,
     style: TextStyle(

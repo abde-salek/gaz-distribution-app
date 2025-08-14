@@ -13,18 +13,16 @@ class Responsive {
       width(context) * 0.075;
   static double getPadding(BuildContext context) => width(context) * 0.05;
   // Circle sizes and positioning
-  static double getTopCircleSize(BuildContext context) => 
-      width(context) * 1.33;
-  static double getBottomCircleOffset(BuildContext context) => 
+  static double getTopCircleSize(BuildContext context) => width(context) * 1.33;
+  static double getBottomCircleOffset(BuildContext context) =>
       width(context) * 0.88 * 0.4;
-  static double getTopCircleOffset(BuildContext context) => 
-      getTopCircleSize(context) * 0.5;
+  static double getTopCircleOffset(BuildContext context) =>
+      -getTopCircleSize(context) * 0.5;
 
   // Responsive font sizes
-  static double getSubtitleFontSize(BuildContext context) => 
+  static double getSubtitleFontSize(BuildContext context) =>
       width(context) * 0.055;
-  static double getInputFontSize(BuildContext context) => 
+  static double getInputFontSize(BuildContext context) =>
       width(context) * 0.045;
-  static double getLinkFontSize(BuildContext context) => 
-      width(context) * 0.038;
+  static double getLinkFontSize(BuildContext context) => width(context) * 0.038;
 }

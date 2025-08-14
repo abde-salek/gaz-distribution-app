@@ -40,14 +40,16 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final double topCircleSize = screenWidth * 1.33;
-    final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
-    final double getgetBottomCircleOffset(context);;
-    final double titleFontSize = screenWidth * 0.075;
-    final double subtitleFontSize = screenWidth * 0.055;
-    final double inputFontSize = screenWidth * 0.045;
-    final double linkFontSize;
+    final double screenWidth = Responsive.width(context);
+    final double screenHeight = Responsive.height(context);
 
+    // Responsive circle calculations
+    final double topCircleOffset = Responsive.getTopCircleOffset(context);
+    final double subtitleFontSize = Responsive.getSubtitleFontSize(context);
+    final double inputFontSize = Responsive.getInputFontSize(context);
+    final double linkFontSize = Responsive.getLinkFontSize(context);
+
+    final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4F6),
       body: Stack(
@@ -67,13 +69,13 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    TopCircleText(text: 'Login', screenWidth: screenWidth)
+                    TopCircleText(text: 'Login', screenWidth: screenWidth),
                   ],
                 ),
               ),
             ),
           ),
-          
+
           Positioned(
             right: -bottomCircleOffset * 1.3,
             bottom: -bottomCircleOffset,
@@ -125,7 +127,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          
 
           SafeArea(
             child: Center(

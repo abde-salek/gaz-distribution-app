@@ -1,37 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Auth/otp.dart';
-import 'package:gaz/Auth/signup.dart';
-import 'package:gaz/Core/Dash.dart';
+import 'package:gaz/Core/responsive_ui.dart';
+import 'package:gaz/src/Auth/screens/auth_background.dart';
+import 'package:gaz/src/Auth/screens/otp.dart';
 
-/// LoginPage - User Authentication Screen
+/// SignupPage - User Registration Screen
 ///
-/// A beautifully designed login page with:
-/// - Responsive layout that adapts to different screen sizes
-/// - Decorative circles for visual appeal
+/// Features:
+/// - Responsive layout for different screen sizes
 /// - Form validation for user inputs
-/// - Navigation to signup page
-///
-/// This page is part of a Product Delivery Tracker app
-/// Author: [Your Name]
-/// Created for: Portfolio Project
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+/// - Navigation to OTP verification
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  // ============================================================================
-  // FORM CONTROLLERS & KEYS
-  // ============================================================================
+class _SignupPageState extends State<SignupPage> {
+  // Form controllers & keys
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
-  // ============================================================================
-  // LIFECYCLE METHODS
-  // ============================================================================
 
   @override
   void dispose() {
@@ -42,71 +31,20 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final double topCircleSize = screenWidth * 1.33;
-    final double bottomCircleOffset = screenWidth * 0.88 * 0.4;
-    final double topCircleOffset = topCircleSize * 0.5;
-    final double titleFontSize = screenWidth * 0.075;
-    final double subtitleFontSize = screenWidth * 0.055;
-    final double inputFontSize = screenWidth * 0.045;
-    final double linkFontSize = screenWidth * 0.038;
+    final double screenWidth = Responsive.width(context);
+    final double screenHeight = Responsive.height(context);
+
+    // Responsive circle calculations
+    final double topCircleOffset = Responsive.getTopCircleOffset(context);
+    final double subtitleFontSize = Responsive.getSubtitleFontSize(context);
+    final double inputFontSize = Responsive.getInputFontSize(context);
+    final double linkFontSize = Responsive.getLinkFontSize(context);
 
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4F6),
       body: Stack(
         children: [
-          Positioned(
-            right: -bottomCircleOffset * 1.3,
-            bottom: -bottomCircleOffset,
-            child: Container(
-              width: screenWidth,
-              height: screenHeight * 0.38,
-              decoration: const BoxDecoration(
-                color: Color(0xFF0C8C96),
-                shape: BoxShape.circle,
-              ),
-              child: Align(
-                alignment: const Alignment(-0.66, -0.5),
-                child: Container(
-                  padding: EdgeInsets.only(left: screenWidth * 0.15),
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Stack(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            print('Form validated, proceeding to next step');
-                          }
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
-                          decoration: BoxDecoration(shape: BoxShape.circle),
-                          child: IconButton(
-                            icon: const Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 35,
-                            ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Dash(),
-                                  ),
-                                );
-                              }
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+          //Top-left decorative circle (Navy blue)
           Positioned(
             left: -topCircleOffset * 0.5,
             top: -topCircleOffset,
@@ -122,22 +60,31 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'Login',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: titleFontSize.clamp(24.0, 36.0),
-                        fontFamily: 'Futura Hv BT',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    TopCircleText(text: 'Create', screenWidth: screenWidth),
+                    TopCircleText(text: '  Account', screenWidth: screenWidth),
                   ],
                 ),
               ),
             ),
           ),
 
+          AuthBackground(
+            onArrowPressed: () {
+              if (_formKey.currentState!.validate()) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => OtpVerificationPage(
+                          phoneNumber: _phoneController.text,
+                        ),
+                  ),
+                );
+              }
+            },
+          ),
+
+          // Main content
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
@@ -150,8 +97,9 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       SizedBox(height: screenHeight * 0.15),
 
+                      // Page subtitle
                       Text(
-                        'Enter Your Credentials',
+                        'Enter Your Details',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: const Color(0xFF1B3F77),
@@ -163,6 +111,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.04),
 
+                      // Name input field
                       Container(
                         constraints: BoxConstraints(
                           maxWidth:
@@ -172,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                           controller: _nameController,
                           textAlign: TextAlign.start,
                           decoration: InputDecoration(
-                            hintText: 'Username',
+                            hintText: 'Name',
                             hintStyle: TextStyle(
                               color: const Color(0xFF0C8C96),
                               fontSize: inputFontSize.clamp(14.0, 20.0),
@@ -209,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your username';
+                              return 'Please enter your name';
                             }
                             return null;
                           },
@@ -218,6 +167,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.02),
 
+                      // Phone number input field
                       Container(
                         constraints: BoxConstraints(
                           maxWidth:
@@ -277,17 +227,13 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.02),
 
+                      // Login navigation link
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignupPage(),
-                            ),
-                          );
+                          // Navigate back to login
                         },
                         child: Text(
-                          'Don\'t have an account ?',
+                          'Already have an account ?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: const Color(0xFF1B3F77),
@@ -302,6 +248,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.04),
 
+                      // Progress indicators
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

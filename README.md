@@ -23,7 +23,6 @@ A comprehensive Flutter application designed for gas distribution management, fe
 - **Analytics**: Client behavior and delivery pattern analysis
 
 ### 💰 Payment Collection
-- **Multiple Payment Methods**: Cash, card, and digital wallet support
 - **Invoice Generation**: Automated invoice creation and delivery
 - **Payment Tracking**: Real-time payment status and reconciliation
 - **Financial Reports**: Comprehensive financial analytics and reporting
@@ -177,3 +176,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+

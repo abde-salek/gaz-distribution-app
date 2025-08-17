@@ -4,5 +4,10 @@ class Client {
   final double balance;
   //final double history;
 
-  Client({required this.id, required this.name, required this.balance, required String phoneNumber});
+  Client({
+    required this.id, 
+    required this.name, 
+    required this.balance,
+    required String phoneNumber
+  });
 }

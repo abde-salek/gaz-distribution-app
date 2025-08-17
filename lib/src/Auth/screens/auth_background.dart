@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/responsive_ui.dart';
-import '../../../core/app_colors.dart'; // Import your colors
 
 class AuthBackground extends StatelessWidget {
   const AuthBackground({super.key, this.onArrowPressed});
@@ -71,3 +69,5 @@ class BottomCircleArrow extends StatelessWidget {
     );
   }
 }
+
+

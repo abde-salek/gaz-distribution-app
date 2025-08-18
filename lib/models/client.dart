@@ -3,6 +3,7 @@ class Client {
   final String name;
   final double balance;
   final String phoneNumber;
+  final String address;
   //final double history;
 
   Client({
@@ -10,5 +11,6 @@ class Client {
     required this.name,
     required this.balance,
     required this.phoneNumber,
+    required this.address,
   });
 }

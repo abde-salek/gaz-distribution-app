@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
               width: screenWidth,
               height: screenHeight * 0.38,
               decoration: const BoxDecoration(
-                color: Color(0xFF0C8C96),
+                color: secondary,
                 shape: BoxShape.circle,
               ),
               child: Align(
@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                         'Enter Your Credentials',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: const Color(0xFF1B3F77),
+                          color: const text,
                           fontSize: subtitleFontSize.clamp(18.0, 28.0),
                           fontFamily: 'Space Grotesk',
                           fontWeight: FontWeight.w700,
@@ -164,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             hintText: 'Name',
                             hintStyle: TextStyle(
-                              color: const Color(0xFF0C8C96),
+                              color: const secondary,
                               fontSize: inputFontSize.clamp(14.0, 20.0),
                               fontFamily: 'Space Grotesk',
                               fontWeight: FontWeight.w500,
@@ -178,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFF0C8C96),
+                                color: secondary,
                                 width: 1,
                               ),
                             ),
@@ -192,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFF0C8C96),
+                                color: secondary,
                                 width: 2,
                               ),
                             ),
@@ -220,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: InputDecoration(
                             hintText: 'Phone Number',
                             hintStyle: TextStyle(
-                              color: const Color(0xFF0C8C96),
+                              color: const secondary,
                               fontSize: inputFontSize.clamp(14.0, 20.0),
                               fontFamily: 'Space Grotesk',
                               fontWeight: FontWeight.w500,
@@ -248,7 +248,7 @@ class _LoginPageState extends State<LoginPage> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFF0C8C96),
+                                color: secondary,
                                 width: 2,
                               ),
                             ),
@@ -280,7 +280,7 @@ class _LoginPageState extends State<LoginPage> {
                           'Don\'t have an account ?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: const Color(0xFF1B3F77),
+                            color: const text,
                             fontSize: linkFontSize.clamp(12.0, 18.0),
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
@@ -299,7 +299,7 @@ class _LoginPageState extends State<LoginPage> {
                             width: screenWidth * 0.025,
                             height: screenHeight * 0.025,
                             decoration: const BoxDecoration(
-                              color: Color(0xFF1B3F77),
+                              color: text,
                               shape: BoxShape.circle,
                             ),
                           ),

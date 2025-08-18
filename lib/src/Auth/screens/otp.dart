@@ -152,7 +152,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 height: screenHeight * 0.38,
                 decoration: const BoxDecoration(
                   // Teal color - secondary brand color
-                  color: Color(0xFF0C8C96),
+                  color: secondary,
                   shape: BoxShape.circle,
                 ),
                 // Adding a bold right arrow as a button
@@ -235,7 +235,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             'Verification Needed!',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: const Color(0xFF1B3F77),
+                              color: const text,
                               fontSize: bodyFontSize * 1.8,
                               fontFamily: 'Space Grotesk',
                               fontWeight: FontWeight.w700,
@@ -291,7 +291,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   // Navy blue to match brand colors
-                                  color: const Color(0xFF1B3F77),
+                                  color: const text,
                                   // Responsive font size
                                   fontSize: linkFontSize.clamp(
                                     12.0, // Minimum size
@@ -308,7 +308,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               // Refresh icon
                               Icon(
                                 Icons.refresh_rounded,
-                                color: const Color(0xFF1B3F77),
+                                color: const text,
                                 size: linkFontSize.clamp(16.0, 20.0),
                               ),
                             ],
@@ -326,7 +326,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               // Navy blue to match brand colors
-                              color: const Color(0xFF1B3F77),
+                              color: const text,
                               // Responsive font size
                               fontSize: linkFontSize.clamp(
                                 12.0, // Minimum size

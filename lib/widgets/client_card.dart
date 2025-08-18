@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/models/client.dart';
 
 class ClientCard extends StatelessWidget {
@@ -10,7 +11,7 @@ class ClientCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool hasPositiveBalance = client.balance > 0;
     final Color balanceColor =
-        hasPositiveBalance ? const Color(0xFF1B3F77) : const Color(0xFF0C8C96);
+        hasPositiveBalance ? AppColors.text : AppColors.secondary;
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 72),

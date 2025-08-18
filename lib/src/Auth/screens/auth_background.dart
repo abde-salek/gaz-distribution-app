@@ -28,8 +28,7 @@ class TopCircleText extends StatelessWidget {
   final String text;
   final double screenWidth;
 
-  const TopCircleText({Key? key, required this.text, required this.screenWidth})
-    : super(key: key);
+  const TopCircleText({super.key, required this.text, required this.screenWidth});
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +48,10 @@ class BottomCircleArrow extends StatelessWidget {
   final double screenWidth;
 
   const BottomCircleArrow({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.screenWidth,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 import 'package:gaz/widgets/client_card.dart';
 import '../../../../providers/client_provider.dart';
@@ -75,7 +76,7 @@ class ClientsScreen extends ConsumerWidget {
                                     MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     width: 48,
                                     height: 48,
                                     child: Column(
@@ -85,7 +86,7 @@ class ClientsScreen extends ConsumerWidget {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Container(width: 48, height: 2),
+                                        SizedBox(width: 48, height: 2),
                                         Container(
                                           width: 32,
                                           height: 32,
@@ -115,7 +116,7 @@ class ClientsScreen extends ConsumerWidget {
                                             'Clients',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              color: const Color(0xFF1B3F77),
+                                              color: AppColors.text,
                                               fontSize: 18,
                                               fontFamily: 'Space Grotesk',
                                               fontWeight: FontWeight.w700,
@@ -157,7 +158,7 @@ class ClientsScreen extends ConsumerWidget {
                                             ),
                                           ),
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: 20,
                                           height: 28,
                                           child: Stack(
@@ -220,7 +221,7 @@ class ClientsScreen extends ConsumerWidget {
                                 children: [
                                   ConstrainedBox(
                                     constraints: BoxConstraints(minWidth: 160),
-                                    child: Container(
+                                    child: SizedBox(
                                       width: double.infinity,
                                       height: 48,
                                       child: Column(

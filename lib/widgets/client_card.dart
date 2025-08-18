@@ -38,10 +38,8 @@ class ClientCard extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  // Note: The model has `phoneNumber`, but the original UI showed an address.
-                  // Using `phoneNumber` as it is available in the model.
                   Text(
-                    client.phoneNumber,
+                    client.address,
                     style: const TextStyle(
                       color: Color(0xFF66707F),
                       fontSize: 14,

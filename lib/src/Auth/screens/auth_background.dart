@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/Core/responsive_ui.dart';
-import '../../../core/app_colors.dart'; // Import your colors
+import 'package:gaz/Core/app_colors.dart';
 
 class AuthBackground extends StatelessWidget {
   const AuthBackground({super.key, this.onArrowPressed});
@@ -21,8 +21,41 @@ class AuthBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    final double screenWidth = Responsive.width(context);
+    final double screenHeight = Responsive.height(context);
+    final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
+
+    if (onArrowPressed == null) {
+      return const SizedBox.shrink();
+    }
+
+    return Positioned(
+      right: -bottomCircleOffset * 1.3,
+      bottom: -bottomCircleOffset,
+      child: Container(
+        width: screenWidth,
+        height: screenHeight * 0.38,
+        decoration: const BoxDecoration(
+          color: Color(0xFF0C8C96),
+          shape: BoxShape.circle,
+        ),
+        child: Align(
+          alignment: const Alignment(-0.66, -0.5),
+          child: Container(
+            padding: EdgeInsets.only(left: screenWidth * 0.15),
+            decoration: const BoxDecoration(shape: BoxShape.circle),
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_forward,
+                color: Colors.white,
+                size: 35,
+              ),
+              onPressed: onArrowPressed,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 

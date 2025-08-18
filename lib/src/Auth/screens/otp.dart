@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/Core/Dash.dart';
 import 'dart:math';
@@ -151,8 +152,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 width: screenWidth,
                 height: screenHeight * 0.38,
                 decoration: const BoxDecoration(
-                  // Teal color - secondary brand color
-                  color: secondary,
+                  // Teal color - AppColors.secondary brand color
+                  color: AppColors.secondary,
                   shape: BoxShape.circle,
                 ),
                 // Adding a bold right arrow as a button
@@ -235,7 +236,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             'Verification Needed!',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: const text,
+                              color: AppColors.text,
                               fontSize: bodyFontSize * 1.8,
                               fontFamily: 'Space Grotesk',
                               fontWeight: FontWeight.w700,
@@ -291,7 +292,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   // Navy blue to match brand colors
-                                  color: const text,
+                                  color: AppColors.text,
                                   // Responsive font size
                                   fontSize: linkFontSize.clamp(
                                     12.0, // Minimum size
@@ -308,7 +309,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               // Refresh icon
                               Icon(
                                 Icons.refresh_rounded,
-                                color: const text,
+                                color: AppColors.text,
                                 size: linkFontSize.clamp(16.0, 20.0),
                               ),
                             ],
@@ -326,7 +327,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               // Navy blue to match brand colors
-                              color: const text,
+                              color: AppColors.text,
                               // Responsive font size
                               fontSize: linkFontSize.clamp(
                                 12.0, // Minimum size

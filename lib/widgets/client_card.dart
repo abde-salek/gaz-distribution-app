@@ -11,7 +11,7 @@ class ClientCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool hasPositiveBalance = client.balance > 0;
     final Color balanceColor =
-        hasPositiveBalance ? AppColors.text : AppColors.secondary;
+        hasPositiveBalance ? AppColors.text : AppColors.AppColors.secondary;
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 72),

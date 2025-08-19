@@ -5,6 +5,7 @@ import 'package:gaz/Core/responsive_ui.dart';
 import 'package:gaz/widgets/client_card.dart';
 import '../../../../providers/client_provider.dart';
 
+// CLIENTS SCREEN
 class ClientsScreen extends ConsumerWidget {
   // Change to ConsumerWidget
   const ClientsScreen({super.key});
@@ -16,8 +17,11 @@ class ClientsScreen extends ConsumerWidget {
     // Watch the provider to get the list of clients
     final clients = ref.watch(clientProvider);
 
+// SCAFFOLD
     return Scaffold(
+// APPBAR
       appBar: AppBar(title: const Text('Clients')),
+// BODY
       body: Container(
         width: width,
         height: height,
@@ -27,6 +31,7 @@ class ClientsScreen extends ConsumerWidget {
             borderRadius: BorderRadius.circular(50),
           ),
         ),
+// MAIN COLUMN
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -59,6 +64,7 @@ class ClientsScreen extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+// HEADER
                             Container(
                               width: double.infinity,
                               padding: const EdgeInsets.only(
@@ -208,6 +214,7 @@ class ClientsScreen extends ConsumerWidget {
                                 ],
                               ),
                             ),
+// SEARCH BAR
                             Container(
                               width: double.infinity,
                               padding: const EdgeInsets.symmetric(
@@ -288,6 +295,7 @@ class ClientsScreen extends ConsumerWidget {
                                                                 Clip.antiAlias,
                                                             decoration:
                                                                 BoxDecoration(),
+                             
                                                             child: Stack(
                                                               children: [
                                                                 Positioned(
@@ -374,6 +382,7 @@ class ClientsScreen extends ConsumerWidget {
                                 ],
                               ),
                             ),
+// CLIENTS LIST
                             Container(
                               height: 730,
                               clipBehavior: Clip.antiAlias,
@@ -383,6 +392,7 @@ class ClientsScreen extends ConsumerWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
+// LISTVIEW BUILDER
                                   ListView.builder(
                                     itemCount: clients.length,
                                     itemBuilder: (context, index) {
@@ -393,6 +403,7 @@ class ClientsScreen extends ConsumerWidget {
                                 ],
                               ),
                             ),
+                          
                           ],
                         ),
                       ),

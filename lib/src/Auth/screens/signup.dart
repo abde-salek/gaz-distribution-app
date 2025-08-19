@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 import 'package:gaz/src/Auth/screens/auth_background.dart';
+import 'package:gaz/src/Auth/screens/login.dart';
 import 'package:gaz/src/Auth/screens/otp.dart';
 
 /// SignupPage - User Registration Screen
@@ -102,7 +104,7 @@ class _SignupPageState extends State<SignupPage> {
                         'Enter Your Details',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: const Color(0xFF1B3F77),
+                          color: AppColors.text,
                           fontSize: subtitleFontSize.clamp(18.0, 28.0),
                           fontFamily: 'Space Grotesk',
                           fontWeight: FontWeight.w700,
@@ -123,7 +125,7 @@ class _SignupPageState extends State<SignupPage> {
                           decoration: InputDecoration(
                             hintText: 'Name',
                             hintStyle: TextStyle(
-                              color: const Color(0xFF0C8C96),
+                              color: AppColors.secondary,
                               fontSize: inputFontSize.clamp(14.0, 20.0),
                               fontFamily: 'Space Grotesk',
                               fontWeight: FontWeight.w500,
@@ -137,7 +139,7 @@ class _SignupPageState extends State<SignupPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFF0C8C96),
+                                color: AppColors.secondary,
                                 width: 1,
                               ),
                             ),
@@ -151,7 +153,7 @@ class _SignupPageState extends State<SignupPage> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFF0C8C96),
+                                color: AppColors.secondary,
                                 width: 2,
                               ),
                             ),
@@ -180,7 +182,7 @@ class _SignupPageState extends State<SignupPage> {
                           decoration: InputDecoration(
                             hintText: 'Phone Number',
                             hintStyle: TextStyle(
-                              color: const Color(0xFF0C8C96),
+                              color: AppColors.secondary,
                               fontSize: inputFontSize.clamp(14.0, 20.0),
                               fontFamily: 'Space Grotesk',
                               fontWeight: FontWeight.w500,
@@ -208,7 +210,7 @@ class _SignupPageState extends State<SignupPage> {
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFF0C8C96),
+                                color: AppColors.secondary,
                                 width: 2,
                               ),
                             ),
@@ -230,13 +232,18 @@ class _SignupPageState extends State<SignupPage> {
                       // Login navigation link
                       GestureDetector(
                         onTap: () {
-                          // Navigate back to login
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ),
+                          );
                         },
                         child: Text(
                           'Already have an account ?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: const Color(0xFF1B3F77),
+                            color: AppColors.text,
                             fontSize: linkFontSize.clamp(12.0, 18.0),
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w500,
@@ -256,7 +263,7 @@ class _SignupPageState extends State<SignupPage> {
                             width: screenWidth * 0.025,
                             height: screenHeight * 0.025,
                             decoration: const BoxDecoration(
-                              color: Color(0xFF1B3F77),
+                              color: AppColors.text,
                               shape: BoxShape.circle,
                             ),
                           ),

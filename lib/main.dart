@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'src/Auth/splash.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Gaz Distribution App - Main Entry Point
 /// Comprehensive Flutter app for gas distribution management with delivery tracking,
 /// client management, and payment collection features.
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 /// Main application widget that configures the app's theme and routing.

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/signup.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// Gaz Distribution App - Splash Screen
 /// Beautiful gradient design with bilingual branding (English/Arabic).
@@ -72,8 +73,8 @@ class _SplachState extends State<Splach> {
           begin: Alignment(0.50, 0.00),
           end: Alignment(0.50, 1.00),
           colors: [
-            const Color(0xFF0C8C96),
-            const Color(0xFF6BC6F0),
+            AppColors.secondary,
+            AppColors.primary,
             const Color(0xFFF3F4F6),
           ],
         ),
@@ -88,7 +89,7 @@ class _SplachState extends State<Splach> {
                   TextSpan(
                     text: 'AMANA',
                     style: TextStyle(
-                      color: const Color(0xFF1B3F77),
+                      color: AppColors.text,
                       fontSize: 40,
                       fontFamily: 'Neuton',
                       fontWeight: FontWeight.w700,
@@ -98,7 +99,7 @@ class _SplachState extends State<Splach> {
                   TextSpan(
                     text: ' ',
                     style: TextStyle(
-                      color: const Color(0xFF1B3F77),
+                      color: AppColors.text,
                       fontSize: 40,
                       fontFamily: 'Neuton',
                       fontWeight: FontWeight.w700,
@@ -135,7 +136,7 @@ class _SplachState extends State<Splach> {
                 Text(
                   'أمانة',
                   style: TextStyle(
-                    color: const Color(0xFF1B3F77),
+                    color: AppColors.text,
                     fontSize: 32,
                     fontFamily: 'Reddit Sans',
                     fontWeight: FontWeight.w700,
@@ -147,9 +148,7 @@ class _SplachState extends State<Splach> {
             SizedBox(height: 40),
             // Loading indicator
             CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(
-                const Color(0xFF1B3F77),
-              ),
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.text),
             ),
           ],
         ),

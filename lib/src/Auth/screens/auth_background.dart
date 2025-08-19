@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 class AuthBackground extends StatelessWidget {
   const AuthBackground({super.key, this.onArrowPressed});
 
   final VoidCallback? onArrowPressed;
 
-  // ignore: non_constant_identifier_names
-  Widget TopCircleText({required String text, required double screenWidth}) {
-    return Text(
-      text,
-      style: TextStyle(
-        fontFamily: 'Futura Hv BT',
-        color: Colors.white,
-        fontSize: screenWidth * 0.075,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    final screenWidth = MediaQuery.of(context).size.width;
+    return Container(
+      color: AppColors.background, // Replace with your actual background color
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 60.0),
+            child: TopCircleText(
+              text: "Authentication",
+              screenWidth: screenWidth,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 40.0),
+            child:
+                onArrowPressed != null
+                    ? BottomCircleArrow(
+                      onPressed: onArrowPressed!,
+                      screenWidth: screenWidth,
+                    )
+                    : const SizedBox(),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -28,7 +41,11 @@ class TopCircleText extends StatelessWidget {
   final String text;
   final double screenWidth;
 
-  const TopCircleText({super.key, required this.text, required this.screenWidth});
+  const TopCircleText({
+    super.key,
+    required this.text,
+    required this.screenWidth,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -68,5 +85,3 @@ class BottomCircleArrow extends StatelessWidget {
     );
   }
 }
-
-

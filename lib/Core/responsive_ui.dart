@@ -8,6 +8,8 @@ class Responsive {
       MediaQuery.of(context).size.width;
   static double height(BuildContext context) =>
       MediaQuery.of(context).size.height;
+  static double getScreenHeight(BuildContext context) =>
+      MediaQuery.of(context).size.height;
 
   static double getTitleFontSize(BuildContext context) =>
       width(context) * 0.075;

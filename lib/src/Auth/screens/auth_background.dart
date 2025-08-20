@@ -1,41 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/Dash.dart';
 import 'package:gaz/Core/app_colors.dart';
-
-class AuthBackground extends StatelessWidget {
-  const AuthBackground({super.key, this.onArrowPressed});
-
-  final VoidCallback? onArrowPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      color: AppColors.background, // Replace with your actual background color
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 60.0),
-            child: TopCircleText(
-              text: "Authentication",
-              screenWidth: screenWidth,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 40.0),
-            child:
-                onArrowPressed != null
-                    ? BottomCircleArrow(
-                      onPressed: onArrowPressed!,
-                      screenWidth: screenWidth,
-                    )
-                    : const SizedBox(),
-          ),
-        ],
-      ),
-    );
-  }
-}
+import 'package:gaz/Core/responsive_ui.dart';
 
 class TopCircleText extends StatelessWidget {
   final String text;
@@ -72,16 +38,58 @@ class BottomCircleArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
-        decoration: const BoxDecoration(shape: BoxShape.circle),
-        child: IconButton(
-          icon: const Icon(Icons.arrow_forward, color: Colors.white, size: 35),
-          onPressed: onPressed,
-        ),
-      ),
-    );
+    final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
+    final double screenHeight = Responsive.getScreenHeight(context);
+    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+    
+    return Positioned(
+            bottom: -bottomCircleOffset,
+            child: Container(
+              width: screenWidth,
+              height: screenHeight * 0.38,
+              decoration: const BoxDecoration(
+                color: AppColors.secondary,
+                shape: BoxShape.circle,
+              ),
+              child: Align(
+                alignment: const Alignment(-0.66, -0.5),
+                child: Container(
+                  padding: EdgeInsets.only(left: screenWidth * 0.15),
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: Stack(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          if (formKey.currentState!.validate()) {
+                            print('Form validated, proceeding to next step');
+                          }
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
+                          decoration: BoxDecoration(shape: BoxShape.circle),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                            onPressed: () {
+                              //if (_formKey.currentState!.validate()) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Dash(),
+                                  ),
+                                );
+                              //}
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+            ),
+          )));
   }
-}
+  }
+

@@ -183,15 +183,16 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               //color: Colors.white.withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
+
                             child: IconButton(
                               icon: const Icon(
-                                Icons.arrow_forward,
+                                Icons.arrow_forward_ios,
                                 color: Colors.white,
-                                size: 35,
+                                size: 50,
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  // Verify OTP and navigate to the main app screen
+                                  // verify OTP and navigate to the main app screen
                                   String otp =
                                       _otpControllers.map((c) => c.text).join();
                                   print('OTP entered: $otp');

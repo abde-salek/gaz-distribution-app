@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'src/auth/splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const FigmaToCodeApp(),
+      home: const Dash(),
     );
   }
 }

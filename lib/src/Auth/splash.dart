@@ -7,13 +7,13 @@ import 'package:gaz/Core/app_colors.dart';
 /// Features custom typography and professional color scheme.
 
 void main() {
-  runApp(const FigmaToCodeApp());
+  runApp(const SplashScreen());
 }
 
 /// Main application widget for splash screen entry point.
 /// Configures dark theme with custom scaffold background for professional appearance.
-class FigmaToCodeApp extends StatelessWidget {
-  const FigmaToCodeApp({super.key});
+class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

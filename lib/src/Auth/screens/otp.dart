@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gaz/Core/app_colors.dart';
-import 'package:gaz/src/Auth/screens/signup.dart';
+import 'package:gaz/src/auth/screens/signup.dart';
 import 'package:gaz/Core/Dash.dart';
 import 'dart:math';
 

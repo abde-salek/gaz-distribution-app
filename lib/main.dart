@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/Auth/splash.dart';
+import 'src/auth/splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Gaz Distribution App - Main Entry Point

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
-import 'package:gaz/src/Auth/screens/auth_background.dart';
-import 'package:gaz/src/Auth/screens/login.dart';
-import 'package:gaz/src/Auth/screens/otp.dart';
+import 'package:gaz/src/auth/screens/login.dart';
+import 'package:gaz/src/auth/screens/otp.dart';
 
 /// SignupPage - User Registration Screen
 ///
@@ -57,18 +56,12 @@ class _SignupPageState extends State<SignupPage> {
         ),
         child: Stack(
           children: [
-            // ==========================================================================
-            // DECORATIVE ELEMENTS LAYER
-            // ==========================================================================
-
             // --------------------------------------------------------------------------
             // TOP-LEFT DECORATIVE CIRCLE (NAVY BLUE)
             // --------------------------------------------------------------------------
             Positioned(
-              // More negative offset to push it further off-screen to the left
-              left: -topCircleOffset * 0.5,
-              // Less negative offset on the top to make it appear "dragged down"
-              top: -topCircleOffset,
+              left: topCircleOffset * 0.5,
+              top: topCircleOffset,
               child: Container(
                 width: screenWidth * 1.339,
                 height: screenHeight * 0.66,
@@ -78,8 +71,7 @@ class _SignupPageState extends State<SignupPage> {
                   shape: BoxShape.circle,
                 ),
                 child: Align(
-                  // Adjust alignment to re-center text in the new visible area
-                  alignment: const Alignment(0, 0.66),
+                  alignment: const Alignment(0.09, 0.66),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -112,12 +104,10 @@ class _SignupPageState extends State<SignupPage> {
             ),
 
             // --------------------------------------------------------------------------
-            // BOTTOM-RIGHT DECORATIVE CIRCLE (TEAL)
+            // BOTTOM DECORATIVE CIRCLE (TEAL)
             // --------------------------------------------------------------------------
             Positioned(
-              // Less negative offset on the right to make the right side dominate
               right: -bottomCircleOffset * 1.3,
-              // More negative offset on the bottom to push it further down
               bottom: -bottomCircleOffset,
               child: Container(
                 width: screenWidth,
@@ -169,9 +159,10 @@ class _SignupPageState extends State<SignupPage> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => OtpVerificationPage(
-                                        phoneNumber: _phoneController.text,
-                                        ),
+                                      builder:
+                                          (context) => OtpVerificationPage(
+                                            phoneNumber: _phoneController.text,
+                                          ),
                                     ),
                                   );
                                 }
@@ -185,209 +176,209 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
             ),
-              // Main content
-              SafeArea(
-                child: Center(
-                  child: SingleChildScrollView(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: screenWidth * 0.08,
-                    ),
-                    child: Form(
-                      key: _formKey,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(height: screenHeight * 0.15),
+            // Main content
+            SafeArea(
+              child: Center(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(height: screenHeight * 0.15),
 
-                          // Page subtitle
-                          Text(
-                            'Enter Your Details',
+                        // Page subtitle
+                        Text(
+                          'Enter Your Details',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: AppColors.text,
+                            fontSize: subtitleFontSize.clamp(18.0, 28.0),
+                            fontFamily: 'Space Grotesk',
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+
+                        SizedBox(height: screenHeight * 0.04),
+
+                        // Name input field
+                        Container(
+                          constraints: BoxConstraints(
+                            maxWidth:
+                                screenWidth > 400 ? 350 : screenWidth * 0.85,
+                          ),
+                          child: TextFormField(
+                            controller: _nameController,
+                            textAlign: TextAlign.start,
+                            decoration: InputDecoration(
+                              hintText: 'Name',
+                              hintStyle: TextStyle(
+                                color: AppColors.secondary,
+                                fontSize: inputFontSize.clamp(14.0, 20.0),
+                                fontFamily: 'Space Grotesk',
+                                fontWeight: FontWeight.w500,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 14,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(
+                                  color: AppColors.background,
+                                  width: 1,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFE0E0E0),
+                                  width: 1,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(
+                                  color: AppColors.secondary,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your name';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+
+                        SizedBox(height: screenHeight * 0.02),
+
+                        // Phone number input field
+                        Container(
+                          constraints: BoxConstraints(
+                            maxWidth:
+                                screenWidth > 400 ? 350 : screenWidth * 0.85,
+                          ),
+                          child: TextFormField(
+                            controller: _phoneController,
+                            keyboardType: TextInputType.phone,
+                            textAlign: TextAlign.start,
+                            decoration: InputDecoration(
+                              hintText: 'Phone Number',
+                              hintStyle: TextStyle(
+                                color: AppColors.secondary,
+                                fontSize: inputFontSize.clamp(14.0, 20.0),
+                                fontFamily: 'Space Grotesk',
+                                fontWeight: FontWeight.w500,
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 14,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFE0E0E0),
+                                  width: 1,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(
+                                  color: Color(0xFFE0E0E0),
+                                  width: 1,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(
+                                  color: AppColors.secondary,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your phone number';
+                              }
+                              if (value.length < 10) {
+                                return 'Please enter a valid phone number';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+
+                        SizedBox(height: screenHeight * 0.02),
+
+                        // Login navigation link
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LoginPage(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Already have an account ?',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: AppColors.text,
-                              fontSize: subtitleFontSize.clamp(18.0, 28.0),
-                              fontFamily: 'Space Grotesk',
-                              fontWeight: FontWeight.w700,
+                              fontSize: linkFontSize.clamp(12.0, 18.0),
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w500,
+                              decoration: TextDecoration.underline,
+                              letterSpacing: -0.5,
                             ),
                           ),
+                        ),
 
-                          SizedBox(height: screenHeight * 0.04),
+                        SizedBox(height: screenHeight * 0.04),
 
-                          // Name input field
-                          Container(
-                            constraints: BoxConstraints(
-                              maxWidth:
-                                  screenWidth > 400 ? 350 : screenWidth * 0.85,
-                            ),
-                            child: TextFormField(
-                              controller: _nameController,
-                              textAlign: TextAlign.start,
-                              decoration: InputDecoration(
-                                hintText: 'Name',
-                                hintStyle: TextStyle(
-                                  color: AppColors.secondary,
-                                  fontSize: inputFontSize.clamp(14.0, 20.0),
-                                  fontFamily: 'Space Grotesk',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 14,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: AppColors.secondary,
-                                    width: 1,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: Color(0xFFE0E0E0),
-                                    width: 1,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: AppColors.secondary,
-                                    width: 2,
-                                  ),
-                                ),
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your name';
-                                }
-                                return null;
-                              },
-                            ),
-                          ),
-
-                          SizedBox(height: screenHeight * 0.02),
-
-                          // Phone number input field
-                          Container(
-                            constraints: BoxConstraints(
-                              maxWidth:
-                                  screenWidth > 400 ? 350 : screenWidth * 0.85,
-                            ),
-                            child: TextFormField(
-                              controller: _phoneController,
-                              keyboardType: TextInputType.phone,
-                              textAlign: TextAlign.start,
-                              decoration: InputDecoration(
-                                hintText: 'Phone Number',
-                                hintStyle: TextStyle(
-                                  color: AppColors.secondary,
-                                  fontSize: inputFontSize.clamp(14.0, 20.0),
-                                  fontFamily: 'Space Grotesk',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 14,
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: Color(0xFFE0E0E0),
-                                    width: 1,
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: Color(0xFFE0E0E0),
-                                    width: 1,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                    color: AppColors.secondary,
-                                    width: 2,
-                                  ),
-                                ),
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter your phone number';
-                                }
-                                if (value.length < 10) {
-                                  return 'Please enter a valid phone number';
-                                }
-                                return null;
-                              },
-                            ),
-                          ),
-
-                          SizedBox(height: screenHeight * 0.02),
-
-                          // Login navigation link
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const LoginPage(),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'Already have an account ?',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
+                        // Progress indicators
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: screenWidth * 0.025,
+                              height: screenHeight * 0.025,
+                              decoration: const BoxDecoration(
                                 color: AppColors.text,
-                                fontSize: linkFontSize.clamp(12.0, 18.0),
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.underline,
-                                letterSpacing: -0.5,
+                                shape: BoxShape.circle,
                               ),
                             ),
-                          ),
-
-                          SizedBox(height: screenHeight * 0.04),
-
-                          // Progress indicators
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: screenWidth * 0.025,
-                                height: screenHeight * 0.025,
-                                decoration: const BoxDecoration(
-                                  color: AppColors.text,
-                                  shape: BoxShape.circle,
-                                ),
+                            SizedBox(width: screenWidth * 0.02),
+                            Container(
+                              width: screenWidth * 0.025,
+                              height: screenHeight * 0.025,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFFCCCCCC),
+                                shape: BoxShape.circle,
                               ),
-                              SizedBox(width: screenWidth * 0.02),
-                              Container(
-                                width: screenWidth * 0.025,
-                                height: screenHeight * 0.025,
-                                decoration: const BoxDecoration(
-                                  color: Color(0xFFCCCCCC),
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
+                        ),
 
-                          SizedBox(height: screenHeight * 0.04),
-                        ],
-                      ),
+                        SizedBox(height: screenHeight * 0.04),
+                      ],
                     ),
                   ),
                 ),
               ),
-            ],
-          ),),);
-        }
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

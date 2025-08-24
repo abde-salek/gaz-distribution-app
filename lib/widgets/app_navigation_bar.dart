@@ -1,84 +1,103 @@
 import 'package:flutter/material.dart';
 
-class AppNavigationBar extends StatelessWidget {
+class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
-  final Function(int) onItemTapped;
+  final Function(int) onItemSelected;
 
-  const AppNavigationBar({
+  const BottomNavBar({
     super.key,
     required this.selectedIndex,
-    required this.onItemTapped,
+    required this.onItemSelected,
+    required void Function(int index) onItemTapped,
   });
 
   @override
   Widget build(BuildContext context) {
+    // A list of data for each navigation item.
+    final List<Map<String, dynamic>> navItems = [
+      {'label': 'Dash', 'icon': Icons.dashboard},
+      {'label': 'Clients', 'icon': Icons.groups_2_outlined},
+      {'label': 'History', 'icon': Icons.history},
+      {'label': 'Settings', 'icon': Icons.settings_outlined},
+    ];
+
     return Container(
-      width: 402,
-      padding: const EdgeInsets.only(
-        top: 8,
-        left: 16,
-        right: 16,
-        bottom: 12,
-      ),
-      decoration: ShapeDecoration(
-        color: const Color(0xFFF9F9F9),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            width: 1,
-            color: const Color(0xFFF9F9F9),
-          ),
-        ),
+      width: double.infinity,
+      padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 12),
+      decoration: const BoxDecoration(
+        color: Color(0xFFF9F9F9),
+        border: Border(top: BorderSide(width: 1, color: Color(0xFFE2E2E2))),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildNavItem('Home', 0),
-          _buildNavItem('Clients', 1),
-          _buildNavItem('History', 2),
-          _buildNavItem('Settings', 3),
-        ],
+        children: List.generate(navItems.length, (index) {
+          final item = navItems[index];
+          return Expanded(
+            child: _AppNavItem(
+              label: item['label'],
+              icon: item['icon'],
+              isSelected: selectedIndex == index,
+              onTap: () => onItemSelected(index),
+            ),
+          );
+        }),
       ),
     );
   }
+}
 
-  Widget _buildNavItem(String label, int index) {
-    final bool isSelected = selectedIndex == index;
-    final Color backgroundColor =
-        isSelected ? const Color(0xFFA8D03D) : Colors.transparent;
-    final Color textColor =
-        isSelected ? Colors.white : const Color(0xFF66707F);
+// Represents a single navigation item in the [AppNavigationBar].
+class _AppNavItem extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final bool isSelected;
+  final VoidCallback onTap;
 
-    return Expanded(
-      child: GestureDetector(
-        onTap: () => onItemTapped(index),
-        child: Container(
-          decoration: ShapeDecoration(
-            color: backgroundColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 24),
-                Text(
-                  label,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 12,
-                    fontFamily: 'Space Grotesk',
-                    fontWeight: FontWeight.w500,
-                    height: 1.50,
-                  ),
+  const _AppNavItem({
+    required this.label,
+    required this.icon,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final Color selectedBackgroundColor = const Color(0xFFA8D03D);
+    final Color selectedIconColor = Colors.white;
+    final Color selectedTextColor = Colors.white;
+    final Color unselectedColor = const Color(0xFF66707F);
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: isSelected ? selectedBackgroundColor : Colors.transparent,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: isSelected ? selectedIconColor : unselectedColor,
+                size: 24,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                label,
+                style: TextStyle(
+                  color: isSelected ? selectedTextColor : unselectedColor,
+                  fontSize: 12,
+                  fontFamily: 'Space Grotesk',
+                  fontWeight: FontWeight.w500,
+                  height: 1.50,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

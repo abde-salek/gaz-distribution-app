@@ -22,9 +22,10 @@ class _DashState extends State<Dash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(child: Text('You are on page $_selectedIndex')),
-      bottomNavigationBar: AppNavigationBar(
+      bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
+        onItemSelected: _onItemTapped,
       ),
     );
   }

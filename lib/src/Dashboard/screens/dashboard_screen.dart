@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
+import 'package:gaz/widgets/app_bar.dart';
 
 class Dash extends StatefulWidget {
   const Dash({super.key});
@@ -21,12 +22,19 @@ class _DashState extends State<Dash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      body: Center(child: Text('You are on page $_selectedIndex')),
-      bottomNavigationBar: BottomNavBar(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
-        onItemSelected: _onItemTapped,
+      appBar: CustomAppBar(
+        title: 'Dashboard',
+        leftIcon: IconButton(
+          icon: const Icon(Icons.contactless_sharp),
+          onPressed: () {},
+        ),
+        rightIcon: null,
+      ),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        spacing: 141,
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/widgets/app_bar.dart';
+import 'package:gaz/widgets/app_navigation_bar.dart';
 
+// Main dashboard widget, stateful to allow dynamic updates
 class Dash extends StatefulWidget {
   const Dash({super.key});
 
@@ -8,6 +10,7 @@ class Dash extends StatefulWidget {
   State<Dash> createState() => _DashState();
 }
 
+// State class for Dash
 class _DashState extends State<Dash> {
   int _selectedIndex = 0;
 
@@ -15,10 +18,12 @@ class _DashState extends State<Dash> {
     setState(() {
       _selectedIndex = index;
     });
+    // Add navigation logic here if needed
   }
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Dashboard',
@@ -33,12 +38,13 @@ class _DashState extends State<Dash> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Welcome message
+          SizedBox(height: 16),
+          // Welcome message section
           ConstrainedBox(
             constraints: const BoxConstraints(minWidth: 160),
             child: Container(
               width: 402,
-              height: 54,
+              height: 40,
               padding: const EdgeInsets.only(top: 16),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -89,7 +95,7 @@ class _DashState extends State<Dash> {
               ),
             ),
           ),
-          // Date display
+          // Date display section
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -107,11 +113,8 @@ class _DashState extends State<Dash> {
                       color: Color(0xFF0C8C96),
                       fontSize: 16,
                       fontFamily: 'Space Grotesk',
-                      color: Color(0xFF0C8C96), // Custom color
-                      fontSize: 16, // Font size
-                      fontFamily: 'Space Grotesk', // Custom font
-                      fontWeight: FontWeight.w400, // Normal weight
-                      height: 1.31, // Line height
+                      fontWeight: FontWeight.w400,
+                      height: 1.31,
                     ),
                   ),
                 ),
@@ -120,27 +123,20 @@ class _DashState extends State<Dash> {
           ),
           // Profile or avatar image section
           Container(
-            width: double.infinity, // Full width
-            padding: const EdgeInsets.only(
-              top: 8,
-              left: 16,
-              right: 16,
-            ), // Padding
+            width: double.infinity,
+            padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
             child: Row(
-              mainAxisSize: MainAxisSize.min, // Minimum horizontal space
-              mainAxisAlignment:
-                  MainAxisAlignment.center, // Center horizontally
-              crossAxisAlignment: CrossAxisAlignment.start, // Align to top
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 47, // Avatar width
-                  height: 47, // Avatar height
+                  width: 47,
+                  height: 47,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(
-                        "https://placehold.co/47x47",
-                      ), // Placeholder image
-                      fit: BoxFit.contain, // Contain within box
+                      image: NetworkImage("https://placehold.co/47x47"),
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -149,117 +145,93 @@ class _DashState extends State<Dash> {
           ),
           // Main dashboard card section
           Container(
-            width: double.infinity, // Full width
-            padding: const EdgeInsets.all(16), // Padding on all sides
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
             child: Row(
-              mainAxisSize: MainAxisSize.min, // Minimum horizontal space
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween, // Space between children
-              crossAxisAlignment:
-                  CrossAxisAlignment.center, // Center vertically
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Main card with target, collected, owed
                 Container(
-                  width: 310, // Card width
-                  height: 220, // Card height
+                  width: 310,
+                  height: 220,
                   decoration: ShapeDecoration(
-                    color: const Color(0xFFE2E2E2), // Card background color
+                    color: const Color(0xFFE2E2E2),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        16,
-                      ), // Rounded corners
+                      borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min, // Minimum vertical space
-                    mainAxisAlignment: MainAxisAlignment.start, // Align to top
-                    crossAxisAlignment:
-                        CrossAxisAlignment.center, // Center horizontally
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       // Target amount section
                       Container(
-                        width: 256, // Section width
-                        height: 125, // Section height
-                        clipBehavior: Clip.antiAlias, // Clip overflow
-                        decoration: const BoxDecoration(), // No decoration
+                        width: 256,
+                        height: 125,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: const BoxDecoration(),
                         child: Row(
-                          mainAxisSize:
-                              MainAxisSize.min, // Minimum horizontal space
-                          mainAxisAlignment:
-                              MainAxisAlignment.center, // Center horizontally
-                          crossAxisAlignment:
-                              CrossAxisAlignment.center, // Center vertically
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 217, // Target card width
-                              height: 111, // Target card height
-                              clipBehavior: Clip.antiAlias, // Clip overflow
+                              width: 217,
+                              height: 111,
+                              clipBehavior: Clip.antiAlias,
                               decoration: ShapeDecoration(
-                                color: const Color(0xFF6BC6F0), // Card color
+                                color: const Color(0xFF6BC6F0),
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                    16,
-                                  ), // Rounded corners
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
                                 shadows: const [
                                   BoxShadow(
-                                    color: Color(0xFF66707F), // Shadow color
+                                    color: Color(0xFF66707F),
                                     blurRadius: 0,
-                                    offset: Offset(3, 3), // Shadow offset
+                                    offset: Offset(3, 3),
                                     spreadRadius: 0,
                                   ),
                                 ],
                               ),
                               child: Column(
-                                mainAxisSize:
-                                    MainAxisSize.min, // Minimum vertical space
-                                mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .center, // Center vertically
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.start, // Align to left
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   // Target amount value
                                   ConstrainedBox(
                                     constraints: const BoxConstraints(
                                       minWidth: 150,
-                                    ), // Minimum width
+                                    ),
                                     child: SizedBox(
-                                      width: double.infinity, // Full width
-                                      height: 40, // Height for value
+                                      width: double.infinity,
+                                      height: 40,
                                       child: Row(
-                                        mainAxisSize:
-                                            MainAxisSize
-                                                .min, // Minimum horizontal space
+                                        mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .center, // Center horizontally
+                                            MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment
-                                                .center, // Center vertically
+                                            CrossAxisAlignment.center,
                                         children: [
                                           SizedBox(
-                                            width: 217, // Value width
-                                            height: 41, // Value height
+                                            width: 217,
+                                            height: 41,
                                             child: ConstrainedBox(
                                               constraints: const BoxConstraints(
                                                 minHeight: 32,
-                                              ), // Minimum height
+                                              ),
                                               child: const Text(
-                                                '484848', // Target amount value (static)
+                                                '484848',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
-                                                  color: Color(
-                                                    0xFF1B3F77,
-                                                  ), // Text color
-                                                  fontSize:
-                                                      40, // Large font size
-                                                  fontFamily:
-                                                      'Space Grotesk', // Custom font
-                                                  fontWeight:
-                                                      FontWeight
-                                                          .w600, // Semi-bold
-                                                  height: 0.53, // Line height
+                                                  color: Color(0xFF1B3F77),
+                                                  fontSize: 40,
+                                                  fontFamily: 'Space Grotesk',
+                                                  fontWeight: FontWeight.w600,
+                                                  height: 0.53,
                                                 ),
                                               ),
                                             ),
@@ -270,34 +242,25 @@ class _DashState extends State<Dash> {
                                   ),
                                   // Target amount label
                                   SizedBox(
-                                    width: double.infinity, // Full width
+                                    width: double.infinity,
                                     child: Column(
-                                      mainAxisSize:
-                                          MainAxisSize
-                                              .min, // Minimum vertical space
+                                      mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                          MainAxisAlignment
-                                              .start, // Align to top
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment
-                                              .start, // Align to left
+                                          CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          width: 217, // Label width
+                                          width: 217,
                                           child: const Text(
-                                            'Target Amount', // Label text
+                                            'Target Amount',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              color: Color(
-                                                0xFF0F1911,
-                                              ), // Label color
-                                              fontSize: 16, // Font size
-                                              fontFamily:
-                                                  'Futura Hv BT', // Custom font
-                                              fontWeight:
-                                                  FontWeight
-                                                      .w400, // Normal weight
-                                              height: 1.25, // Line height
+                                              color: Color(0xFF0F1911),
+                                              fontSize: 16,
+                                              fontFamily: 'Futura Hv BT',
+                                              fontWeight: FontWeight.w400,
+                                              height: 1.25,
                                             ),
                                           ),
                                         ),
@@ -312,109 +275,85 @@ class _DashState extends State<Dash> {
                       ),
                       // Collected and Owed section
                       SizedBox(
-                        width: double.infinity, // Full width
+                        width: double.infinity,
                         child: Row(
-                          mainAxisSize: MainAxisSize.min, // Minimum horizontal space
-                          mainAxisAlignment: MainAxisAlignment.start, // Align to left
-                          crossAxisAlignment: CrossAxisAlignment.center, // Center vertically
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // Collected card
                             Container(
-                              width: 151, // Card width
-                              height: 87, // Card height
-                              clipBehavior: Clip.antiAlias, // Clip overflow
-                              decoration:
-                                  const BoxDecoration(), // No decoration
-                                mainAxisSize:
-                                    MainAxisSize
-                                        .min, // Minimum horizontal space
-                                mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .center, // Center horizontally
-                                crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .center, // Center vertically
+                              width: 151,
+                              height: 87,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: const BoxDecoration(),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    width: 143, // Card width
-                                    height: 75, // Card height
-                                    clipBehavior:
-                                        Clip.antiAlias, // Clip overflow
+                                    width: 143,
+                                    height: 75,
+                                    clipBehavior: Clip.antiAlias,
                                     decoration: ShapeDecoration(
-                                      color: const Color(
-                                        0xFFA8D03D,
-                                      ), // Card color
+                                      color: const Color(0xFFA8D03D),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                          16,
-                                        ), // Rounded corners
+                                        borderRadius: BorderRadius.circular(16),
                                       ),
                                       shadows: const [
                                         BoxShadow(
-                                          color: Color(
-                                            0xFF66707F,
-                                          ), // Shadow color
+                                          color: Color(0xFF66707F),
                                           blurRadius: 0,
-                                          offset: Offset(3, 3), // Shadow offset
+                                          offset: Offset(3, 3),
                                           spreadRadius: 0,
                                         ),
                                       ],
                                     ),
                                     child: Column(
-                                      mainAxisSize:
-                                          MainAxisSize
-                                              .min, // Minimum vertical space
+                                      mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                          MainAxisAlignment
-                                              .center, // Center vertically
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment
-                                              .center, // Center horizontally
+                                          CrossAxisAlignment.center,
                                       children: [
                                         // Collected value
                                         ConstrainedBox(
                                           constraints: const BoxConstraints(
                                             minWidth: 150,
-                                          ), // Minimum width
+                                          ),
                                           child: SizedBox(
-                                            width: 150, // Value width
-                                            height: 40, // Value height
+                                            width: 150,
+                                            height: 40,
                                             child: Row(
-                                              mainAxisSize:
-                                                  MainAxisSize
-                                                      .min, // Minimum horizontal space
+                                              mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .center, // Center horizontally
+                                                  MainAxisAlignment.center,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment
-                                                      .center, // Center vertically
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  width: 150, // Value width
-                                                  height: 41, // Value height
+                                                  width: 150,
+                                                  height: 41,
                                                   child: ConstrainedBox(
                                                     constraints:
                                                         const BoxConstraints(
                                                           minHeight: 32,
-                                                        ), // Minimum height
+                                                        ),
                                                     child: const Text(
-                                                      '48485', // Collected value (static)
+                                                      '48485',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: TextStyle(
                                                         color: Color(
                                                           0xFF1B3F77,
-                                                        ), // Text color
-                                                        fontSize:
-                                                            32, // Font size
+                                                        ),
+                                                        fontSize: 32,
                                                         fontFamily:
-                                                            'Space Grotesk', // Custom font
+                                                            'Space Grotesk',
                                                         fontWeight:
-                                                            FontWeight
-                                                                .w600, // Semi-bold
-                                                        height:
-                                                            0.66, // Line height
+                                                            FontWeight.w600,
+                                                        height: 0.66,
                                                       ),
                                                     ),
                                                   ),
@@ -425,37 +364,28 @@ class _DashState extends State<Dash> {
                                         ),
                                         // Collected label
                                         Container(
-                                          width: 150, // Label width
+                                          width: 150,
                                           padding: const EdgeInsets.symmetric(
                                             vertical: 2,
-                                          ), // Vertical padding
+                                          ),
                                           child: Column(
-                                            mainAxisSize:
-                                                MainAxisSize
-                                                    .min, // Minimum vertical space
+                                            mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .start, // Align to top
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment
-                                                    .start, // Align to left
+                                                CrossAxisAlignment.start,
                                             children: [
                                               SizedBox(
-                                                width: 150, // Label width
+                                                width: 150,
                                                 child: const Text(
-                                                  'Collected', // Label text
+                                                  'Collected',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
-                                                    color: Color(
-                                                      0xFF0F1911,
-                                                    ), // Label color
-                                                    fontSize: 16, // Font size
-                                                    fontFamily:
-                                                        'Futura Hv BT', // Custom font
-                                                    fontWeight:
-                                                        FontWeight
-                                                            .w400, // Normal weight
-                                                    height: 1.25, // Line height
+                                                    color: Color(0xFF0F1911),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Futura Hv BT',
+                                                    fontWeight: FontWeight.w400,
+                                                    height: 1.25,
                                                   ),
                                                 ),
                                               ),
@@ -470,102 +400,77 @@ class _DashState extends State<Dash> {
                             ),
                             // Owed card
                             Container(
-                              width: 151, // Card width
-                              height: 87, // Card height
-                              clipBehavior: Clip.antiAlias, // Clip overflow
-                              decoration:
-                                  const BoxDecoration(), // No decoration
+                              width: 151,
+                              height: 87,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: const BoxDecoration(),
                               child: Row(
-                                mainAxisSize:
-                                    MainAxisSize
-                                        .min, // Minimum horizontal space
-                                mainAxisAlignment:
-                                    MainAxisAlignment
-                                        .center, // Center horizontally
-                                crossAxisAlignment:
-                                    CrossAxisAlignment
-                                        .center, // Center vertically
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    width: 143, // Card width
-                                    height: 75, // Card height
-                                    clipBehavior:
-                                        Clip.antiAlias, // Clip overflow
+                                    width: 143,
+                                    height: 75,
+                                    clipBehavior: Clip.antiAlias,
                                     decoration: ShapeDecoration(
-                                      color: const Color(
-                                        0xFFDBDBDB,
-                                      ), // Card color
+                                      color: const Color(0xFFDBDBDB),
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                          16,
-                                        ), // Rounded corners
+                                        borderRadius: BorderRadius.circular(16),
                                       ),
                                       shadows: const [
                                         BoxShadow(
-                                          color: Color(
-                                            0xFF66707F,
-                                          ), // Shadow color
+                                          color: Color(0xFF66707F),
                                           blurRadius: 0,
-                                          offset: Offset(3, 3), // Shadow offset
+                                          offset: Offset(3, 3),
                                           spreadRadius: 0,
                                         ),
                                       ],
                                     ),
                                     child: Column(
-                                      mainAxisSize:
-                                          MainAxisSize
-                                              .min, // Minimum vertical space
+                                      mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
-                                          MainAxisAlignment
-                                              .center, // Center vertically
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
-                                          CrossAxisAlignment
-                                              .center, // Center horizontally
+                                          CrossAxisAlignment.center,
                                       children: [
                                         // Owed value
                                         ConstrainedBox(
                                           constraints: const BoxConstraints(
                                             minWidth: 150,
-                                          ), // Minimum width
+                                          ),
                                           child: SizedBox(
-                                            width: 150, // Value width
-                                            height: 40, // Value height
+                                            width: 150,
+                                            height: 40,
                                             child: Row(
-                                              mainAxisSize:
-                                                  MainAxisSize
-                                                      .min, // Minimum horizontal space
+                                              mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .center, // Center horizontally
+                                                  MainAxisAlignment.center,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment
-                                                      .center, // Center vertically
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  width: 150, // Value width
-                                                  height: 41, // Value height
+                                                  width: 150,
+                                                  height: 41,
                                                   child: ConstrainedBox(
                                                     constraints:
                                                         const BoxConstraints(
                                                           minHeight: 32,
-                                                        ), // Minimum height
+                                                        ),
                                                     child: const Text(
-                                                      '48485', // Owed value (static)
+                                                      '48485',
                                                       textAlign:
                                                           TextAlign.center,
                                                       style: TextStyle(
                                                         color: Color(
                                                           0xFF1B3F77,
-                                                        ), // Text color
-                                                        fontSize:
-                                                            32, // Font size
+                                                        ),
+                                                        fontSize: 32,
                                                         fontFamily:
-                                                            'Space Grotesk', // Custom font
+                                                            'Space Grotesk',
                                                         fontWeight:
-                                                            FontWeight
-                                                                .w600, // Semi-bold
-                                                        height:
-                                                            0.66, // Line height
+                                                            FontWeight.w600,
+                                                        height: 0.66,
                                                       ),
                                                     ),
                                                   ),
@@ -576,37 +481,28 @@ class _DashState extends State<Dash> {
                                         ),
                                         // Owed label
                                         Container(
-                                          width: 150, // Label width
+                                          width: 150,
                                           padding: const EdgeInsets.symmetric(
                                             vertical: 2,
-                                          ), // Vertical padding
+                                          ),
                                           child: Column(
-                                            mainAxisSize:
-                                                MainAxisSize
-                                                    .min, // Minimum vertical space
+                                            mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
-                                                MainAxisAlignment
-                                                    .start, // Align to top
+                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment
-                                                    .start, // Align to left
+                                                CrossAxisAlignment.start,
                                             children: [
                                               SizedBox(
-                                                width: 150, // Label width
+                                                width: 150,
                                                 child: const Text(
-                                                  'Owed', // Label text
+                                                  'Owed',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
-                                                    color: Color(
-                                                      0xFF0F1911,
-                                                    ), // Label color
-                                                    fontSize: 16, // Font size
-                                                    fontFamily:
-                                                        'Futura Hv BT', // Custom font
-                                                    fontWeight:
-                                                        FontWeight
-                                                            .w400, // Normal weight
-                                                    height: 1.25, // Line height
+                                                    color: Color(0xFF0F1911),
+                                                    fontSize: 16,
+                                                    fontFamily: 'Futura Hv BT',
+                                                    fontWeight: FontWeight.w400,
+                                                    height: 1.25,
                                                   ),
                                                 ),
                                               ),
@@ -627,41 +523,35 @@ class _DashState extends State<Dash> {
                 ),
                 // Currency or icon section (DH)
                 Container(
-                  width: 49, // Container width
-                  height: 45, // Container height
-                  padding: const EdgeInsets.all(10), // Padding on all sides
+                  width: 49,
+                  height: 45,
+                  padding: const EdgeInsets.all(10),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min, // Minimum vertical space
-                    mainAxisAlignment:
-                        MainAxisAlignment.center, // Center vertically
-                    crossAxisAlignment:
-                        CrossAxisAlignment.center, // Center horizontally
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // Empty container for spacing or design
                       Container(
                         width: 10,
                         height: 10,
                         padding: const EdgeInsets.all(10),
                       ),
-                      // Currency label
                       const Text(
-                        'DH', // Currency or unit
+                        'DH',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Color(0xFF0C111C), // Text color
-                          fontSize: 22, // Font size
-                          fontFamily: 'Space Grotesk', // Custom font
-                          fontWeight: FontWeight.w400, // Normal weight
-                          height: 1.09, // Line height
+                          color: Color(0xFF0C111C),
+                          fontSize: 22,
+                          fontFamily: 'Space Grotesk',
+                          fontWeight: FontWeight.w400,
+                          height: 1.09,
                         ),
                       ),
-                      // Icon stack (decorative)
                       SizedBox(
-                        width: 20, // Stack width
-                        height: 28, // Stack height
+                        width: 20,
+                        height: 28,
                         child: Stack(
                           children: [
-                            // Rotated image positioned at (20, 20)
                             Positioned(
                               left: 20,
                               top: 20,
@@ -670,7 +560,7 @@ class _DashState extends State<Dash> {
                                 transform:
                                     Matrix4.identity()
                                       ..translate(0.0, 0.0)
-                                      ..rotateZ(3.14), // 180 degree rotation
+                                      ..rotateZ(3.14),
                                 child: Container(
                                   width: 20,
                                   height: 20,
@@ -678,14 +568,13 @@ class _DashState extends State<Dash> {
                                     image: DecorationImage(
                                       image: NetworkImage(
                                         "https://placehold.co/20x20",
-                                      ), // Placeholder image
+                                      ),
                                       fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                            // Normal image positioned at (0, 8)
                             const Positioned(
                               left: 0,
                               top: 8,
@@ -697,7 +586,7 @@ class _DashState extends State<Dash> {
                                     image: DecorationImage(
                                       image: NetworkImage(
                                         "https://placehold.co/20x20",
-                                      ), // Placeholder image
+                                      ),
                                       fit: BoxFit.contain,
                                     ),
                                   ),
@@ -714,6 +603,11 @@ class _DashState extends State<Dash> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavBar(
+        selectedIndex: _selectedIndex,
+        onItemSelected: _onItemTapped,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

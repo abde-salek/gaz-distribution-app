@@ -12,13 +12,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Size preferredSize;
 
   CustomAppBar({
-    Key? key,
+    super.key,
     required this.title,
     this.leftIcon,
     this.rightIcon,
     double height = kToolbarHeight,
-  }) : preferredSize = Size.fromHeight(height),
-       super(key: key);
+  }) : preferredSize = Size.fromHeight(height);
 
   @override
   Widget build(BuildContext context) {

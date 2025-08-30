@@ -21,10 +21,7 @@ class _DashState extends State<Dash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        
-        title: const Text('Dashboard'),
-      ),
+      
       body: Center(child: Text('You are on page $_selectedIndex')),
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,

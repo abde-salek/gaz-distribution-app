@@ -30,13 +30,9 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-    _rotationAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
+    _rotationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -47,15 +43,14 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
 
   void _toggleCurrency() {
     setState(() {
-      _currentCurrency = _currentCurrency == Currency.dh 
-          ? Currency.riyal 
-          : Currency.dh;
+      _currentCurrency =
+          _currentCurrency == Currency.dh ? Currency.riyal : Currency.dh;
     });
-    
+
     _animationController.forward().then((_) {
       _animationController.reverse();
     });
-    
+
     widget.onCurrencyChanged(_currentCurrency);
   }
 
@@ -69,8 +64,8 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
       onTap: _toggleCurrency,
       child: Container(
         width: 49,
-        height: 45,
-        padding: const EdgeInsets.all(10),
+        height: 40,
+        padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: Colors.white,
@@ -87,11 +82,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: 10,
-              height: 10,
-              padding: const EdgeInsets.all(10),
-            ),
+            Container(width: 8, height: 8, padding: const EdgeInsets.all(8)),
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),
               child: Text(
@@ -107,25 +98,27 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                 ),
               ),
             ),
-            Container(
-              width: 20,
-              height: 28,
+            SizedBox(
+              width: 16,
+              height: 20,
               child: Stack(
                 children: [
                   AnimatedBuilder(
                     animation: _rotationAnimation,
                     builder: (context, child) {
                       return Positioned(
-                        left: 20,
-                        top: 20,
+                        left: 16,
+                        top: 16,
                         child: Transform.rotate(
                           angle: _rotationAnimation.value * 3.14,
                           child: Container(
-                            width: 20,
-                            height: 20,
+                            width: 16,
+                            height: 16,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage("https://placehold.co/20x20"),
+                                image: NetworkImage(
+                                  "https://placehold.co/20x20",
+                                ),
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -136,10 +129,10 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                   ),
                   const Positioned(
                     left: 0,
-                    top: 8,
+                    top: 4,
                     child: SizedBox(
-                      width: 20,
-                      height: 20,
+                      width: 16,
+                      height: 16,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           image: DecorationImage(

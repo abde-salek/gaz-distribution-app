@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
-import 'package:gaz/Core/responsive_ui.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Dash extends StatefulWidget {
   const Dash({super.key});
@@ -32,10 +33,9 @@ class _DashState extends State<Dash> {
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Dashboard',
-        leftIcon: IconButton(
-          icon: const Icon(Icons.contactless_sharp),
-          onPressed: () {},
-        ),
+        // Left icon for the app bar: SVG icon from the icons folder
+        // Make sure to import 'package:flutter_svg/flutter_svg.dart' at the top of your file if not already imported.
+        leftIcon: SvgPicture.asset('/icons/nfc.svg'),
         rightIcon: CurrencySwitcher(
           initialCurrency: _currentCurrency,
           onCurrencyChanged: _onCurrencyChanged,
@@ -63,7 +63,8 @@ class _DashState extends State<Dash> {
               const SizedBox(height: 12),
               // Date display section
               Text(
-                'Monday, 12th August',
+                // Display the current system date in a formatted way (e.g., "Monday, 12th August")
+                DateFormat('EEEE, d MMMM').format(DateTime.now()),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xFF0C8C96),

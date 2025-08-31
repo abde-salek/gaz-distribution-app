@@ -63,9 +63,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
     return GestureDetector(
       onTap: _toggleCurrency,
       child: Container(
-        width: 49,
-        height: 40,
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: Colors.white,
@@ -82,7 +80,6 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(width: 8, height: 8, padding: const EdgeInsets.all(8)),
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),
               child: Text(
@@ -91,55 +88,48 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xFF0C111C),
-                  fontSize: 22,
+                  fontSize: 14,
                   fontFamily: 'Space Grotesk',
                   fontWeight: FontWeight.w400,
-                  height: 1.09,
+                  height: 1.0,
                 ),
               ),
             ),
+            const SizedBox(height: 1),
             SizedBox(
-              width: 16,
-              height: 20,
+              width: 8,
+              height: 8,
               child: Stack(
                 children: [
                   AnimatedBuilder(
                     animation: _rotationAnimation,
+
+                    /// AnimatedBuilder builder for rotating the currency icon.
+                    /// Returns a rotated widget based on the current animation value.
                     builder: (context, child) {
-                      return Positioned(
-                        left: 16,
-                        top: 16,
-                        child: Transform.rotate(
-                          angle: _rotationAnimation.value * 3.14,
-                          child: Container(
-                            width: 16,
-                            height: 16,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  "https://placehold.co/20x20",
-                                ),
-                                fit: BoxFit.contain,
-                              ),
-                            ),
+                      // The builder must return a widget. Here, we return the rotated currency icon.
+                      return Transform.rotate(
+                        angle: _rotationAnimation.value * 3.14,
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(2),
                           ),
                         ),
                       );
                     },
                   ),
-                  const Positioned(
+                  Positioned(
                     left: 0,
-                    top: 4,
-                    child: SizedBox(
-                      width: 16,
-                      height: 16,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage("https://placehold.co/20x20"),
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                    top: 0,
+                    child: Container(
+                      width: 8,
+                      height: 8,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(2),
                       ),
                     ),
                   ),

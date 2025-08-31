@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
+import 'package:gaz/services/currency_service.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -15,6 +16,11 @@ class Dash extends StatefulWidget {
 class _DashState extends State<Dash> {
   int _selectedIndex = 0;
   Currency _currentCurrency = Currency.dh;
+
+  // Base amounts in DH (original currency)
+  final double _targetAmountDH = 484848.0;
+  final double _collectedAmountDH = 48485.0;
+  final double _owedAmountDH = 48485.0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -34,8 +40,15 @@ class _DashState extends State<Dash> {
       appBar: CustomAppBar(
         title: 'Dashboard',
         // Left icon for the app bar: SVG icon from the icons folder
-        // Make sure to import 'package:flutter_svg/flutter_svg.dart' at the top of your file if not already imported.
-        leftIcon: SvgPicture.asset('/icons/nfc.svg'),
+        // ensure the icon appears smaller regardless of SVG's internal viewBox.
+        leftIcon: SizedBox(
+          height: 18,
+          width: 18,
+          child: SvgPicture.asset(
+            'icons/nfc.svg',
+            fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
+          ),
+        ),
         rightIcon: CurrencySwitcher(
           initialCurrency: _currentCurrency,
           onCurrencyChanged: _onCurrencyChanged,
@@ -116,10 +129,13 @@ class _DashState extends State<Dash> {
                         ),
                         child: Column(
                           children: [
-                            const Text(
-                              '484848',
+                            Text(
+                              CurrencyService.formatAmount(
+                                _targetAmountDH,
+                                _currentCurrency,
+                              ),
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Color(0xFF1B3F77),
                                 fontSize: 40,
                                 fontFamily: 'Space Grotesk',
@@ -166,10 +182,13 @@ class _DashState extends State<Dash> {
                               ),
                               child: Column(
                                 children: [
-                                  const Text(
-                                    '48485',
+                                  Text(
+                                    CurrencyService.formatAmount(
+                                      _collectedAmountDH,
+                                      _currentCurrency,
+                                    ),
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color(0xFF1B3F77),
                                       fontSize: 32,
                                       fontFamily: 'Space Grotesk',
@@ -214,10 +233,13 @@ class _DashState extends State<Dash> {
                               ),
                               child: Column(
                                 children: [
-                                  const Text(
-                                    '48485',
+                                  Text(
+                                    CurrencyService.formatAmount(
+                                      _owedAmountDH,
+                                      _currentCurrency,
+                                    ),
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Color(0xFF1B3F77),
                                       fontSize: 32,
                                       fontFamily: 'Space Grotesk',
@@ -249,7 +271,7 @@ class _DashState extends State<Dash> {
                         child: Container(
                           padding: const EdgeInsets.all(10),
                           child: Text(
-                            _currentCurrency == Currency.dh ? 'DH' : 'Riyal',
+                            CurrencyService.getCurrencyName(_currentCurrency),
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Color(0xFF0C111C),

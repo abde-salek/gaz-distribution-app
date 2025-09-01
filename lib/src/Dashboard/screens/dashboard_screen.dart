@@ -3,8 +3,10 @@ import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:gaz/services/currency_service.dart';
+import 'package:gaz/src/sync/screens/sync_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gaz/src/sync/screens/sync_screen.dart';
 
 class Dash extends StatefulWidget {
   const Dash({super.key});
@@ -42,8 +44,8 @@ class _DashState extends State<Dash> {
         // Left icon for the app bar: SVG icon from the icons folder
         // ensure the icon appears smaller regardless of SVG's internal viewBox.
         leftIcon: SizedBox(
-          height: 18,
-          width: 18,
+          height: 14,
+          width: 14,
           child: SvgPicture.asset(
             'icons/nfc.svg',
             fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
@@ -90,14 +92,17 @@ class _DashState extends State<Dash> {
               const SizedBox(height: 12),
               // Profile or avatar image section
               Center(
-                child: Container(
-                  width: 47,
-                  height: 47,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: NetworkImage("https://placehold.co/47x47"),
-                      fit: BoxFit.cover,
+                child: GestureDetector(
+                  onTap: () => showSyncScreen(context),
+                  child: Container(
+                    width: 47,
+                    height: 47,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: AssetImage('icons/sync.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
@@ -266,23 +271,6 @@ class _DashState extends State<Dash> {
                         ],
                       ),
                       const SizedBox(height: 16),
-                      // Currency section
-                      Center(
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          child: Text(
-                            CurrencyService.getCurrencyName(_currentCurrency),
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Color(0xFF0C111C),
-                              fontSize: 22,
-                              fontFamily: 'Space Grotesk',
-                              fontWeight: FontWeight.w400,
-                              height: 1.09,
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   );
                 },

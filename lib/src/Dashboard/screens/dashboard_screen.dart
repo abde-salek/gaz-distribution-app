@@ -6,14 +6,14 @@ import 'package:gaz/services/currency_service.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Dash extends StatefulWidget {
-  const Dash({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
 
   @override
-  State<Dash> createState() => _DashState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashState extends State<Dash> {
+class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
   Currency _currentCurrency = Currency.dh;
 
@@ -42,8 +42,8 @@ class _DashState extends State<Dash> {
         // Left icon for the app bar: SVG icon from the icons folder
         // ensure the icon appears smaller regardless of SVG's internal viewBox.
         leftIcon: SizedBox(
-          height: 14,
-          width: 14,
+          height: 10,
+          width: 10,
           child: SvgPicture.asset(
             'icons/nfc.svg',
             fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
@@ -91,7 +91,7 @@ class _DashState extends State<Dash> {
               // Profile or avatar image section
               Center(
                 child: GestureDetector(
-                  onTap: () => null,//showSyncScreen(context),
+                  onTap: () => null, //showSyncScreen(context),
                   child: Container(
                     width: 47,
                     height: 47,
@@ -269,6 +269,218 @@ class _DashState extends State<Dash> {
                         ],
                       ),
                       const SizedBox(height: 16),
+                    ],
+                  );
+                },
+              ),
+              // Truck Inventory title and section
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final isNarrow = constraints.maxWidth < 500;
+                  final isVeryNarrow = constraints.maxWidth < 400;
+
+                  return Column(
+                    children: [
+                      // Truck Inventory title
+                      Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.only(
+                          top: 20,
+                          left: isNarrow ? 8 : 16,
+                          right: isNarrow ? 8 : 16,
+                          bottom: 12,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: isNarrow ? double.infinity : 370,
+                              child: Text(
+                                'Truck Inventory',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: const Color(0xFF0F1911),
+                                  fontSize: isVeryNarrow ? 18 : 22,
+                                  fontFamily: 'Space Grotesk',
+                                  fontWeight: FontWeight.w700,
+                                  height: 1.27,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Truck Inventory grid
+                      Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isNarrow ? 16 : 36,
+                          vertical: 8,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            // First row of trucks
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                // Large bottle with label
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      width: isNarrow ? 90 : 110,
+                                      height: isNarrow ? 90 : 110,
+                                      child: Container(
+                                        width: isNarrow ? 90 : 110,
+                                        height: isNarrow ? 90 : 110,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              'icons/bottle.png',
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: isNarrow ? 8 : 10),
+                                    Container(
+                                      width: isNarrow ? 80 : 100,
+                                      height: isNarrow ? 25 : 29,
+                                      decoration: ShapeDecoration(
+                                        color: const Color(0xFFD9D9D9),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '48',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: const Color(0xFF1B3F77),
+                                            fontSize: isNarrow ? 16 : 20,
+                                            fontFamily: 'Space Grotesk',
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.05,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: isNarrow ? 12 : 20),
+                                // Medium bottle with label
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      width: isNarrow ? 70 : 90,
+                                      height: isNarrow ? 70 : 90,
+                                      child: Container(
+                                        width: isNarrow ? 70 : 90,
+                                        height: isNarrow ? 70 : 90,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              'icons/bottle.png',
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: isNarrow ? 8 : 10),
+                                    Container(
+                                      width: isNarrow ? 80 : 100,
+                                      height: isNarrow ? 25 : 29,
+                                      decoration: ShapeDecoration(
+                                        color: const Color(0xFFD9D9D9),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '48',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: const Color(0xFF1B3F77),
+                                            fontSize: isNarrow ? 16 : 20,
+                                            fontFamily: 'Space Grotesk',
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.05,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(width: isNarrow ? 12 : 20),
+                                // Small bottle with label
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Container(
+                                      width: isNarrow ? 50 : 70,
+                                      height: isNarrow ? 50 : 70,
+                                      child: Container(
+                                        width: isNarrow ? 50 : 70,
+                                        height: isNarrow ? 50 : 70,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              'icons/bottle.png',
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: isNarrow ? 8 : 10),
+                                    Container(
+                                      width: isNarrow ? 80 : 100,
+                                      height: isNarrow ? 25 : 29,
+                                      decoration: ShapeDecoration(
+                                        color: const Color(0xFFD9D9D9),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            8,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '48',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: const Color(0xFF1B3F77),
+                                            fontSize: isNarrow ? 16 : 20,
+                                            fontFamily: 'Space Grotesk',
+                                            fontWeight: FontWeight.w500,
+                                            height: 1.05,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   );
                 },

@@ -31,8 +31,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           // Left Icon (can be null)
           SizedBox(
-            width: 48,
-            height: 48,
+            width: 36,
+            height: 36,
             child: leftIcon ?? const SizedBox.shrink(),
           ),
           // Centered Title
@@ -54,8 +54,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           // Right Icon (can be null)
           SizedBox(
-            width: 48,
-            height: 48,
+            width: 36,
+            height: 36,
             child: rightIcon ?? const SizedBox.shrink(),
           ),
         ],

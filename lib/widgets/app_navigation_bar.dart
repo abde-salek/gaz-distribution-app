@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/src/clients/screens/clients_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemSelected;
 
+  //BottomNavBar constructor
   const BottomNavBar({
     super.key,
     required this.selectedIndex,
@@ -15,12 +18,12 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // A list of data for each navigation item.
     final List<Map<String, dynamic>> navItems = [
-      {'label': 'Dash', 'icon': Icons.dashboard},
-      {'label': 'Clients', 'icon': Icons.groups_2_outlined},
-      {'label': 'History', 'icon': Icons.history},
-      {'label': 'Settings', 'icon': Icons.settings_outlined},
+      {'label': 'Dash', 'icon': Icons.dashboard, 'page': const DashboardScreen()},
+      {'label': 'Clients', 'icon': Icons.groups_2_outlined, 'page': const ClientsScreen()},
+      {'label': 'History', 'icon': Icons.history, 'page': null},
+      {'label': 'Settings', 'icon': Icons.settings_outlined, 'page': null},
     ];
-
+    //each item in the navItems list
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 12),
@@ -37,7 +40,17 @@ class BottomNavBar extends StatelessWidget {
               label: item['label'],
               icon: item['icon'],
               isSelected: selectedIndex == index,
-              onTap: () => onItemSelected(index),
+              onTap:
+                  () => {
+                    onItemSelected(index),
+                    //navigate to the page
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => navItems[index]['page'],
+                      ),
+                    ),
+                  },
             ),
           );
         }),

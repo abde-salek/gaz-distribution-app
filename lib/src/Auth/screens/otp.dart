@@ -200,7 +200,8 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const Dash(),
+                                      builder:
+                                          (context) => const DashboardScreen(),
                                     ),
                                   );
                                 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 
@@ -77,7 +77,9 @@ class BottomCircleArrow extends StatelessWidget {
                         //if (_formKey.currentState!.validate()) {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Dash()),
+                          MaterialPageRoute(
+                            builder: (context) => DashboardScreen(),
+                          ),
                         );
                         //}
                       },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gaz/src/auth/screens/signup.dart';
+import 'package:gaz/src/Auth/screens/signup.dart';
 
 void main() {
   group('SignupPage Widget Test', () {

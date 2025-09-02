@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Gaz Distribution App - Main Entry Point

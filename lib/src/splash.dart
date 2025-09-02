@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/signup.dart';
+import 'auth/screens/signup.dart';
 import 'package:gaz/Core/app_colors.dart';
 
 /// Gaz Distribution App - Splash Screen

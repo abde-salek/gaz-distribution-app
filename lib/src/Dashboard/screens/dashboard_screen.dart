@@ -3,10 +3,8 @@ import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:gaz/services/currency_service.dart';
-import 'package:gaz/src/sync/screens/sync_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gaz/src/sync/screens/sync_screen.dart';
 
 class Dash extends StatefulWidget {
   const Dash({super.key});
@@ -93,7 +91,7 @@ class _DashState extends State<Dash> {
               // Profile or avatar image section
               Center(
                 child: GestureDetector(
-                  onTap: () => showSyncScreen(context),
+                  onTap: () => null,//showSyncScreen(context),
                   child: Container(
                     width: 47,
                     height: 47,

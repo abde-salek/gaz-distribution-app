@@ -91,7 +91,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               // Profile or avatar image section
               Center(
                 child: GestureDetector(
-                  onTap: () => null, //showSyncScreen(context),
+                  onTap: () {}, //showSyncScreen(context),
                   child: Container(
                     width: 47,
                     height: 47,
@@ -334,7 +334,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: isNarrow ? 90 : 110,
                                       height: isNarrow ? 90 : 110,
                                       child: Container(
@@ -383,7 +383,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: isNarrow ? 70 : 90,
                                       height: isNarrow ? 70 : 90,
                                       child: Container(
@@ -432,7 +432,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       width: isNarrow ? 50 : 70,
                                       height: isNarrow ? 50 : 70,
                                       child: Container(

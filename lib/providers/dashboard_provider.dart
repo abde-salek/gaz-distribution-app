@@ -1,53 +1,34 @@
-// ChangeNotifier that manages the state and logic
-// for the dashboard screen, including loading status, summary data,
-import 'package:flutter/foundation.dart';
-class DashboardProvider extends ChangeNotifier {
-  /// Indicates whether the dashboard is currently loading data.
-  bool _isLoading = false;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/models/dashboard_data.dart';
 
-  /// Error message, if any, from the last operation.
-  String? _errorMessage;
+/// Dashboard notifier for managing dashboard state
+class DashboardNotifier extends StateNotifier<DashboardData> {
+  DashboardNotifier() : super(DashboardData.initial());
 
-  /// getter for loading status.
-  bool get isLoading => _isLoading;
-
-  /// getter for error message.
-  String? get errorMessage => _errorMessage;
-
-  /// Sets the loading state and notifies listeners.
-  void setLoading(bool value) {
-    _isLoading = value;
-    notifyListeners();
+  void updateAmounts({
+    double? targetAmount,
+    double? collectedAmount,
+    double? owedAmount,
+  }) {
+    state = state.copyWith(
+      targetAmount: targetAmount,
+      collectedAmount: collectedAmount,
+      owedAmount: owedAmount,
+    );
   }
 
-  /// Sets an error message and notifies listeners.
-  void setError(String? message) {
-    _errorMessage = message;
-    notifyListeners();
+  void updateUserName(String userName) {
+    state = state.copyWith(userName: userName);
   }
 
-  /// Clears the error state and notifies listeners.
-  void clearError() {
-    _errorMessage = null;
-    notifyListeners();
-  }
-
-  /// Example method to simulate a dashboard operation.
-  /// Replace or expand this with real dashboard logic as needed.
-  Future<void> performDashboardOperation() async {
-    setLoading(true);
-    setError(null);
-
-    try {
-      // Simulate a network or processing delay
-      await Future.delayed(const Duration(seconds: 2));
-
-      // TODO: Add your dashboard logic here
-
-    } catch (e) {
-      setError('Dashboard operation failed: $e');
-    } finally {
-      setLoading(false);
-    }
+  void refreshData() {
+    // Simulate data refresh
+    state = state.copyWith(lastUpdated: DateTime.now());
   }
 }
+
+/// Dashboard provider
+final dashboardProvider =
+    StateNotifierProvider<DashboardNotifier, DashboardData>(
+      (ref) => DashboardNotifier(),
+    );

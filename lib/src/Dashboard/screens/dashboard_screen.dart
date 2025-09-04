@@ -5,22 +5,22 @@ import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:gaz/services/currency_service.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/providers/dashboard_provider.dart';
 
-class DashboardScreen extends StatefulWidget {
+class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   int _selectedIndex = 0;
   DisplayUnit _currentUnit = DisplayUnit.dh;
 
-  // Base amounts in DH (original currency)
-  final double _targetAmountDH = 484848.0;
-  final double _collectedAmountDH = 48485.0;
-  final double _owedAmountDH = 48485.0;
+  // Watch dashboard state from provider
+  late final dashboardState = ref.watch(dashboardProvider);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -134,7 +134,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           children: [
                             Text(
                               CurrencyService.formatAmount(
-                                _targetAmountDH,
+                                dashboardState.targetAmount,
                                 _currentUnit,
                               ),
                               textAlign: TextAlign.center,
@@ -187,7 +187,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 children: [
                                   Text(
                                     CurrencyService.formatAmount(
-                                      _collectedAmountDH,
+                                      dashboardState.collectedAmount,
                                       _currentUnit,
                                     ),
                                     textAlign: TextAlign.center,
@@ -238,7 +238,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 children: [
                                   Text(
                                     CurrencyService.formatAmount(
-                                      _owedAmountDH,
+                                      dashboardState.owedAmount,
                                       _currentUnit,
                                     ),
                                     textAlign: TextAlign.center,

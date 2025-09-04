@@ -1,0 +1,22 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '3.7.2'
+      - name: Install dependencies
+        run: dart pub get
+      - name: Analyze
+        run: dart analyze
+      - name: Run tests
+        run: dart test

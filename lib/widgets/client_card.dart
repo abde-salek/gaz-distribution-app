@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/models/client.dart';
+import 'package:gaz/services/currency_service.dart';
+import 'package:gaz/widgets/currency_switcher.dart';
 
 class ClientCard extends StatelessWidget {
   final Client client;
+  final VoidCallback? onTap;
+  final DisplayUnit displayUnit;
 
-  const ClientCard({super.key, required this.client});
+  const ClientCard({
+    super.key, 
+    required this.client,
+    this.onTap,
+    this.displayUnit = DisplayUnit.dh,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +24,13 @@ class ClientCard extends StatelessWidget {
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 72),
-      child: Container(
-        height: 72,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
-        child: Row(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          height: 72,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
+          child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -52,12 +63,12 @@ class ClientCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            Row(
+                          Row(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  client.balance.toStringAsFixed(2),
+                  CurrencyService.formatAmount(client.balance, displayUnit),
                   style: TextStyle(
                     color: balanceColor,
                     fontSize: 20,
@@ -67,7 +78,7 @@ class ClientCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  'DH',
+                  CurrencyService.getUnitName(displayUnit),
                   style: TextStyle(
                     color: balanceColor,
                     fontSize: 16,
@@ -78,6 +89,7 @@ class ClientCard extends StatelessWidget {
               ],
             ),
           ],
+        ),
         ),
       ),
     );

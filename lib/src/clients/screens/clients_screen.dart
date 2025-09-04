@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 import 'package:gaz/widgets/client_card.dart';
+import 'package:gaz/widgets/client_list.dart';
 import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
@@ -416,25 +417,15 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                 ],
                               ),
                             ),
-                            // CLIENTS LIST
-                            Container(
-                              height: 730,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  // LISTVIEW BUILDER
-                                  ListView.builder(
-                                    itemCount: clients.length,
-                                    itemBuilder: (context, index) {
-                                      final client = clients[index];
-                                      return ClientCard(client: client);
-                                    },
-                                  ),
-                                ],
+                            // CLIENTS LIST - Using reusable widget
+                            Expanded(
+                              child: ClientList(
+                                onClientTap: () {
+                                  // TODO: Navigate to client details
+                                  print('Client tapped');
+                                },
+                                showSearchBar: true,
+                                searchHint: 'Search clients',
                               ),
                             ),
                           ],

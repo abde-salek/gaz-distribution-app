@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-enum Currency { dh, riyal }
+enum DisplayUnit { dh, riyal }
 
 class CurrencySwitcher extends StatefulWidget {
-  final Currency initialCurrency;
-  final Function(Currency) onCurrencyChanged;
+  final DisplayUnit initialUnit;
+  final Function(DisplayUnit) onUnitChanged;
 
   const CurrencySwitcher({
     super.key,
-    this.initialCurrency = Currency.dh,
-    required this.onCurrencyChanged,
+    this.initialUnit = DisplayUnit.dh,
+    required this.onUnitChanged,
   });
 
   @override
@@ -18,14 +18,14 @@ class CurrencySwitcher extends StatefulWidget {
 
 class _CurrencySwitcherState extends State<CurrencySwitcher>
     with SingleTickerProviderStateMixin {
-  late Currency _currentCurrency;
+  late DisplayUnit _currentUnit;
   late AnimationController _animationController;
   late Animation<double> _rotationAnimation;
 
   @override
   void initState() {
     super.initState();
-    _currentCurrency = widget.initialCurrency;
+    _currentUnit = widget.initialUnit;
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 300),
       vsync: this,
@@ -43,19 +43,19 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
 
   void _toggleCurrency() {
     setState(() {
-      _currentCurrency =
-          _currentCurrency == Currency.dh ? Currency.riyal : Currency.dh;
+      _currentUnit =
+          _currentUnit == DisplayUnit.dh ? DisplayUnit.riyal : DisplayUnit.dh;
     });
 
     _animationController.forward().then((_) {
       _animationController.reverse();
     });
 
-    widget.onCurrencyChanged(_currentCurrency);
+    widget.onUnitChanged(_currentUnit);
   }
 
   String get _currencyText {
-    return _currentCurrency == Currency.dh ? 'DH' : 'Riyal';
+    return _currentUnit == DisplayUnit.dh ? 'DH' : 'Riyal';
   }
 
   @override
@@ -84,7 +84,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
               duration: const Duration(milliseconds: 200),
               child: Text(
                 _currencyText,
-                key: ValueKey(_currentCurrency),
+                key: ValueKey(_currentUnit),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Color(0xFF0C111C),

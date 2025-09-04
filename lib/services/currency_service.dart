@@ -3,22 +3,20 @@ import 'package:gaz/widgets/currency_switcher.dart';
 /// Service class for handling currency conversions and formatting
 /// Provides centralized currency logic for the entire app
 class CurrencyService {
-  // Conversion rate: 1 DH = 20 Riyal
-  static const double _dhToRiyalRate = 20.0;
+  // Fixed display conversion: 1 DH = 20 Riyal (legacy counting unit)
+  static const int riyalPerDh = 20;
 
-  /// Convert DH amount to Riyal
-  /// [dhAmount] - Amount in DH to convert
-  /// Returns the equivalent amount in Riyal
-  static double convertToRiyal(double dhAmount) {
-    return dhAmount * _dhToRiyalRate;
+  /// Convert DH amount to legacy Riyal display units.
+  static int convertDhToRiyal(double dhAmount) {
+    return (dhAmount * riyalPerDh).round();
   }
 
   /// Format amount based on the selected currency
   /// [dhAmount] - Base amount in DH
-  /// [currency] - Target currency (DH or Riyal)
+  /// [unit] - Target display unit (DH or Riyal)
   /// Returns formatted string with proper formatting and commas
-  static String formatAmount(double dhAmount, Currency currency) {
-    if (currency == Currency.dh) {
+  static String formatAmount(double dhAmount, DisplayUnit unit) {
+    if (unit == DisplayUnit.dh) {
       // For DH, allow decimals and format with commas
       String formatted = dhAmount.toStringAsFixed(
         dhAmount.truncateToDouble() == dhAmount ? 0 : 1,
@@ -29,8 +27,8 @@ class CurrencyService {
       return parts.join('.');
     } else {
       // For Riyal, convert and show as whole numbers (no decimals)
-      double riyalAmount = convertToRiyal(dhAmount);
-      return _addCommas(riyalAmount.toInt().toString());
+      final int riyalAmount = convertDhToRiyal(dhAmount);
+      return _addCommas(riyalAmount.toString());
     }
   }
 
@@ -49,9 +47,8 @@ class CurrencyService {
   }
 
   /// Get currency symbol/name
-  /// [currency] - Currency enum
-  /// Returns currency display name
-  static String getCurrencyName(Currency currency) {
-    return currency == Currency.dh ? 'DH' : 'Riyal';
+  /// Returns display unit name
+  static String getUnitName(DisplayUnit unit) {
+    return unit == DisplayUnit.dh ? 'DH' : 'Riyal';
   }
 }

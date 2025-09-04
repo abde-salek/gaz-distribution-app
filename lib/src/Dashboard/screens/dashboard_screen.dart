@@ -15,7 +15,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
-  Currency _currentCurrency = Currency.dh;
+  DisplayUnit _currentUnit = DisplayUnit.dh;
 
   // Base amounts in DH (original currency)
   final double _targetAmountDH = 484848.0;
@@ -28,9 +28,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
     });
   }
 
-  void _onCurrencyChanged(Currency currency) {
+  void _onUnitChanged(DisplayUnit unit) {
     setState(() {
-      _currentCurrency = currency;
+      _currentUnit = unit;
     });
   }
 
@@ -50,8 +50,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
         rightIcon: CurrencySwitcher(
-          initialCurrency: _currentCurrency,
-          onCurrencyChanged: _onCurrencyChanged,
+          initialUnit: _currentUnit,
+          onUnitChanged: _onUnitChanged,
         ),
       ),
       body: SingleChildScrollView(
@@ -135,7 +135,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             Text(
                               CurrencyService.formatAmount(
                                 _targetAmountDH,
-                                _currentCurrency,
+                                _currentUnit,
                               ),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
@@ -188,7 +188,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Text(
                                     CurrencyService.formatAmount(
                                       _collectedAmountDH,
-                                      _currentCurrency,
+                                      _currentUnit,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
@@ -239,7 +239,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Text(
                                     CurrencyService.formatAmount(
                                       _owedAmountDH,
-                                      _currentCurrency,
+                                      _currentUnit,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(

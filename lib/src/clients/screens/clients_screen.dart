@@ -18,7 +18,7 @@ class ClientsScreen extends ConsumerStatefulWidget {
 
 class _ClientsScreenState extends ConsumerState<ClientsScreen> {
   int _selectedIndex = 1; // Set to 1 for clients tab
-  Currency _currentCurrency = Currency.dh;
+  DisplayUnit _currentUnit = DisplayUnit.dh;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -26,9 +26,9 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
     });
   }
 
-  void _onCurrencyChanged(Currency currency) {
+  void _onUnitChanged(DisplayUnit unit) {
     setState(() {
-      _currentCurrency = currency;
+      _currentUnit = unit;
     });
   }
 
@@ -51,8 +51,8 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
           child: Icon(Icons.people, color: const Color(0xFF1B3F77), size: 20),
         ),
         rightIcon: CurrencySwitcher(
-          initialCurrency: _currentCurrency,
-          onCurrencyChanged: _onCurrencyChanged,
+          initialUnit: _currentUnit,
+          onUnitChanged: _onUnitChanged,
         ),
       ),
       // BODY

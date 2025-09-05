@@ -47,9 +47,7 @@ lib/
 
 ### Data Layer
 - **RESTful API**: Integration with backend services
-- **SQLite Database**: Local data persistence
 - **Shared Preferences**: User preferences and settings
-- **File Storage**: Document and image storage
 
 ## 🛠️ Technologies Used
 
@@ -60,10 +58,7 @@ lib/
 - **Custom Animations**: Smooth transitions and micro-interactions
 
 ### Backend Integration
-- **RESTful APIs**: HTTP-based communication
 - **WebSocket**: Real-time data synchronization
-- **Push Notifications**: Firebase Cloud Messaging
-- **File Upload**: Cloud storage integration
 
 ### Development Tools
 - **VS Code**: Primary development environment
@@ -72,10 +67,6 @@ lib/
 - **Android Studio**: Android-specific development
 
 ## 📱 Screenshots
-
-### Authentication Flow
-![Login Screen](flutter_01.png)
-![Splash Screen](flutter_02.png)
 
 ### Main Features
 - **Dashboard**: Overview of deliveries, clients, and payments
@@ -159,9 +150,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/your-profile)
-- Portfolio: [Your Portfolio](https://your-portfolio.com)
+- GitHub: [](https://github.com/abde-salek)
+- LinkedIn: [](https://linkedin.com/in/abde-salek)
+
 
 ## 🙏 Acknowledgments
 
@@ -173,5 +164,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 
 

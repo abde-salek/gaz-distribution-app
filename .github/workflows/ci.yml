@@ -15,7 +15,7 @@ jobs:
         with:
           sdk: '3.7.2'
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
       - name: Analyze
         run: dart analyze
       - name: Run tests

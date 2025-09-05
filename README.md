@@ -11,9 +11,6 @@ A comprehensive Flutter application designed for gas distribution management, fe
 - **Biometric Authentication**: Fingerprint/Face ID support for quick access
 
 ### 📦 Delivery Management
-- **Real-time Tracking**: Live GPS tracking of delivery vehicles
-- **Route Optimization**: AI-powered route planning for efficient deliveries
-- **Status Updates**: Real-time delivery status with push notifications
 - **Offline Support**: Works without internet connection with data sync
 
 ### 👥 Client Management
@@ -176,4 +173,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 

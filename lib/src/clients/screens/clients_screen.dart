@@ -3,25 +3,60 @@ import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 import 'package:gaz/widgets/client_card.dart';
-import '../../../../providers/client_provider.dart';
+import 'package:gaz/widgets/client_list.dart';
+import 'package:gaz/providers/client_provider.dart';
+import 'package:gaz/widgets/app_bar.dart';
+import 'package:gaz/widgets/app_navigation_bar.dart';
+import 'package:gaz/widgets/currency_switcher.dart';
 
 // CLIENTS SCREEN
-class ClientsScreen extends ConsumerWidget {
-  // Change to ConsumerWidget
+class ClientsScreen extends ConsumerStatefulWidget {
   const ClientsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ClientsScreen> createState() => _ClientsScreenState();
+}
+
+class _ClientsScreenState extends ConsumerState<ClientsScreen> {
+  int _selectedIndex = 1; // Set to 1 for clients tab
+  DisplayUnit _currentUnit = DisplayUnit.dh;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  void _onUnitChanged(DisplayUnit unit) {
+    setState(() {
+      _currentUnit = unit;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final width = Responsive.width(context);
     final height = Responsive.height(context);
     // Watch the provider to get the list of clients
     final clients = ref.watch(clientProvider);
 
-// SCAFFOLD
+    // SCAFFOLD
     return Scaffold(
-// APPBAR
-      appBar: AppBar(title: const Text('Clients')),
-// BODY
+      // APPBAR
+      appBar: CustomAppBar(
+        title: 'Clients',
+        // Left icon for the app bar: SVG icon from the icons folder
+        leftIcon: SizedBox(
+          height: 10,
+          width: 10,
+          child: Icon(Icons.people, color: const Color(0xFF1B3F77), size: 20),
+        ),
+        rightIcon: CurrencySwitcher(
+          initialUnit: _currentUnit,
+          onUnitChanged: _onUnitChanged,
+        ),
+      ),
+      // BODY
       body: Container(
         width: width,
         height: height,
@@ -31,7 +66,7 @@ class ClientsScreen extends ConsumerWidget {
             borderRadius: BorderRadius.circular(50),
           ),
         ),
-// MAIN COLUMN
+        // MAIN COLUMN
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -64,7 +99,7 @@ class ClientsScreen extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-// HEADER
+                            // HEADER
                             Container(
                               width: double.infinity,
                               padding: const EdgeInsets.only(
@@ -214,7 +249,7 @@ class ClientsScreen extends ConsumerWidget {
                                 ],
                               ),
                             ),
-// SEARCH BAR
+                            // SEARCH BAR
                             Container(
                               width: double.infinity,
                               padding: const EdgeInsets.symmetric(
@@ -295,7 +330,7 @@ class ClientsScreen extends ConsumerWidget {
                                                                 Clip.antiAlias,
                                                             decoration:
                                                                 BoxDecoration(),
-                             
+
                                                             child: Stack(
                                                               children: [
                                                                 Positioned(
@@ -382,28 +417,17 @@ class ClientsScreen extends ConsumerWidget {
                                 ],
                               ),
                             ),
-// CLIENTS LIST
-                            Container(
-                              height: 730,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-// LISTVIEW BUILDER
-                                  ListView.builder(
-                                    itemCount: clients.length,
-                                    itemBuilder: (context, index) {
-                                      final client = clients[index];
-                                      return ClientCard(client: client);
-                                    },
-                                  ),
-                                ],
+                            // CLIENTS LIST - Using reusable widget
+                            Expanded(
+                              child: ClientList(
+                                onClientTap: () {
+                                  // TODO: Navigate to client details
+                                  print('Client tapped');
+                                },
+                                showSearchBar: true,
+                                searchHint: 'Search clients',
                               ),
                             ),
-                          
                           ],
                         ),
                       ),
@@ -414,6 +438,11 @@ class ClientsScreen extends ConsumerWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavBar(
+        selectedIndex: _selectedIndex,
+        onItemSelected: _onItemTapped,
+        onItemTapped: _onItemTapped,
       ),
     );
   }

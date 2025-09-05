@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'src/auth/splash.dart';
+import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Gaz Distribution App - Main Entry Point
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const FigmaToCodeApp(),
+      home: const DashboardScreen(),
     );
   }
 }

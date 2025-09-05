@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/src/auth/screens/auth_background.dart';
 import 'package:gaz/src/auth/screens/signup.dart';
-import 'package:gaz/Core/Dash.dart';
+import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 
 /// LoginPage - User Authentication Screen
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Dash(),
+                                    builder: (context) => DashboardScreen(),
                                   ),
                                 );
                               }

@@ -491,7 +491,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       ),
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
-        onItemSelected: _onItemSelected,
+        onItemSelected: _onItemTapped,
         onItemTapped: _onItemTapped,
       ),
     );

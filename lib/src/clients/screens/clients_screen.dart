@@ -441,6 +441,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
       ),
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
+        onItemSelected: _onItemTapped,
         onItemTapped: _onItemTapped,
       ),
     );

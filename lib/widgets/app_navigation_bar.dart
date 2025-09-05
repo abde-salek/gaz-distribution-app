@@ -40,17 +40,18 @@ class BottomNavBar extends StatelessWidget {
               label: item['label'],
               icon: item['icon'],
               isSelected: selectedIndex == index,
-              onTap:
-                  () => {
-                    onItemSelected(index),
-                    //navigate to the page
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => navItems[index]['page'],
-                      ),
+              onTap: () {
+                onItemSelected(index);
+                // Navigate only if the page is not null
+                if (navItems[index]['page'] != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => navItems[index]['page'],
                     ),
-                  },
+                  );
+                }
+              },
             ),
           );
         }),

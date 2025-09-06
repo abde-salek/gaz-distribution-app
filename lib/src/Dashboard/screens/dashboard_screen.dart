@@ -65,7 +65,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 'Welcome, Ethan Carter',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF1B3F77),
+                  color: AppColors.text,
                   fontSize: 22,
                   fontFamily: 'Futura Hv BT',
                   fontWeight: FontWeight.w400,
@@ -80,7 +80,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 DateFormat('EEEE, d MMMM').format(DateTime.now()),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF0C8C96),
+                  color: AppColors.secondary,
                   fontSize: 16,
                   fontFamily: 'Space Grotesk',
                   fontWeight: FontWeight.w400,
@@ -117,13 +117,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(16),
                         decoration: ShapeDecoration(
-                          color: const Color(0xFF6BC6F0),
+                          color: const AppColors.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                           shadows: const [
                             BoxShadow(
-                              color: Color(0xFF66707F),
+                              color: AppColors.secondary,
                               blurRadius: 0,
                               offset: Offset(3, 3),
                               spreadRadius: 0,
@@ -139,7 +139,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               ),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                color: Color(0xFF1B3F77),
+                                color: AppColors.text,
                                 fontSize: 40,
                                 fontFamily: 'Space Grotesk',
                                 fontWeight: FontWeight.w600,
@@ -151,7 +151,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               'Target Amount',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Color(0xFF0F1911),
+                                color: AppColors.text,
                                 fontSize: 16,
                                 fontFamily: 'Futura Hv BT',
                                 fontWeight: FontWeight.w400,
@@ -170,13 +170,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const Color(0xFFA8D03D),
+                                color: const AppColors.actions,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 shadows: const [
                                   BoxShadow(
-                                    color: Color(0xFF66707F),
+                                    color: AppColors.secondary,
                                     blurRadius: 0,
                                     offset: Offset(3, 3),
                                     spreadRadius: 0,
@@ -192,7 +192,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     ),
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Color(0xFF1B3F77),
+                                      color: AppColors.text,
                                       fontSize: 32,
                                       fontFamily: 'Space Grotesk',
                                       fontWeight: FontWeight.w600,
@@ -204,7 +204,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     'Collected',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Color(0xFF0F1911),
+                                      color: AppColors.text,
                                       fontSize: 16,
                                       fontFamily: 'Futura Hv BT',
                                       fontWeight: FontWeight.w400,
@@ -221,13 +221,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const Color(0xFFDBDBDB),
+                                color: const AppColors.background,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 shadows: const [
                                   BoxShadow(
-                                    color: Color(0xFF66707F),
+                                    color: AppColors.secondary,
                                     blurRadius: 0,
                                     offset: Offset(3, 3),
                                     spreadRadius: 0,
@@ -243,7 +243,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     ),
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Color(0xFF1B3F77),
+                                      color: AppColors.text,
                                       fontSize: 32,
                                       fontFamily: 'Space Grotesk',
                                       fontWeight: FontWeight.w600,
@@ -255,7 +255,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     'Owed',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Color(0xFF0F1911),
+                                      color: AppColors.text,
                                       fontSize: 16,
                                       fontFamily: 'Futura Hv BT',
                                       fontWeight: FontWeight.w400,
@@ -301,7 +301,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                 'Truck Inventory',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: const Color(0xFF0F1911),
+                                  color: const AppColors.text,
                                   fontSize: isVeryNarrow ? 18 : 22,
                                   fontFamily: 'Space Grotesk',
                                   fontWeight: FontWeight.w700,
@@ -355,7 +355,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: const AppColors.background,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -367,7 +367,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
+                                            color: const AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,
@@ -404,7 +404,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: const AppColors.background,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -416,7 +416,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
+                                            color: const AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,
@@ -453,7 +453,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: const AppColors.background,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -465,7 +465,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
+                                            color: const AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,

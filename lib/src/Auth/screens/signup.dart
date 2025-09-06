@@ -51,7 +51,7 @@ class _SignupPageState extends State<SignupPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF0F0F0), Color(0xFFFAFAFA)],
+            colors: [AppColors.background, AppColors.background],
           ),
         ),
         child: Stack(
@@ -67,7 +67,7 @@ class _SignupPageState extends State<SignupPage> {
                 height: screenHeight * 0.66,
                 decoration: const BoxDecoration(
                   // Navy blue - primary brand color
-                  color: Color(0xFF0D47A1), // Navy Blue
+                  color: AppColors.text, // Navy Blue
                   shape: BoxShape.circle,
                 ),
                 child: Align(
@@ -79,7 +79,7 @@ class _SignupPageState extends State<SignupPage> {
                         'Create',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.background,
                           // Responsive font size with min/max constraints
                           fontSize: titleFontSize.clamp(24.0, 36.0),
                           fontFamily: 'Futura Hv BT',
@@ -90,7 +90,7 @@ class _SignupPageState extends State<SignupPage> {
                         '  Account',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.background,
                           // Responsive font size with min/max constraints
                           fontSize: titleFontSize.clamp(24.0, 36.0),
                           fontFamily: 'Futura Hv BT',
@@ -141,14 +141,14 @@ class _SignupPageState extends State<SignupPage> {
                           child: Container(
                             padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
                             decoration: BoxDecoration(
-                              //color: Colors.white.withOpacity(0.2),
+                              //color: AppColors.background.withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
 
                             child: IconButton(
                               icon: const Icon(
                                 Icons.arrow_forward_ios,
-                                color: Colors.white,
+                                color: AppColors.background,
                                 size: 50,
                               ),
                               onPressed: () {
@@ -221,7 +221,7 @@ class _SignupPageState extends State<SignupPage> {
                                 fontWeight: FontWeight.w500,
                               ),
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: AppColors.background,
                               contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
                                 vertical: 14,
@@ -236,7 +236,7 @@ class _SignupPageState extends State<SignupPage> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFFE0E0E0),
+                                  color: AppColors.secondary,
                                   width: 1,
                                 ),
                               ),
@@ -278,7 +278,7 @@ class _SignupPageState extends State<SignupPage> {
                                 fontWeight: FontWeight.w500,
                               ),
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: AppColors.background,
                               contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 20,
                                 vertical: 14,
@@ -286,14 +286,14 @@ class _SignupPageState extends State<SignupPage> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFFE0E0E0),
+                                  color: AppColors.secondary,
                                   width: 1,
                                 ),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFFE0E0E0),
+                                  color: AppColors.secondary,
                                   width: 1,
                                 ),
                               ),
@@ -362,7 +362,7 @@ class _SignupPageState extends State<SignupPage> {
                               width: screenWidth * 0.025,
                               height: screenHeight * 0.025,
                               decoration: const BoxDecoration(
-                                color: Color(0xFFCCCCCC),
+                                color: AppColors.secondary,
                                 shape: BoxShape.circle,
                               ),
                             ),

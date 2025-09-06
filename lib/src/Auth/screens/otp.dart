@@ -81,7 +81,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF0F0F0), Color(0xFFFAFAFA)],
+            colors: [AppColors.background, AppColors.background],
           ),
         ),
         child: Stack(
@@ -103,7 +103,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 height: screenHeight * 0.66,
                 decoration: const BoxDecoration(
                   // Navy blue - primary brand color
-                  color: Color(0xFF0D47A1), // Navy Blue
+                  color: AppColors.text, // Navy Blue
                   shape: BoxShape.circle,
                 ),
                 child: Align(
@@ -116,7 +116,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         'Create',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.background,
                           // Responsive font size with min/max constraints
                           fontSize: titleFontSize.clamp(24.0, 36.0),
                           fontFamily: 'Futura Hv BT',
@@ -127,7 +127,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         '  Account',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: AppColors.background,
                           // Responsive font size with min/max constraints
                           fontSize: titleFontSize.clamp(24.0, 36.0),
                           fontFamily: 'Futura Hv BT',
@@ -180,14 +180,14 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           child: Container(
                             padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
                             decoration: BoxDecoration(
-                              //color: Colors.white.withOpacity(0.2),
+                              //color: AppColors.background.withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
 
                             child: IconButton(
                               icon: const Icon(
                                 Icons.arrow_forward_ios,
-                                color: Colors.white,
+                                color: AppColors.background,
                                 size: 50,
                               ),
                               onPressed: () {
@@ -352,7 +352,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               width: 10,
                               height: 10,
                               decoration: BoxDecoration(
-                                color: Colors.grey[300],
+                                color: AppColors.background,
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -361,7 +361,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               width: 10,
                               height: 10,
                               decoration: const BoxDecoration(
-                                color: Color(0xFF0D47A1),
+                                color: AppColors.text,
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -390,11 +390,11 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
       width: 60,
       height: 60,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.background,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: AppColors.secondary.withOpacity(0.2),
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),

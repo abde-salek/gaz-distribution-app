@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/client_card.dart';
 import 'package:gaz/widgets/client_search_bar.dart';
@@ -69,13 +70,13 @@ class ClientList extends ConsumerWidget {
           Icon(
             Icons.people_outline,
             size: 64,
-            color: Color(0xFF66707F),
+            color: AppColors.secondary,
           ),
           SizedBox(height: 16),
           Text(
             'No clients found',
             style: TextStyle(
-              color: Color(0xFF66707F),
+              color: AppColors.secondary,
               fontSize: 18,
               fontFamily: 'Space Grotesk',
               fontWeight: FontWeight.w500,
@@ -85,7 +86,7 @@ class ClientList extends ConsumerWidget {
           Text(
             'Add your first client to get started',
             style: TextStyle(
-              color: Color(0xFF66707F),
+              color: AppColors.secondary,
               fontSize: 14,
               fontFamily: 'Space Grotesk',
               fontWeight: FontWeight.w400,

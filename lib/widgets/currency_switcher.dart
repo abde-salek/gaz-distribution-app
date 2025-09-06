@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 enum DisplayUnit { dh, riyal }
 
@@ -66,10 +67,10 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Colors.white,
+          color: AppColors.background,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: AppColors.text.withOpacity(0.1),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -87,7 +88,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                 key: ValueKey(_currentUnit),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF0C111C),
+                  color: AppColors.text,
                   fontSize: 14,
                   fontFamily: 'Space Grotesk',
                   fontWeight: FontWeight.w400,
@@ -114,7 +115,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                           width: 8,
                           height: 8,
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: AppColors.primary,
                             borderRadius: BorderRadius.circular(2),
                           ),
                         ),
@@ -128,7 +129,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                       width: 8,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: AppColors.actions,
                         borderRadius: BorderRadius.circular(2),
                       ),
                     ),

@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/providers/dashboard_provider.dart';
+import 'package:gaz/core/app_colors.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -117,7 +118,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(16),
                         decoration: ShapeDecoration(
-                          color: const AppColors.primary,
+                          color: AppColors.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
@@ -170,7 +171,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const AppColors.actions,
+                                color: AppColors.actions,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
@@ -221,7 +222,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const AppColors.background,
+                                color: AppColors.background,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
@@ -301,7 +302,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                 'Truck Inventory',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: const AppColors.text,
+                                  color: AppColors.text,
                                   fontSize: isVeryNarrow ? 18 : 22,
                                   fontFamily: 'Space Grotesk',
                                   fontWeight: FontWeight.w700,
@@ -355,7 +356,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const AppColors.background,
+                                        color: AppColors.background,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -367,7 +368,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const AppColors.text,
+                                            color: AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,
@@ -404,7 +405,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const AppColors.background,
+                                        color: AppColors.background,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -416,7 +417,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const AppColors.text,
+                                            color: AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,
@@ -453,7 +454,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const AppColors.background,
+                                        color: AppColors.background,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -465,7 +466,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const AppColors.text,
+                                            color: AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/clients/screens/clients_screen.dart';
+import 'package:gaz/core/app_colors.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -18,8 +19,16 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     // A list of data for each navigation item.
     final List<Map<String, dynamic>> navItems = [
-      {'label': 'Dash', 'icon': Icons.dashboard, 'page': const DashboardScreen()},
-      {'label': 'Clients', 'icon': Icons.groups_2_outlined, 'page': const ClientsScreen()},
+      {
+        'label': 'Dash',
+        'icon': Icons.dashboard,
+        'page': const DashboardScreen(),
+      },
+      {
+        'label': 'Clients',
+        'icon': Icons.groups_2_outlined,
+        'page': const ClientsScreen(),
+      },
       {'label': 'History', 'icon': Icons.history, 'page': null},
       {'label': 'Settings', 'icon': Icons.settings_outlined, 'page': null},
     ];
@@ -76,7 +85,7 @@ class _AppNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color selectedBackgroundColor = const Color(0xFFA8D03D);
+    final Color selectedBackgroundColor = AppColors.actions;
     final Color selectedIconColor = Colors.white;
     final Color selectedTextColor = Colors.white;
     final Color unselectedColor = const Color(0xFF66707F);

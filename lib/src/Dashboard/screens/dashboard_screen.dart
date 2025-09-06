@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/providers/dashboard_provider.dart';
+import 'package:gaz/core/app_colors.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
@@ -65,7 +66,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 'Welcome, Ethan Carter',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF1B3F77),
+                  color: AppColors.text,
                   fontSize: 22,
                   fontFamily: 'Futura Hv BT',
                   fontWeight: FontWeight.w400,
@@ -80,7 +81,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 DateFormat('EEEE, d MMMM').format(DateTime.now()),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF0C8C96),
+                  color: AppColors.secondary,
                   fontSize: 16,
                   fontFamily: 'Space Grotesk',
                   fontWeight: FontWeight.w400,
@@ -117,7 +118,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(16),
                         decoration: ShapeDecoration(
-                          color: const Color(0xFF6BC6F0),
+                          color: AppColors.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
@@ -139,7 +140,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               ),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                color: Color(0xFF1B3F77),
+                                color: AppColors.text,
                                 fontSize: 40,
                                 fontFamily: 'Space Grotesk',
                                 fontWeight: FontWeight.w600,
@@ -170,7 +171,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const Color(0xFFA8D03D),
+                                color: AppColors.actions,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
@@ -192,7 +193,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     ),
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Color(0xFF1B3F77),
+                                      color: AppColors.text,
                                       fontSize: 32,
                                       fontFamily: 'Space Grotesk',
                                       fontWeight: FontWeight.w600,
@@ -243,7 +244,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     ),
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      color: Color(0xFF1B3F77),
+                                      color: AppColors.text,
                                       fontSize: 32,
                                       fontFamily: 'Space Grotesk',
                                       fontWeight: FontWeight.w600,
@@ -367,7 +368,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
+                                            color: AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,
@@ -416,7 +417,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
+                                            color: AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,
@@ -465,7 +466,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           '48',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
+                                            color: AppColors.text,
                                             fontSize: isNarrow ? 16 : 20,
                                             fontFamily: 'Space Grotesk',
                                             fontWeight: FontWeight.w500,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
-import 'package:gaz/widgets/client_card.dart';
 import 'package:gaz/widgets/client_list.dart';
 import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
@@ -35,8 +34,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final width = Responsive.width(context);
-    final height = Responsive.height(context);
     // Watch the provider to get the list of clients
     final clients = ref.watch(clientProvider);
 
@@ -49,7 +46,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: Icon(Icons.people, color: const Color(0xFF1B3F77), size: 20),
+          child: Image.asset('add_client.png', fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -58,8 +55,8 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
       ),
       // BODY
       body: Container(
-        width: width,
-        height: height,
+        width: Responsive.width(context),
+        height: Responsive.height(context),
         decoration: ShapeDecoration(
           color: const Color(0xFFF9F9F9),
           shape: RoundedRectangleBorder(
@@ -73,10 +70,10 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(minHeight: 844),
+              constraints: BoxConstraints(minHeight: 402),
               child: Container(
-                width: 402,
-                height: 874,
+                width: Responsive.width(context),
+                height: Responsive.height(context),
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
                   color: const Color(0xFFF9F9F9),
@@ -99,156 +96,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // HEADER
-                            Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.only(
-                                top: 16,
-                                left: 16,
-                                right: 16,
-                                bottom: 8,
-                              ),
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFF9F9F9),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: 48,
-                                    height: 48,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(width: 48, height: 2),
-                                        Container(
-                                          width: 32,
-                                          height: 32,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: NetworkImage(
-                                                "https://placehold.co/32x32",
-                                              ),
-                                              fit: BoxFit.contain,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        SizedBox(
-                                          width: 282,
-                                          child: Text(
-                                            'Clients',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: AppColors.text,
-                                              fontSize: 18,
-                                              fontFamily: 'Space Grotesk',
-                                              fontWeight: FontWeight.w700,
-                                              height: 1.28,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 40,
-                                    height: 45,
-                                    padding: const EdgeInsets.all(10),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          width: 10,
-                                          height: 10,
-                                          padding: const EdgeInsets.all(10),
-                                        ),
-                                        SizedBox(
-                                          width: 40,
-                                          height: 20,
-                                          child: Text(
-                                            'DH',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                              color: const Color(0xFF0C111C),
-                                              fontSize: 22,
-                                              fontFamily: 'Space Grotesk',
-                                              fontWeight: FontWeight.w400,
-                                              height: 1.09,
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                          height: 28,
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                left: 20,
-                                                top: 20,
-                                                child: Container(
-                                                  transform:
-                                                      Matrix4.identity()
-                                                        ..translate(0.0, 0.0)
-                                                        ..rotateZ(3.14),
-                                                  width: 20,
-                                                  height: 20,
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        "https://placehold.co/20x20",
-                                                      ),
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Positioned(
-                                                left: 0,
-                                                top: 8,
-                                                child: Container(
-                                                  width: 20,
-                                                  height: 20,
-                                                  decoration: BoxDecoration(
-                                                    image: DecorationImage(
-                                                      image: NetworkImage(
-                                                        "https://placehold.co/20x20",
-                                                      ),
-                                                      fit: BoxFit.contain,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
                             // SEARCH BAR
                             Container(
                               width: double.infinity,

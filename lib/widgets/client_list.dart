@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/client_card.dart';
 import 'package:gaz/widgets/client_search_bar.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// Reusable client list widget that displays a list of clients
 /// with search functionality and responsive design
@@ -69,13 +70,13 @@ class ClientList extends ConsumerWidget {
           Icon(
             Icons.people_outline,
             size: 64,
-            color: Color(0xFF66707F),
+            color: AppColors.mediumGray,
           ),
           SizedBox(height: 16),
           Text(
             'No clients found',
             style: TextStyle(
-              color: Color(0xFF66707F),
+              color: AppColors.mediumGray,
               fontSize: 18,
               fontFamily: 'Space Grotesk',
               fontWeight: FontWeight.w500,
@@ -85,7 +86,7 @@ class ClientList extends ConsumerWidget {
           Text(
             'Add your first client to get started',
             style: TextStyle(
-              color: Color(0xFF66707F),
+              color: AppColors.mediumGray,
               fontSize: 14,
               fontFamily: 'Space Grotesk',
               fontWeight: FontWeight.w400,

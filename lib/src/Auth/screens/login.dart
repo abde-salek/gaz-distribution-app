@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
     return Scaffold(
-      backgroundColor: const Color(0xFFF3F4F6),
+      backgroundColor: AppColors.veryLightGray,
       body: Stack(
         children: [
           Positioned(
@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
               width: screenWidth * 1.339,
               height: screenHeight * 0.66,
               decoration: const BoxDecoration(
-                color: Color(0xFF0D47A1),
+                color: AppColors.darkNavy,
                 shape: BoxShape.circle,
               ),
               child: Align(
@@ -186,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFFE0E0E0),
+                                color: AppColors.lightBorder,
                                 width: 1,
                               ),
                             ),
@@ -235,14 +235,14 @@ class _LoginPageState extends State<LoginPage> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFFE0E0E0),
+                                color: AppColors.lightBorder,
                                 width: 1,
                               ),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                               borderSide: const BorderSide(
-                                color: Color(0xFFE0E0E0),
+                                color: AppColors.lightBorder,
                                 width: 1,
                               ),
                             ),

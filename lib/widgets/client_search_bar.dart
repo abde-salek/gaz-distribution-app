@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// Reusable search bar widget for client search functionality
 class ClientSearchBar extends StatefulWidget {
@@ -41,7 +42,7 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
     return Container(
       height: 48,
       decoration: ShapeDecoration(
-        color: const Color(0xFFEAEDEF),
+        color: AppColors.searchBg,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -54,7 +55,7 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
             padding: const EdgeInsets.only(left: 16),
             child: const Icon(
               Icons.search,
-              color: Color(0xFF66707F),
+              color: AppColors.mediumGray,
               size: 20,
             ),
           ),
@@ -68,7 +69,7 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
               decoration: InputDecoration(
                 hintText: widget.hintText,
                 hintStyle: const TextStyle(
-                  color: Color(0xFF66707F),
+                  color: AppColors.mediumGray,
                   fontSize: 16,
                   fontFamily: 'Space Grotesk',
                   fontWeight: FontWeight.w400,
@@ -80,7 +81,7 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
                 ),
               ),
               style: const TextStyle(
-                color: Color(0xFF111416),
+                color: AppColors.darkText,
                 fontSize: 16,
                 fontFamily: 'Space Grotesk',
                 fontWeight: FontWeight.w400,
@@ -97,7 +98,7 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
               },
               icon: const Icon(
                 Icons.clear,
-                color: Color(0xFF66707F),
+                color: AppColors.mediumGray,
                 size: 20,
               ),
             ),

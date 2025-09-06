@@ -19,7 +19,7 @@ class TopCircleText extends StatelessWidget {
       text,
       style: TextStyle(
         fontFamily: 'Futura Hv BT',
-        color: Colors.white,
+        color: AppColors.background,
         fontSize: screenWidth * 0.075,
       ),
     );
@@ -47,7 +47,7 @@ class BottomCircleArrow extends StatelessWidget {
       child: Container(
         width: screenWidth,
         height: screenHeight * 0.38,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: AppColors.secondary,
           shape: BoxShape.circle,
         ),
@@ -70,7 +70,7 @@ class BottomCircleArrow extends StatelessWidget {
                     child: IconButton(
                       icon: const Icon(
                         Icons.arrow_forward,
-                        color: Colors.white,
+                        color: AppColors.background,
                         size: 35,
                       ),
                       onPressed: () {

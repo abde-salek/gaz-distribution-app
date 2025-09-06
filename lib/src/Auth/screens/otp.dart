@@ -81,7 +81,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF0F0F0), Color(0xFFFAFAFA)],
+            colors: [AppColors.authGradientStart, AppColors.authGradientEnd],
           ),
         ),
         child: Stack(
@@ -103,7 +103,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 height: screenHeight * 0.66,
                 decoration: const BoxDecoration(
                   // Navy blue - primary brand color
-                  color: Color(0xFF0D47A1), // Navy Blue
+                  color: AppColors.darkNavy, // Navy Blue
                   shape: BoxShape.circle,
                 ),
                 child: Align(
@@ -252,7 +252,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: bodyFontSize,
-                            color: const Color.fromARGB(255, 96, 95, 95),
+                            color: AppColors.grayBD,
                           ),
                         ),
                         Text(
@@ -260,7 +260,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: bodyFontSize,
-                            color: const Color.fromARGB(255, 87, 87, 87),
+                            color: AppColors.grayBD,
                           ),
                         ),
                         SizedBox(height: screenHeight * 0.02),
@@ -352,7 +352,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               width: 10,
                               height: 10,
                               decoration: BoxDecoration(
-                                color: Colors.grey[300],
+                                color: AppColors.grayBD,
                                 shape: BoxShape.circle,
                               ),
                             ),
@@ -361,7 +361,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               width: 10,
                               height: 10,
                               decoration: const BoxDecoration(
-                                color: Color(0xFF0D47A1),
+                                color: AppColors.darkNavy,
                                 shape: BoxShape.circle,
                               ),
                             ),

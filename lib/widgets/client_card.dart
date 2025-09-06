@@ -29,7 +29,7 @@ class ClientCard extends StatelessWidget {
         child: Container(
           height: 72,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
+          decoration: const BoxDecoration(color: AppColors.offWhite),
           child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,7 +44,7 @@ class ClientCard extends StatelessWidget {
                     client.name,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      color: Color(0xFF111416),
+                      color: AppColors.darkText,
                       fontSize: 16,
                       fontFamily: 'Space Grotesk',
                       fontWeight: FontWeight.w500,
@@ -53,7 +53,7 @@ class ClientCard extends StatelessWidget {
                   Text(
                     client.address,
                     style: const TextStyle(
-                      color: Color(0xFF66707F),
+                      color: AppColors.mediumGray,
                       fontSize: 14,
                       fontFamily: 'Space Grotesk',
                       fontWeight: FontWeight.w400,

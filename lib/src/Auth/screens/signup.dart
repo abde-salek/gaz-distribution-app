@@ -51,7 +51,7 @@ class _SignupPageState extends State<SignupPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF0F0F0), Color(0xFFFAFAFA)],
+            colors: [AppColors.authGradientStart, AppColors.authGradientEnd],
           ),
         ),
         child: Stack(
@@ -67,7 +67,7 @@ class _SignupPageState extends State<SignupPage> {
                 height: screenHeight * 0.66,
                 decoration: const BoxDecoration(
                   // Navy blue - primary brand color
-                  color: Color(0xFF0D47A1), // Navy Blue
+                  color: AppColors.darkNavy, // Navy Blue
                   shape: BoxShape.circle,
                 ),
                 child: Align(
@@ -236,7 +236,7 @@ class _SignupPageState extends State<SignupPage> {
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFFE0E0E0),
+                                  color: AppColors.lightBorder,
                                   width: 1,
                                 ),
                               ),
@@ -286,14 +286,14 @@ class _SignupPageState extends State<SignupPage> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFFE0E0E0),
+                                  color: AppColors.lightBorder,
                                   width: 1,
                                 ),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
                                 borderSide: const BorderSide(
-                                  color: Color(0xFFE0E0E0),
+                                  color: AppColors.lightBorder,
                                   width: 1,
                                 ),
                               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/clients/screens/clients_screen.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -76,10 +77,10 @@ class _AppNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color selectedBackgroundColor = const Color(0xFFA8D03D);
+    final Color selectedBackgroundColor = AppColors.actions;
     final Color selectedIconColor = Colors.white;
     final Color selectedTextColor = Colors.white;
-    final Color unselectedColor = const Color(0xFF66707F);
+    final Color unselectedColor = AppColors.mediumGray;
 
     return GestureDetector(
       onTap: onTap,

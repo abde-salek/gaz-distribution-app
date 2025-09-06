@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// Gaz Distribution App - Main Entry Point
 /// Comprehensive Flutter app for gas distribution management with delivery tracking,
@@ -27,17 +28,31 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: true,
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black87,
+          backgroundColor: AppColors.background,
+          foregroundColor: AppColors.text,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             elevation: 2,
+            backgroundColor: AppColors.primary,
+            foregroundColor: AppColors.background,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
           ),
+        ),
+        scaffoldBackgroundColor: AppColors.background,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primary,
+          primary: AppColors.primary,
+          secondary: AppColors.secondary,
+          background: AppColors.background,
+          surface: AppColors.background,
+          onPrimary: AppColors.background,
+          onSecondary: AppColors.background,
+          onBackground: AppColors.text,
+          onSurface: AppColors.text,
         ),
       ),
       home: const DashboardScreen(),

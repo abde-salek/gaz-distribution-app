@@ -81,7 +81,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFFF0F0F0), Color(0xFFFAFAFA)],
+            colors: [AppColors.background, AppColors.background],
           ),
         ),
         child: Stack(
@@ -103,7 +103,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                 height: screenHeight * 0.66,
                 decoration: const BoxDecoration(
                   // Navy blue - primary brand color
-                  color: Color(0xFF0D47A1), // Navy Blue
+                  color: AppColors.text, // Navy Blue
                   shape: BoxShape.circle,
                 ),
                 child: Align(
@@ -361,7 +361,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               width: 10,
                               height: 10,
                               decoration: const BoxDecoration(
-                                color: Color(0xFF0D47A1),
+                                color: AppColors.text,
                                 shape: BoxShape.circle,
                               ),
                             ),

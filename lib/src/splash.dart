@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color.fromARGB(255, 18, 32, 47),
+        scaffoldBackgroundColor: AppColors.text,
       ),
       home: Scaffold(body: Splach()),
     );
@@ -75,7 +75,7 @@ class _SplachState extends State<Splach> {
           colors: [
             AppColors.secondary,
             AppColors.primary,
-            const Color(0xFFF3F4F6),
+            const AppColors.background,
           ],
         ),
       ),
@@ -108,7 +108,7 @@ class _SplachState extends State<Splach> {
                   TextSpan(
                     text: 'GAZ',
                     style: TextStyle(
-                      color: const Color(0xFFF3F4F6),
+                      color: const AppColors.background,
                       fontSize: 40,
                       fontFamily: 'Neuton',
                       fontWeight: FontWeight.w700,
@@ -126,7 +126,7 @@ class _SplachState extends State<Splach> {
                 Text(
                   'غاز',
                   style: TextStyle(
-                    color: const Color(0xFFF3F4F6),
+                    color: const AppColors.background,
                     fontSize: 32,
                     fontFamily: 'Reddit Sans',
                     fontWeight: FontWeight.w700,

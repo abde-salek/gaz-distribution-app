@@ -49,7 +49,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: Icon(Icons.people, color: const Color(0xFF1B3F77), size: 20),
+          child: Icon(Icons.people, color: const AppColors.text, size: 20),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -61,7 +61,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         width: width,
         height: height,
         decoration: ShapeDecoration(
-          color: const Color(0xFFF9F9F9),
+          color: const AppColors.background,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
@@ -79,7 +79,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                 height: 874,
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
-                  color: const Color(0xFFF9F9F9),
+                  color: const AppColors.background,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -109,7 +109,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                 bottom: 8,
                               ),
                               decoration: BoxDecoration(
-                                color: const Color(0xFFF9F9F9),
+                                color: const AppColors.background,
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -191,7 +191,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                             'DH',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              color: const Color(0xFF0C111C),
+                                              color: const AppColors.text,
                                               fontSize: 22,
                                               fontFamily: 'Space Grotesk',
                                               fontWeight: FontWeight.w400,
@@ -296,9 +296,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                                           left: 16,
                                                         ),
                                                     decoration: ShapeDecoration(
-                                                      color: const Color(
-                                                        0xFFEAEDEF,
-                                                      ),
+                                                      color: Colors.grey.shade200,
                                                       shape: RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
@@ -389,10 +387,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                                           Text(
                                                             'Search  clients',
                                                             style: TextStyle(
-                                                              color:
-                                                                  const Color(
-                                                                    0xFF66707F,
-                                                                  ),
+                                                              color: Colors.grey.shade600,
                                                               fontSize: 16,
                                                               fontFamily:
                                                                   'Space Grotesk',

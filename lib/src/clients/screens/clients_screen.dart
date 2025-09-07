@@ -46,7 +46,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: Image.asset('add_client.png', fit: BoxFit.contain),
+          child: Image.asset('icons/add_client.png', fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -170,7 +170,8 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        Expanded(
+                                                        Flexible(
+                                                          fit: FlexFit.loose,
                                                           child: Container(
                                                             height: 24,
                                                             clipBehavior:
@@ -193,7 +194,8 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                                       ],
                                                     ),
                                                   ),
-                                                  Expanded(
+                                                  Flexible(
+                                                    fit: FlexFit.loose,
                                                     child: Container(
                                                       height: double.infinity,
                                                       padding:

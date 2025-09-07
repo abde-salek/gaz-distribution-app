@@ -15,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       _selectedIndex = index;
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

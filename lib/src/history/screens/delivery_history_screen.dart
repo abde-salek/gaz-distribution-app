@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
-import 'package:gaz/widgets/client_list.dart';
+import 'package:gaz/src/clients/widgets/client_list.dart';
 
 class DeliveryHistoryScreen extends StatefulWidget {
   const DeliveryHistoryScreen({super.key});

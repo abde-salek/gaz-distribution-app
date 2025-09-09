@@ -1,11 +1,13 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
-import 'package:gaz/Core/responsive_ui.dart';
-import 'package:gaz/widgets/client_list.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/src/clients/widgets/client_list.dart';
 import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
+
+// Clients screen to display a list of clients.//
 
 // CLIENTS SCREEN
 class ClientsScreen extends ConsumerStatefulWidget {

@@ -4,6 +4,8 @@ import 'package:gaz/models/client.dart';
 import 'package:gaz/services/currency_service.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
 
+// Client card to display a single client.//
+
 class ClientCard extends StatelessWidget {
   final Client client;
   final VoidCallback? onTap;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
-import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
 import 'package:gaz/widgets/client_list.dart';
 import 'package:gaz/providers/client_provider.dart';
@@ -54,240 +53,194 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         ),
       ),
       // BODY
-      body: Container(
-        width: Responsive.width(context),
-        height: Responsive.height(context),
-        decoration: ShapeDecoration(
-          color: const Color(0xFFF9F9F9),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
-        ),
-        // MAIN COLUMN
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(minHeight: 402),
-              child: Container(
-                width: Responsive.width(context),
-                height: Responsive.height(context),
-                clipBehavior: Clip.antiAlias,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFFF9F9F9),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: double.infinity,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // SEARCH BAR
-                            Container(
-                              width: double.infinity,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 12,
+      body:
+      // Container(
+      //   width: Responsive.width(context),
+      //   height: Responsive.height(context),
+      //   decoration: ShapeDecoration(
+      //     color: const Color(0xFFF9F9F9),
+      //     shape: RoundedRectangleBorder(
+      //       borderRadius: BorderRadius.circular(50),
+      //     ),
+      //   ),
+      //   // MAIN COLUMN
+      //   child:
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // ConstrainedBox(
+          //   constraints: BoxConstraints(minHeight: 402),
+          //   child: Container(
+          //     width: Responsive.width(context),
+          //     height: Responsive.height(context),
+          //     clipBehavior: Clip.antiAlias,
+          //     decoration: ShapeDecoration(
+          //       color: const Color(0xFFF9F9F9),
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(50),
+          //       ),
+          //     ),
+          //     child: Column(
+          //       mainAxisSize: MainAxisSize.min,
+          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         Expanded(
+          //           child: Container(
+          //             width: double.infinity,
+          //             clipBehavior: Clip.antiAlias,
+          //             decoration: BoxDecoration(),
+          //             child: Column(
+          //               mainAxisSize: MainAxisSize.min,
+          //               mainAxisAlignment: MainAxisAlignment.start,
+          //               crossAxisAlignment: CrossAxisAlignment.start,
+          //               children: [
+          //                 // SEARCH BAR
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ConstrainedBox(
+                  constraints: BoxConstraints(minWidth: 160),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 48,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            decoration: ShapeDecoration(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ConstrainedBox(
-                                    constraints: BoxConstraints(minWidth: 160),
-                                    child: SizedBox(
-                                      width: double.infinity,
-                                      height: 48,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: Container(
-                                              width: double.infinity,
-                                              decoration: ShapeDecoration(
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(12),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    height: double.infinity,
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                          left: 16,
-                                                        ),
-                                                    decoration: ShapeDecoration(
-                                                      color: const Color(
-                                                        0xFFEAEDEF,
-                                                      ),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                              topLeft:
-                                                                  Radius.circular(
-                                                                    12,
-                                                                  ),
-                                                              bottomLeft:
-                                                                  Radius.circular(
-                                                                    12,
-                                                                  ),
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Flexible(
-                                                          fit: FlexFit.loose,
-                                                          child: Container(
-                                                            height: 24,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                BoxDecoration(),
-
-                                                            child: Stack(
-                                                              children: [
-                                                                Positioned(
-                                                                  left: null,
-                                                                  top: null,
-                                                                  child:
-                                                                      Container(),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Flexible(
-                                                    fit: FlexFit.loose,
-                                                    child: Container(
-                                                      height: double.infinity,
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                            top: 8,
-                                                            left: 8,
-                                                            right: 16,
-                                                            bottom: 8,
-                                                          ),
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: ShapeDecoration(
-                                                        color: const Color(
-                                                          0xFFEAEDEF,
-                                                        ),
-                                                        shape: RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                                topRight:
-                                                                    Radius.circular(
-                                                                      12,
-                                                                    ),
-                                                                bottomRight:
-                                                                    Radius.circular(
-                                                                      12,
-                                                                    ),
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'Search  clients',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  const Color(
-                                                                    0xFF66707F,
-                                                                  ),
-                                                              fontSize: 16,
-                                                              fontFamily:
-                                                                  'Space Grotesk',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400,
-                                                              height: 1.50,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: double.infinity,
+                                  padding: const EdgeInsets.only(left: 16),
+                                  decoration: ShapeDecoration(
+                                    color: const Color(0xFFEAEDEF),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(12),
+                                        bottomLeft: Radius.circular(12),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Flexible(
+                                        fit: FlexFit.loose,
+                                        child: Container(
+                                          height: 24,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(),
+
+                                          child: Stack(
+                                            children: [
+                                              Positioned(
+                                                left: null,
+                                                top: null,
+                                                child: Container(),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Flexible(
+                                  fit: FlexFit.loose,
+                                  child: Container(
+                                    height: double.infinity,
+                                    padding: const EdgeInsets.only(
+                                      top: 8,
+                                      left: 8,
+                                      right: 16,
+                                      bottom: 8,
+                                    ),
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: ShapeDecoration(
+                                      color: const Color(0xFFEAEDEF),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(12),
+                                          bottomRight: Radius.circular(12),
+                                        ),
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          'Search  clients',
+                                          style: TextStyle(
+                                            color: const Color(0xFF66707F),
+                                            fontSize: 16,
+                                            fontFamily: 'Space Grotesk',
+                                            fontWeight: FontWeight.w400,
+                                            height: 1.50,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            // CLIENTS LIST - Using reusable widget
-                            Expanded(
-                              child: ClientList(
-                                onClientTap: () {
-                                  // TODO: Navigate to client details
-                                  print('Client tapped');
-                                },
-                                showSearchBar: true,
-                                searchHint: 'Search clients',
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+          // CLIENTS LIST - Using reusable widget
+          SingleChildScrollView(
+            child: ClientList(
+              onClientTap: () {
+                // TODO: Navigate to client details
+                print('Client tapped');
+              },
+              showSearchBar: true,
+              searchHint: 'Search clients',
+            ),
+          ),
+        ],
       ),
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
         onItemSelected: _onItemTapped,

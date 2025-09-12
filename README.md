@@ -141,7 +141,7 @@ dependencies:
 - **Git**: Version control
 - **Dart Analysis**: Strict linting and code quality
 
-## 📱 Screenshots & Features
+## 📱 Screens & Features
 
 
 ### **Dashboard Overview**
@@ -295,4 +295,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 

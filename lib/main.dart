@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
+        fontFamily: 'SpaceGrotesk',
         // Custom theme configuration for professional appearance
         appBarTheme: const AppBarTheme(
           elevation: 0,

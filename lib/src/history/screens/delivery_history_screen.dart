@@ -51,7 +51,7 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints(minWidth: 160),
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     height: 48,
                     child: Column(

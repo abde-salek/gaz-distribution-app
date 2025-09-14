@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 /// with placeholder elements and a "Dashboard is loading" message.
 /// This is a portfolio-quality, well-structured, and documented widget.
 class LoadingScreen extends StatelessWidget {
-  const LoadingScreen({Key? key}) : super(key: key);
+  const LoadingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -314,7 +314,7 @@ class LoadingScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               width: 20,
                               height: 28,
                             ),
@@ -383,7 +383,7 @@ class LoadingScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 20),
-                          Container(
+                          SizedBox(
                             width: 90,
                             height: 90,
                             child: Column(
@@ -407,7 +407,7 @@ class LoadingScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 20),
-                          Container(
+                          SizedBox(
                             width: 90,
                             height: 90,
                             child: Row(
@@ -434,7 +434,7 @@ class LoadingScreen extends StatelessWidget {
                       const SizedBox(height: 10),
                       Row(
                         children: [
-                          Container(
+                          SizedBox(
                             width: 110,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -452,7 +452,7 @@ class LoadingScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: double.infinity,
                                     height: 21,
                                   ),
@@ -461,7 +461,7 @@ class LoadingScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 20),
-                          Container(
+                          SizedBox(
                             width: 90,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -484,7 +484,7 @@ class LoadingScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 20),
-                          Container(
+                          SizedBox(
                             width: 90,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -502,7 +502,7 @@ class LoadingScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
-                                  child: Container(
+                                  child: SizedBox(
                                     width: double.infinity,
                                     height: 21,
                                   ),
@@ -532,7 +532,7 @@ class LoadingScreen extends StatelessWidget {
                       Positioned(
                         left: 0,
                         top: 0,
-                        child: Container(
+                        child: SizedBox(
                           width: 402,
                           child: Column(
                             children: [
@@ -571,7 +571,7 @@ class LoadingScreen extends StatelessWidget {
                           child: Row(
                             children: [
                               // Home (active)
-                              Container(
+                              SizedBox(
                                 width: 86.5,
                                 child: Column(
                                   children: [

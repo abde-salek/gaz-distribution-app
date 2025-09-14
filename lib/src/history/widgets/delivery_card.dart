@@ -206,7 +206,7 @@ class DeliveryCard extends ConsumerWidget {
                 ),
               ),
               // Right: Time and Date
-              Container(
+              SizedBox(
                 width: 78,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

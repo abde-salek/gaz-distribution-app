@@ -1,6 +1,58 @@
 import '../models/client.dart';
+import '../models/transaction.dart';
 
-class MockData {
+// Temporary transaction data
+class TempTransactionData {
+  static final List<Transaction> transactions = [
+    Transaction(
+      id: 1,
+      clientId: 1,
+      date: DateTime(2023, 10, 26, 10, 30),
+      type: "Delivery",
+      amount: 250.00,
+      currency: "DH",
+      isPositive: true,
+    ),
+    Transaction(
+      id: 2,
+      clientId: 1,
+      date: DateTime(2023, 10, 25, 14, 15),
+      type: "Payment",
+      amount: 500.00,
+      currency: "DH",
+      isPositive: false,
+    ),
+    Transaction(
+      id: 3,
+      clientId: 1,
+      date: DateTime(2023, 10, 24, 11, 45),
+      type: "Delivery",
+      amount: 1500.00,
+      currency: "DH",
+      isPositive: true,
+    ),
+    Transaction(
+      id: 4,
+      clientId: 1,
+      date: DateTime(2023, 10, 23, 16, 20),
+      type: "Payment",
+      amount: 300.00,
+      currency: "DH",
+      isPositive: false,
+    ),
+    Transaction(
+      id: 5,
+      clientId: 1,
+      date: DateTime(2023, 10, 22, 9, 15),
+      type: "Delivery",
+      amount: 750.00,
+      currency: "DH",
+      isPositive: true,
+    ),
+  ];
+}
+// Temporary client data
+class TempClientData {
   static final List<Client> clients = [
     Client(
       id: 1,

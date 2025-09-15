@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gaz/src/clients/screens/clients_screen.dart';
+import 'package:gaz/src/clients/screens/client_details_screen.dart';
 
 /// Gaz Distribution App - Main Entry Point
 /// Comprehensive Flutter app for gas distribution management with delivery tracking,
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const ClientsScreen(),
+      home: const ClientDetailsScreen(clientId: 2),
     );
   }
 }

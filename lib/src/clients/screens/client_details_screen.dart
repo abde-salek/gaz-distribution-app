@@ -43,7 +43,7 @@ class _ClientDetailsScreenState extends ConsumerState<ClientDetailsScreen> {
             if (maxWidth > 600) maxWidth = 600; // Responsive max width
 
             return Center(
-              child: Container(
+              child: SizedBox(
                 width: maxWidth,
                 child: Column(
                   children: [
@@ -229,7 +229,7 @@ class TransactionsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

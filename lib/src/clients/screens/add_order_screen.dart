@@ -32,7 +32,10 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   ];
 
   double get totalPrice {
-    return products.fold(0.0, (sum, product) => sum + (product.price * product.quantity));
+    return products.fold(
+      0.0,
+      (sum, product) => sum + (product.price * product.quantity),
+    );
   }
 
   void updateQuantity(int index, int newQuantity) {
@@ -56,7 +59,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           children: [
             // Header
             _buildHeader(),
-            
+
             // Scrollable Content
             Expanded(
               child: SingleChildScrollView(
@@ -65,7 +68,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 16),
-                    
+
                     // Select Quantity Title
                     const Text(
                       'Select Quantity',
@@ -76,7 +79,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    
+
                     // Product Variants
                     ...products.asMap().entries.map((entry) {
                       int index = entry.key;
@@ -86,9 +89,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                         child: _buildProductVariant(product, index),
                       );
                     }),
-                    
+
                     const SizedBox(height: 24),
-                    
+
                     // Payment Section
                     _buildPaymentSection(),
                   ],
@@ -98,7 +101,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           ],
         ),
       ),
-      
+
       // Bottom Navigation
       bottomNavigationBar: _buildBottomNavigation(),
     );
@@ -112,9 +115,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           end: Alignment.bottomCenter,
           colors: [Colors.white, Color(0xFFFAFAFA)],
         ),
-        border: Border(
-          bottom: BorderSide(color: Color(0xFFE5E7EB), width: 1),
-        ),
+        border: Border(bottom: BorderSide(color: Color(0xFFE5E7EB), width: 1)),
       ),
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
@@ -145,7 +146,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 ),
               ),
             ),
-            
+
             // Title
             const Expanded(
               child: Text(
@@ -158,7 +159,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 ),
               ),
             ),
-            
+
             // Currency Icon
             Container(
               width: 48,
@@ -193,8 +194,13 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   }
 
   Widget _buildProductVariant(ProductData product, int index) {
-    double imageSize = product.size == "Large" ? 64 : product.size == "Medium" ? 56 : 48;
-    
+    double imageSize =
+        product.size == "Large"
+            ? 64
+            : product.size == "Medium"
+            ? 56
+            : 48;
+
     return Container(
       decoration: BoxDecoration(
         color: const Color(0xFFFAFAFA),
@@ -236,9 +242,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 ),
               ),
             ),
-            
+
             const SizedBox(width: 16),
-            
+
             // Product Info
             Expanded(
               child: Column(
@@ -272,7 +278,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 ],
               ),
             ),
-            
+
             // Quantity Controls
             Column(
               children: [
@@ -284,15 +290,18 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                       width: 36,
                       height: 36,
                       decoration: BoxDecoration(
-                        color: product.quantity > 0 
-                            ? const Color(0xFF6BC6F0) 
-                            : const Color(0xFFD1D5DB),
+                        color:
+                            product.quantity > 0
+                                ? const Color(0xFF6BC6F0)
+                                : const Color(0xFFD1D5DB),
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: IconButton(
-                        onPressed: product.quantity > 0 
-                            ? () => updateQuantity(index, product.quantity - 1)
-                            : null,
+                        onPressed:
+                            product.quantity > 0
+                                ? () =>
+                                    updateQuantity(index, product.quantity - 1)
+                                : null,
                         padding: EdgeInsets.zero,
                         icon: const Icon(
                           Icons.remove,
@@ -301,9 +310,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                         ),
                       ),
                     ),
-                    
+
                     const SizedBox(width: 12),
-                    
+
                     // Quantity Display
                     Container(
                       width: 64,
@@ -327,9 +336,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                         ),
                       ),
                     ),
-                    
+
                     const SizedBox(width: 12),
-                    
+
                     // Increase Button
                     Container(
                       width: 36,
@@ -339,7 +348,8 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: IconButton(
-                        onPressed: () => updateQuantity(index, product.quantity + 1),
+                        onPressed:
+                            () => updateQuantity(index, product.quantity + 1),
                         padding: EdgeInsets.zero,
                         icon: const Icon(
                           Icons.add,
@@ -414,9 +424,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             ),
           ),
         ),
-        
+
         const SizedBox(height: 24),
-        
+
         // Instant Payment Title
         const Text(
           'Instant Payment',
@@ -426,18 +436,15 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             color: Color(0xFF111827),
           ),
         ),
-        
+
         const SizedBox(height: 16),
-        
+
         // Payment Input
         Container(
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: const Color(0xFF6BC6F0),
-              width: 2,
-            ),
+            border: Border.all(color: const Color(0xFF6BC6F0), width: 2),
             boxShadow: const [
               BoxShadow(
                 color: Color(0x05000000),
@@ -451,7 +458,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
               Expanded(
                 child: TextField(
                   controller: _paymentController,
-                  keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                  keyboardType: const TextInputType.numberWithOptions(
+                    decimal: true,
+                  ),
                   onChanged: updatePaymentAmount,
                   decoration: const InputDecoration(
                     hintText: 'Enter amount to pay now',
@@ -492,7 +501,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             ],
           ),
         ),
-        
+
         // Payment Summary
         if (_paymentAmount > 0) ...[
           const SizedBox(height: 16),
@@ -553,30 +562,36 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
             ),
           ),
         ],
-        
+
         const SizedBox(height: 16),
-        
+
         // Confirm Button
         SizedBox(
           width: double.infinity,
           height: 64,
           child: ElevatedButton(
-            onPressed: totalPrice > 0 ? () {
-              // Handle confirm order
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: const Text('Order Confirmed'),
-                  content: Text('Total: ${totalPrice.toStringAsFixed(2)} DH\nPaid: ${_paymentAmount.toStringAsFixed(2)} DH'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('OK'),
-                    ),
-                  ],
-                ),
-              );
-            } : null,
+            onPressed:
+                totalPrice > 0
+                    ? () {
+                      // Handle confirm order
+                      showDialog(
+                        context: context,
+                        builder:
+                            (context) => AlertDialog(
+                              title: const Text('Order Confirmed'),
+                              content: Text(
+                                'Total: ${totalPrice.toStringAsFixed(2)} DH\nPaid: ${_paymentAmount.toStringAsFixed(2)} DH',
+                              ),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                      );
+                    }
+                    : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF1B3F77),
               disabledBackgroundColor: const Color(0xFFD1D5DB),
@@ -603,9 +618,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border(
-          top: BorderSide(color: Color(0xFFE5E7EB), width: 1),
-        ),
+        border: Border(top: BorderSide(color: Color(0xFFE5E7EB), width: 1)),
       ),
       child: SafeArea(
         child: Padding(
@@ -625,7 +638,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
 
   Widget _buildNavItem(IconData icon, String label, int index) {
     bool isActive = _selectedTabIndex == index;
-    
+
     return Expanded(
       child: GestureDetector(
         onTap: () {
@@ -635,17 +648,20 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
         },
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 2),
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
           decoration: BoxDecoration(
             color: isActive ? const Color(0xFFA8D03D) : Colors.transparent,
             borderRadius: BorderRadius.circular(16),
-            boxShadow: isActive ? const [
-              BoxShadow(
-                color: Color(0x15000000),
-                blurRadius: 8,
-                offset: Offset(0, 2),
-              ),
-            ] : null,
+            boxShadow:
+                isActive
+                    ? const [
+                      BoxShadow(
+                        color: Color(0x15000000),
+                        blurRadius: 8,
+                        offset: Offset(0, 2),
+                      ),
+                    ]
+                    : null,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -653,7 +669,10 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
               Icon(
                 icon,
                 size: 24,
-                color: isActive ? const Color(0xFF1B3F77) : const Color(0xFF0C8C96),
+                color:
+                    isActive
+                        ? const Color(0xFF1B3F77)
+                        : const Color(0xFF0C8C96),
               ),
               const SizedBox(height: 8),
               Text(
@@ -661,7 +680,10 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
-                  color: isActive ? const Color(0xFF1B3F77) : const Color(0xFF667080),
+                  color:
+                      isActive
+                          ? const Color(0xFF1B3F77)
+                          : const Color(0xFF667080),
                 ),
               ),
               if (isActive) ...[

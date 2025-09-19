@@ -1,134 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/clients/screens/clients_screen.dart';
-import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/history/screens/delivery_history_screen.dart';
-import 'package:gaz/src/Settings/screens/settings_screen.dart';
+import 'package:gaz/src/settings/screens/settings_screen.dart';
 
-class BottomNavBar extends StatelessWidget {
-  final int selectedIndex;
+class BottomNavBar extends StatefulWidget {
+  final int selectedIndex = 0;
   final Function(int) onItemSelected;
 
+
   //BottomNavBar constructor
-  const BottomNavBar({
+  BottomNavBar({
     super.key,
-    required this.selectedIndex,
     required this.onItemSelected,
-    required void Function(int index) onItemTapped,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    // A list of data for each navigation item.
-    final List<Map<String, dynamic>> navItems = [
-      {
-        'label': 'Dash',
-        'icon': Icons.dashboard,
-        'page': const DashboardScreen(),
-      },
-      {
-        'label': 'Clients',
-        'icon': Icons.groups_2_outlined,
-        'page': const ClientsScreen(),
-      },
-      {
-        'label': 'History',
-        'icon': Icons.history,
-        'page': const DeliveryHistoryScreen(),
-      },
-      {
-        'label': 'Settings',
-        'icon': Icons.settings_outlined,
-        'page': const SettingsScreen(),
-      },
-    ];
-    //each item in the navItems list
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 12),
-      decoration: const BoxDecoration(
-        color: Color(0xFFF9F9F9),
-        border: Border(top: BorderSide(width: 1, color: Color(0xFFE2E2E2))),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(navItems.length, (index) {
-          final item = navItems[index];
-          return Expanded(
-            child: _AppNavItem(
-              label: item['label'],
-              icon: item['icon'],
-              isSelected: selectedIndex == index,
-              onTap: () {
-                onItemSelected(index);
-                // Navigate only if the page is not null
-                if (navItems[index]['page'] != null) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => navItems[index]['page'],
-                    ),
-                  );
-                }
-              },
-            ),
-          );
-        }),
-      ),
-    );
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
   }
-}
-
-// Represents a single navigation item in the [AppNavigationBar].
-class _AppNavItem extends StatelessWidget {
-  final String label;
-  final IconData icon;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  const _AppNavItem({
-    required this.label,
-    required this.icon,
-    required this.isSelected,
-    required this.onTap,
-  });
 
   @override
   Widget build(BuildContext context) {
-    final Color selectedBackgroundColor = AppColors.actions;
-    final Color selectedIconColor = Colors.white;
-    final Color selectedTextColor = Colors.white;
-    final Color unselectedColor = const Color(0xFF66707F);
-
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: isSelected ? selectedBackgroundColor : Colors.transparent,
-          borderRadius: BorderRadius.circular(16),
-        ),
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(top: BorderSide(color: Color(0xFFE5E7EB), width: 1)),
+      ),
+      child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+          child: Row(
             children: [
-              Icon(
-                icon,
-                color: isSelected ? selectedIconColor : unselectedColor,
-                size: 24,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                label,
-                style: TextStyle(
-                  color: isSelected ? selectedTextColor : unselectedColor,
-                  fontSize: 12,
-                  fontFamily: 'Space Grotesk',
-                  fontWeight: FontWeight.w500,
-                  height: 1.50,
-                ),
+              _buildSingleNavItem(Icons.dashboard, 'Dash', 0, context),
+              _buildSingleNavItem(Icons.people, 'Clients', 1, context),
+              _buildSingleNavItem(Icons.history, 'History', 2, context),
+              _buildSingleNavItem(
+                Icons.settings_outlined,
+                'Settings',
+                3,
+                context,
               ),
             ],
           ),
@@ -136,4 +48,133 @@ class _AppNavItem extends StatelessWidget {
       ),
     );
   }
+
+  final List<Map<String, dynamic>> navItems = [
+    {'label': 'Dash', 'icon': Icons.dashboard, 'page': const DashboardScreen()},
+    {
+      'label': 'Clients',
+      'icon': Icons.groups_2_outlined,
+      'page': const ClientsScreen(),
+    },
+    {
+      'label': 'History',
+      'icon': Icons.history,
+      'page': const DeliveryHistoryScreen(),
+    },
+    {
+      'label': 'Settings',
+      'icon': Icons.settings_outlined,
+      'page': const SettingsScreen(),
+    },
+  ];
+  //each item in the navItems list
+  Widget _buildSingleNavItem(
+    IconData icon,
+    String label,
+    int index,
+    BuildContext context,
+  ) {
+    bool isActive = selectedIndex == index;
+
+    return Expanded(
+      child: GestureDetector(
+        onTap:
+            () => {
+              print('onTap: $index'),
+              setState(() {
+                selectedIndex = index;
+                onItemTapped(index);
+              }),
+            },
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 2),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+          decoration: BoxDecoration(
+            color: isActive ? const Color(0xFFA8D03D) : Colors.transparent,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow:
+                isActive
+                    ? const [
+                      BoxShadow(
+                        color: Color(0x15000000),
+                        blurRadius: 8,
+                        offset: Offset(0, 2),
+                      ),
+                    ]
+                    : null,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 24,
+                color:
+                    isActive
+                        ? const Color(0xFF1B3F77)
+                        : const Color(0xFF0C8C96),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                  color:
+                      isActive
+                          ? const Color(0xFF1B3F77)
+                          : const Color(0xFF667080),
+                ),
+              ),
+              if (isActive) ...[
+                const SizedBox(height: 4),
+                Container(
+                  width: 24,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF1B3F77),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
+
+  // return Container(
+  //   width: double.infinity,
+  //   padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 12),
+  //   decoration: const BoxDecoration(
+  //     color: Color(0xFFF9F9F9),
+  //     border: Border(top: BorderSide(width: 1, color: Color(0xFFE2E2E2))),
+  //   ),
+  //   child: Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //     children: List.generate(navItems.length, (index) {
+  //       final item = navItems[index];
+  //       return Expanded(
+  //         child: _AppNavItem(
+  //           label: item['label'],
+  //           icon: item['icon'],
+  //           isSelected: selectedIndex == index,
+  //           onTap: () {
+  //             onItemSelected(index);
+  //             // Navigate only if the page is not null
+  //             if (navItems[index]['page'] != null) {
+  //               Navigator.push(
+  //                 context,
+  //                 MaterialPageRoute(
+  //                   builder: (context) => navItems[index]['page'],
+  //                 ),
+  //               );
+  //             }
+  //           },
+  //         ),
+  //       );
+  //     }),
+  //   ),
+  // );

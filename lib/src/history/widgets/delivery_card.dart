@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gaz/core/responsive_ui.dart';
+import 'package:gaz/core/responsive.dart';
 
 /// DeliveryCard represents a single delivery entry for use in a delivery list.
 /// It is not a list itself and should be used as a single item in a parent ListView or similar.

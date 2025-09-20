@@ -23,7 +23,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
         onItemSelected: _onItemTapped,
-        onItemTapped: _onItemTapped,
       ),
     );
   }

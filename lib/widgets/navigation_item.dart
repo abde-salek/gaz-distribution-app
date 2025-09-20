@@ -8,7 +8,7 @@ class AppNavItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  const AppNavItem({
+  const AppNavItem({super.key, 
     required this.label,
     required this.icon,
     required this.isSelected,

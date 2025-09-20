@@ -10,24 +10,30 @@ class DeliveryCard extends ConsumerWidget {
   final String name;
   final String address;
 
-  /// List of icons/images representing delivery items or status.
+  // TODO: const fill with assets
   final List<String> iconUrls;
+
   /// List of values to display in the three boxes (e.g., quantities).
-  final List<String> values;
+  final List<String> bottlesValues;
 
   /// Time & Date of delivery (e.g., '17:06', '11 Sept.').
   final String time;
   final String date;
 
+  /// The clientId associated with this delivery card.
+  final int clientId;
+
+  /// to navigate to the delivery details (low priority)
   //tap callback.
   final VoidCallback? onTap;
 
   const DeliveryCard({
     super.key,
+    required this.clientId,
     required this.name,
     required this.address,
     required this.iconUrls,
-    required this.values,
+    required this.bottlesValues,
     required this.time,
     required this.date,
     this.onTap,
@@ -35,14 +41,12 @@ class DeliveryCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Ensure iconUrls and values have exactly 3 items for the UI, fill with placeholders if needed
-    final List<String> icons = List<String>.from(iconUrls)
-      ..length = 3;
+    final List<String> icons = List<String>.from(iconUrls)..length = 3;
+    //TODO: const fill with assets
     for (int i = 0; i < 3; i++) {
       icons[i] = icons[i] ?? "https://placehold.co/27x27";
     }
-    final List<String> boxValues = List<String>.from(values)
-      ..length = 3;
+    final List<String> boxValues = List<String>.from(bottlesValues)..length = 3;
     for (int i = 0; i < 3; i++) {
       boxValues[i] = boxValues[i] ?? '';
     }
@@ -55,9 +59,7 @@ class DeliveryCard extends ConsumerWidget {
           width: double.infinity,
           height: Responsive.height(context) * 0.072,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          decoration: const BoxDecoration(
-            color: Color(0xFFF9F9F9),
-          ),
+          decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,7 +99,10 @@ class DeliveryCard extends ConsumerWidget {
               // Middle: Icons and Value Boxes
               Container(
                 width: 138,
-                padding: const EdgeInsets.symmetric(horizontal: 12.36, vertical: 2.75),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12.36,
+                  vertical: 2.75,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

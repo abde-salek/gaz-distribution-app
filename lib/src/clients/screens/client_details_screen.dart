@@ -71,7 +71,7 @@ class _ClientDetailsScreenState extends ConsumerState<ClientDetailsScreen> {
       bottomNavigationBar: BottomNavBar(
         selectedIndex: 1,
         onItemSelected: (index) {},
-        onItemTapped: (index) {},
+        
       ),
     );
   }

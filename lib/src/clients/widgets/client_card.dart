@@ -70,7 +70,7 @@ class ClientCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  CurrencyService.formatAmount(client.balance, displayUnit),
+                  CurrencyService.format(client.balance, displayUnit),
                   style: TextStyle(
                     color: balanceColor,
                     fontSize: 20,

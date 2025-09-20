@@ -1,5 +1,6 @@
 import '../models/client.dart';
 import '../models/transaction.dart';
+import '../src/history/widgets/delivery_card.dart';
 
 // Temporary transaction data
 class TempTransactionData {
@@ -51,6 +52,7 @@ class TempTransactionData {
     ),
   ];
 }
+
 // Temporary client data
 class TempClientData {
   static final List<Client> clients = [
@@ -95,6 +97,60 @@ class TempClientData {
       phoneNumber: '0987654321',
       balance: 120.00,
       address: '123 XYZ street',
+    ),
+  ];
+}
+
+class TempDeliveryData {
+  static final List<DeliveryCard> deliveries = [
+    DeliveryCard(
+      // Removed the 'key' parameter as DeliveryCard is used for mock data and the Key class is not imported here.
+      name: 'Mohammed Ali',
+      address: '123 XYZ street',
+      iconUrls: [
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+      ],
+      values: ['1', '2', '3'],
+      time: '17:06',
+      date: '11 Sept.',
+    ),
+    DeliveryCard(
+      name: 'Hassan Belmokhtar',
+      address: '123 XYZ street',
+      iconUrls: [
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+      ],
+      values: ['1', '2', '3'],
+      time: '17:06',
+      date: '11 Sept.',
+    ),
+    DeliveryCard(
+      name: 'Fatima Zahra',
+      address: '123 XYZ street',
+      iconUrls: [
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+      ],
+      values: ['1', '2', '3'],
+      time: '17:06',
+      date: '11 Sept.',
+    ),
+    DeliveryCard(
+      name: 'Aicha Koudia',
+      address: '123 XYZ street',
+      iconUrls: [
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+        'https://placehold.co/27x27',
+      ],
+      values: ['1', '2', '3'],
+      time: '17:06',
+      date: '11 Sept.',
     ),
   ];
 }

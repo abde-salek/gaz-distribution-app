@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/Core/app_colors.dart';
-import 'package:gaz/Core/responsive_ui.dart';
+import 'package:gaz/Core/responsive.dart';
 
 class TopCircleText extends StatelessWidget {
   final String text;

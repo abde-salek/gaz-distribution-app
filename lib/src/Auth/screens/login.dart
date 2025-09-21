@@ -7,11 +7,12 @@ import 'package:gaz/Core/responsive_ui.dart';
 
 /// LoginPage - User Authentication Screen
 ///
-/// A beautifully designed login page with:
-/// - Responsive layout that adapts to different screen sizes
+/// Features:
+/// - Responsive layout using the custom Responsive class
 /// - Decorative circles for visual appeal
-/// - Form validation for user inputs
-/// - Navigation to signup page
+/// - Form validation for user inputs (name and phone)
+/// - Navigation to signup and dashboard screens
+///
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -24,9 +25,9 @@ class _LoginPageState extends State<LoginPage> {
   // ============================================================================
   // FORM CONTROLLERS & KEYS
   // ============================================================================
-  final _nameController = TextEditingController();
-  final _phoneController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   // ============================================================================
   // LIFECYCLE METHODS
@@ -39,22 +40,48 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  /// Handles login button press.
+  /// Validates the form and navigates to the dashboard if valid.
+  void _handleLogin() {
+    if (_formKey.currentState?.validate() ?? false) {
+      // Navigation to dashboard screen after successful validation
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => DashboardScreen(),
+        ),
+      );
+    }
+  }
+
+  /// Handles navigation to the signup page.
+  void _navigateToSignup() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SignupPage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Responsive sizing using the custom Responsive class
     final double screenWidth = Responsive.width(context);
     final double screenHeight = Responsive.height(context);
 
-    // Responsive circle calculations
+    // Responsive circle and font calculations
     final double topCircleOffset = Responsive.getTopCircleOffset(context);
     final double subtitleFontSize = Responsive.getSubtitleFontSize(context);
     final double inputFontSize = Responsive.getInputFontSize(context);
     final double linkFontSize = Responsive.getLinkFontSize(context);
-
     final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
+
     return Scaffold(
       backgroundColor: const Color(0xFFF3F4F6),
       body: Stack(
         children: [
+          // Top decorative circle
           Positioned(
             left: -topCircleOffset * 0.5,
             top: -topCircleOffset,
@@ -77,6 +104,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
 
+          // Bottom decorative circle with login button
           Positioned(
             right: -bottomCircleOffset * 1.3,
             bottom: -bottomCircleOffset,
@@ -91,34 +119,22 @@ class _LoginPageState extends State<LoginPage> {
                 alignment: const Alignment(-0.66, -0.5),
                 child: Container(
                   padding: EdgeInsets.only(left: screenWidth * 0.15),
-                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
                   child: Stack(
                     children: [
+                      // Login button (arrow)
                       GestureDetector(
-                        onTap: () {
-                          if (_formKey.currentState!.validate()) {
-                            print('Form validated, proceeding to next step');
-                          }
-                        },
+                        onTap: _handleLogin,
                         child: Container(
                           padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
-                          decoration: BoxDecoration(shape: BoxShape.circle),
+                          decoration: const BoxDecoration(shape: BoxShape.circle),
                           child: IconButton(
                             icon: const Icon(
                               Icons.arrow_forward,
                               color: Colors.white,
                               size: 35,
                             ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => DashboardScreen(),
-                                  ),
-                                );
-                              }
-                            },
+                            onPressed: _handleLogin,
                           ),
                         ),
                       ),
@@ -129,6 +145,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
 
+          // Main login form
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
@@ -141,6 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       SizedBox(height: screenHeight * 0.15),
 
+                      // Title
                       Text(
                         'Enter Your Credentials',
                         textAlign: TextAlign.center,
@@ -154,10 +172,10 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.04),
 
+                      // Name input field
                       Container(
                         constraints: BoxConstraints(
-                          maxWidth:
-                              screenWidth > 400 ? 350 : screenWidth * 0.85,
+                          maxWidth: screenWidth > 400 ? 350 : screenWidth * 0.85,
                         ),
                         child: TextFormField(
                           controller: _nameController,
@@ -209,10 +227,10 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.02),
 
+                      // Phone number input field
                       Container(
                         constraints: BoxConstraints(
-                          maxWidth:
-                              screenWidth > 400 ? 350 : screenWidth * 0.85,
+                          maxWidth: screenWidth > 400 ? 350 : screenWidth * 0.85,
                         ),
                         child: TextFormField(
                           controller: _phoneController,
@@ -268,15 +286,9 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.02),
 
+                      // Signup navigation link
                       GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignupPage(),
-                            ),
-                          );
-                        },
+                        onTap: _navigateToSignup,
                         child: Text(
                           'Don\'t have an account ?',
                           textAlign: TextAlign.center,
@@ -293,6 +305,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: screenHeight * 0.04),
 
+                      // Decorative dots indicator
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

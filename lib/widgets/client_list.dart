@@ -39,23 +39,20 @@ class ClientList extends ConsumerWidget {
 
         // Clients list
         Expanded(
-          child: clients.isEmpty
-              ? _buildEmptyState()
-              : ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: clients.length,
-                  itemBuilder: (context, index) {
-                    final client = clients[index];
-                    return ClientCard(
-                      client: client,
-                      onTap: () {
-                        onClientTap?.call();
-                        // TODO: Navigate to client details
-                        print('Tapped on client: ${client.name}');
-                      },
-                    );
-                  },
-                ),
+          child:
+              clients.isEmpty
+                  ? _buildEmptyState()
+                  : ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: clients.length,
+                    itemBuilder: (context, index) {
+                      final client = clients[index];
+                      return ClientCard(
+                        client: client,
+                        onTap: () => onClientTap?.call(),
+                      );
+                    },
+                  ),
         ),
       ],
     );
@@ -66,11 +63,7 @@ class ClientList extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.people_outline,
-            size: 64,
-            color: Color(0xFF66707F),
-          ),
+          Icon(Icons.people_outline, size: 64, color: Color(0xFF66707F)),
           SizedBox(height: 16),
           Text(
             'No clients found',
@@ -96,4 +89,3 @@ class ClientList extends ConsumerWidget {
     );
   }
 }
-

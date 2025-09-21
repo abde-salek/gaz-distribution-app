@@ -169,14 +169,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     child: Stack(
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            // Validate form and proceed if valid
-                            if (_formKey.currentState!.validate()) {
-                              // Handle signup or navigation to next screen
-                              print('Form validated, proceeding to next step');
-                              // TODO: Implement signup logic or navigation
-                            }
-                          },
+                          onTap: () {},
                           child: Container(
                             padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
                             decoration: BoxDecoration(
@@ -192,10 +185,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  // verify OTP and navigate to the main app screen
-                                  String otp =
-                                      _otpControllers.map((c) => c.text).join();
-                                  print('OTP entered: $otp');
                                   // Navigate to main dashboard
                                   Navigator.pushReplacement(
                                     context,

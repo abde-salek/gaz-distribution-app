@@ -124,7 +124,7 @@ class ContactInfo extends StatelessWidget {
           ),
           SizedBox(height: 4),
           Text(
-            client.phoneNumber,
+            client.phoneNumber.join(', '),
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 18,

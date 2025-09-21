@@ -8,6 +8,7 @@ import 'package:gaz/providers/dashboard_provider.dart';
 import 'package:gaz/src/dashboard/widgets/welcome_section.dart';
 import 'package:gaz/src/dashboard/widgets/dashboard_cards.dart';
 import 'package:gaz/src/dashboard/widgets/inventory_section.dart';
+import 'package:gaz/services/currency_service.dart';
 
 /// DashboardScreen is the main entry point for the dashboard UI.
 /// It composes the dashboard using modular widgets for maintainability and clarity.
@@ -64,12 +65,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               // Welcome section widget (see widgets/welcome_section.dart)
               const WelcomeSection(),
               const SizedBox(height: 20),
-<<<<<<< HEAD
               // Main dashboard cards widget (see widgets/main_dashboard_cards.dart)
               MainDashboardCards(
                 dashboardState: dashboardState,
                 displayUnit: _currentUnit,
-=======
+              ),
               // Main dashboard card section
               LayoutBuilder(
                 builder: (context, constraints) {
@@ -97,7 +97,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         child: Column(
                           children: [
                             Text(
-                              CurrencyService.formatAmount(
+                              CurrencyService.format(
                                 dashboardState.targetAmount,
                                 _currentUnit,
                               ),
@@ -150,7 +150,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               child: Column(
                                 children: [
                                   Text(
-                                    CurrencyService.formatAmount(
+                                    CurrencyService.format(
                                       dashboardState.collectedAmount,
                                       _currentUnit,
                                     ),
@@ -201,7 +201,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               child: Column(
                                 children: [
                                   Text(
-                                    CurrencyService.formatAmount(
+                                    CurrencyService.format(
                                       dashboardState.owedAmount,
                                       _currentUnit,
                                     ),
@@ -448,7 +448,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     ],
                   );
                 },
->>>>>>> origin/master
               ),
               const SizedBox(height: 16),
               // Truck inventory section widget (see widgets/truck_inventory_section.dart)

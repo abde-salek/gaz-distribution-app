@@ -3,8 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
-import 'package:gaz/src/clients/widgets/client_list.dart';
-import 'package:gaz/src/history/widgets/delivery_card.dart';
 
 class DeliveryHistoryScreen extends StatefulWidget {
   const DeliveryHistoryScreen({super.key});
@@ -46,8 +44,8 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
           SliverAppBar(/*...*/),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, clientId) =>
-                  DeliveryCard(clientId: clientId), //DeliveryCard(),
+              (context, clientId) => null,
+              //DeliveryCard(clientId: clientId ), //DeliveryCard(),
             ),
           ),
           SliverToBoxAdapter(

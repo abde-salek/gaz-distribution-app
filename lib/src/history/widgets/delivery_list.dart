@@ -45,7 +45,6 @@ class DeliveryList extends ConsumerWidget {
           clientId: singledelivery['clientId'] ?? 0,
           name: singledelivery['name'] ?? '',
           address: singledelivery['address'] ?? '',
-          iconUrls: List<String>.from(singledelivery['iconUrls'] ?? []),
           bottlesValues: List<String>.from(singledelivery['values'] ?? ['0', '0', '0']),
           time: singledelivery['time'] ?? '',
           date: singledelivery['date'] ?? '',

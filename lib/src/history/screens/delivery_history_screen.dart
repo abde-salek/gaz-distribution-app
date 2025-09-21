@@ -4,6 +4,7 @@ import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:gaz/src/clients/widgets/client_list.dart';
+import 'package:gaz/src/history/widgets/delivery_card.dart';
 
 class DeliveryHistoryScreen extends StatefulWidget {
   const DeliveryHistoryScreen({super.key});
@@ -39,135 +40,129 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
           onUnitChanged: (unit) {},
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ConstrainedBox(
-                  constraints: BoxConstraints(minWidth: 160),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: 48,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            decoration: ShapeDecoration(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: double.infinity,
-                                  padding: const EdgeInsets.only(left: 16),
-                                  decoration: ShapeDecoration(
-                                    color: const Color(0xFFEAEDEF),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(12),
-                                        bottomLeft: Radius.circular(12),
-                                      ),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          height: 24,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(),
-                                          child: Stack(
-                                            children: [
-                                              //Positioned(left: undefined, top: undefined),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: double.infinity,
-                                    padding: const EdgeInsets.only(
-                                      top: 8,
-                                      left: 8,
-                                      right: 16,
-                                      bottom: 8,
-                                    ),
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: ShapeDecoration(
-                                      color: const Color(0xFFEAEDEF),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(12),
-                                          bottomRight: Radius.circular(12),
-                                        ),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Search  Delivery',
-                                          style: TextStyle(
-                                            color: const Color(0xFF66707F),
-                                            fontSize: 16,
-                                            fontFamily: 'Space Grotesk',
-                                            fontWeight: FontWeight.w400,
-                                            height: 1.50,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+      // body:
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(/*...*/),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, clientId) =>
+                  DeliveryCard(clientId: clientId), //DeliveryCard(),
             ),
           ),
-          ClientList(
-            onClientTap: () {
-              // TODO: Navigate to client details
-              print('Client tapped');
-            },
+          SliverToBoxAdapter(
+            //child: DeliveryList(), // Add non-scrollable content
           ),
         ],
       ),
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
         onItemSelected: _onItemTapped,
-        onItemTapped: _onItemTapped,
+      ),
+    );
+  }
+
+  Widget DeliveryList() {
+    return //delivery list section
+    ConstrainedBox(
+      constraints: BoxConstraints(),
+      child: SizedBox(
+        width: 20,
+        height: 48,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Container(
+                width: 20,
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 20,
+                      padding: const EdgeInsets.only(left: 16),
+                      decoration: ShapeDecoration(
+                        color: const Color(0xFFEAEDEF),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(12),
+                            bottomLeft: Radius.circular(12),
+                          ),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 24,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(),
+                              child: Stack(
+                                children: [
+                                  //Positioned(left: undefined, top: undefined),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 20,
+                        padding: const EdgeInsets.only(
+                          top: 8,
+                          left: 8,
+                          right: 16,
+                          bottom: 8,
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFEAEDEF),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                            ),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Search  Delivery',
+                              style: TextStyle(
+                                color: const Color(0xFF66707F),
+                                fontSize: 16,
+                                fontFamily: 'Space Grotesk',
+                                fontWeight: FontWeight.w400,
+                                height: 1.50,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

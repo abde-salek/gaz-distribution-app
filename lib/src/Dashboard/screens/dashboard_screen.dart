@@ -109,7 +109,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               // Main dashboard card section
               LayoutBuilder(
                 builder: (context, constraints) {
-                  final isNarrow = constraints.maxWidth < 500;
+                  //final isNarrow = constraints.maxWidth < 500;
                   return Column(
                     children: [
                       // Target amount section

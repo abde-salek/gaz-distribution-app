@@ -2,7 +2,7 @@ class Client {
   final int id;
   final String name;
   final double balance;
-  final String phoneNumber;
+  final List<int> phoneNumber;
   final String address;
   //final double history;
 

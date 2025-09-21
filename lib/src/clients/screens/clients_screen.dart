@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive_ui.dart';
-import 'package:gaz/widgets/client_card.dart';
 import 'package:gaz/widgets/client_list.dart';
-import 'package:gaz/providers/client_provider.dart';
+// import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
@@ -38,7 +37,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
     final width = Responsive.width(context);
     final height = Responsive.height(context);
     // Watch the provider to get the list of clients
-    final clients = ref.watch(clientProvider);
+    // final clients = ref.watch(clientProvider);
 
     // SCAFFOLD
     return Scaffold(
@@ -210,7 +209,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                                 child: Container(
                                                   transform:
                                                       Matrix4.identity()
-                                                        ..translate(0.0, 0.0)
                                                         ..rotateZ(3.14),
                                                   width: 20,
                                                   height: 20,
@@ -420,10 +418,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                             // CLIENTS LIST - Using reusable widget
                             Expanded(
                               child: ClientList(
-                                onClientTap: () {
-                                  // TODO: Navigate to client details
-                                  print('Client tapped');
-                                },
+                                onClientTap: () {},
                                 showSearchBar: true,
                                 searchHint: 'Search clients',
                               ),

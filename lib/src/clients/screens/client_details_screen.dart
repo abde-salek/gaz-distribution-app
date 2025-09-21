@@ -8,6 +8,7 @@ import 'package:gaz/providers/client_details_provider.dart';
 import 'package:gaz/providers/transaction_provider.dart';
 import 'package:gaz/models/transaction.dart';
 import 'package:gaz/models/client.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 class ClientDetailsScreen extends ConsumerStatefulWidget {
   final int clientId;
@@ -71,7 +72,6 @@ class _ClientDetailsScreenState extends ConsumerState<ClientDetailsScreen> {
       bottomNavigationBar: BottomNavBar(
         selectedIndex: 1,
         onItemSelected: (index) {},
-        
       ),
     );
   }
@@ -278,7 +278,9 @@ class TransactionItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(
+              alpha: 0.05,
+            ), // 0.05 opacity of #000000
             blurRadius: 4,
             offset: Offset(0, 2),
           ),
@@ -292,8 +294,8 @@ class TransactionItem extends StatelessWidget {
             decoration: BoxDecoration(
               color:
                   transaction.isPositive
-                      ? Color(0xFF4CAF50).withOpacity(0.1)
-                      : Color(0xFF2196F3).withOpacity(0.1),
+                      ? AppColors.actions
+                      : AppColors.secondary,
               borderRadius: BorderRadius.circular(20),
             ),
             child: Icon(

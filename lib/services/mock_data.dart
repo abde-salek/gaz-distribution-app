@@ -105,49 +105,33 @@ class TempDeliveryData {
   static final List<DeliveryCard> deliveries = [
     DeliveryCard(
       // Removed the 'key' parameter as DeliveryCard is used for mock data and the Key class is not imported here.
+      clientId: 1,
       name: 'Mohammed Ali',
       address: '123 XYZ street',
-      iconUrls: [
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-      ],
       bottlesValues: ['1', '2', '3'],
       time: '17:06',
       date: '11 Sept.',
     ),
     DeliveryCard(
+      clientId: 2,
       name: 'Hassan Belmokhtar',
       address: '123 XYZ street',
-      iconUrls: [
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-      ],
       bottlesValues: ['1', '2', '3'],
       time: '17:06',
       date: '11 Sept.',
     ),
     DeliveryCard(
+      clientId: 3,
       name: 'Fatima Zahra',
       address: '123 XYZ street',
-      iconUrls: [
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-      ],
       bottlesValues: ['1', '2', '3'],
       time: '17:06',
       date: '11 Sept.',
     ),
     DeliveryCard(
+      clientId: 4,
       name: 'Aicha Koudia',
       address: '123 XYZ street',
-      iconUrls: [
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-        'https://placehold.co/27x27',
-      ],
       bottlesValues: ['1', '2', '3'],
       time: '17:06',
       date: '11 Sept.',

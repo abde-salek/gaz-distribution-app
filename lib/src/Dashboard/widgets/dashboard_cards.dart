@@ -76,7 +76,7 @@ class _DashboardCard extends StatelessWidget {
     // Card UI with icon, title, and value
     return Expanded(
       child: Card(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
         child: Padding(

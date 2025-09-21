@@ -1,6 +1,6 @@
 /// TruckInventorySection widget displays a list of trucks and their inventory status.
 /// This widget is modular and can be reused in other dashboard contexts.
-/// 
+///
 /// - For MVP simplicity, all logic is contained here.
 /// - For currency formatting, use the dedicated currency or helper module if needed.
 /// - Responsive layout uses the project's Responsive class (not MediaQuery).
@@ -108,7 +108,10 @@ class _TruckInventoryCard extends StatelessWidget {
         color: AppColors.background,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: isActive ? AppColors.actions : AppColors.secondary.withOpacity(0.2),
+          color:
+              isActive
+                  ? AppColors.actions
+                  : AppColors.secondary.withValues(alpha: 0.2),
           width: 1.2,
         ),
         boxShadow: [
@@ -124,7 +127,10 @@ class _TruckInventoryCard extends StatelessWidget {
         children: [
           // Truck icon
           CircleAvatar(
-            backgroundColor: isActive ? AppColors.actions : AppColors.secondary.withOpacity(0.1),
+            backgroundColor:
+                isActive
+                    ? AppColors.actions
+                    : AppColors.secondary.withValues(alpha: 0.1),
             child: Icon(
               icon,
               color: isActive ? Colors.white : AppColors.secondary,
@@ -168,10 +174,7 @@ class _TruckInventoryCard extends StatelessWidget {
               ),
               Text(
                 'in stock',
-                style: TextStyle(
-                  color: AppColors.secondary,
-                  fontSize: 11,
-                ),
+                style: TextStyle(color: AppColors.secondary, fontSize: 11),
               ),
             ],
           ),

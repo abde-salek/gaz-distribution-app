@@ -9,7 +9,7 @@ class DeliveryList extends ConsumerWidget {
   /// name, address, iconUrls, values, time, date
   final List<Map<String, dynamic>> deliveries;
 
-  /// Optional callback when a delivery is tapped.
+  /// callback when a delivery is tapped.
   final void Function(int index)? onDeliveryTap;
 
   const DeliveryList({
@@ -20,6 +20,7 @@ class DeliveryList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // No deliveries found
     if (deliveries.isEmpty) {
       return const Center(
         child: Text(
@@ -33,20 +34,21 @@ class DeliveryList extends ConsumerWidget {
         ),
       );
     }
-
+    // Deliveries exist
     return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
       itemCount: deliveries.length,
       separatorBuilder: (context, index) => const SizedBox(height: 8),
       itemBuilder: (context, index) {
-        final delivery = deliveries[index];
+        final singledelivery = deliveries[index];
         return DeliveryCard(
-          name: delivery['name'] ?? '',
-          address: delivery['address'] ?? '',
-          iconUrls: List<String>.from(delivery['iconUrls'] ?? []),
-          values: List<String>.from(delivery['values'] ?? []),
-          time: delivery['time'] ?? '',
-          date: delivery['date'] ?? '',
+          clientId: singledelivery['clientId'] ?? 0,
+          name: singledelivery['name'] ?? '',
+          address: singledelivery['address'] ?? '',
+          iconUrls: List<String>.from(singledelivery['iconUrls'] ?? []),
+          bottlesValues: List<String>.from(singledelivery['values'] ?? ['0', '0', '0']),
+          time: singledelivery['time'] ?? '',
+          date: singledelivery['date'] ?? '',
           onTap: onDeliveryTap != null ? () => onDeliveryTap!(index) : null,
         );
       },

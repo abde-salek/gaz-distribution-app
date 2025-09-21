@@ -169,14 +169,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                     child: Stack(
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            // Validate form and proceed if valid
-                            if (_formKey.currentState!.validate()) {
-                              // Handle signup or navigation to next screen
-                              print('Form validated, proceeding to next step');
-                              // TODO: Implement signup logic or navigation
-                            }
-                          },
+                          onTap: () {},
                           child: Container(
                             padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
                             decoration: BoxDecoration(
@@ -192,10 +185,6 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                               ),
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
-                                  // verify OTP and navigate to the main app screen
-                                  String otp =
-                                      _otpControllers.map((c) => c.text).join();
-                                  print('OTP entered: $otp');
                                   // Navigate to main dashboard
                                   Navigator.pushReplacement(
                                     context,
@@ -265,19 +254,17 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         ),
                         SizedBox(height: screenHeight * 0.02),
                         // OTP input fields
-                        Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              for (int i = 0; i < 4; i++) ...[
-                                _buildOtpField(i),
-                                SizedBox(
-                                  width: screenWidth / pow(10, 6),
-                                  height: screenHeight / pow(10, 6),
-                                ), // Control spacing by adjusting this width
-                              ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 0; i < 4; i++) ...[
+                              _buildOtpField(i),
+                              SizedBox(
+                                width: screenWidth / pow(10, 6),
+                                height: screenHeight / pow(10, 6),
+                              ), // Control spacing by adjusting this width
                             ],
-                          ),
+                          ],
                         ),
                         SizedBox(height: screenHeight * 0.01),
                         // "Resend Code" Button
@@ -394,7 +381,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Color(0x1A9E9E9E), // Equivalent to Colors.grey with 10% opacity
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),

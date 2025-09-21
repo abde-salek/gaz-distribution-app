@@ -130,14 +130,7 @@ class _SignupPageState extends State<SignupPage> {
                     child: Stack(
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            // Validate form and proceed if valid
-                            if (_formKey.currentState!.validate()) {
-                              // Handle signup or navigation to next screen
-                              print('Form validated, proceeding to next step');
-                              // TODO: Implement signup logic or navigation
-                            }
-                          },
+                          onTap: () {},
                           child: Container(
                             padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
                             decoration: BoxDecoration(
@@ -154,7 +147,9 @@ class _SignupPageState extends State<SignupPage> {
                               onPressed: () {
                                 if (_formKey.currentState!.validate() &&
                                     _nameController.text.isNotEmpty &&
-                                    _phoneController.text == 10) {
+                                    _phoneController.text.length == 10 &&
+                                    int.tryParse(_phoneController.text) !=
+                                        null) {
                                   // Navigate to OTP
                                   Navigator.pushReplacement(
                                     context,

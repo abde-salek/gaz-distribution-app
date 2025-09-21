@@ -50,6 +50,7 @@ class ClientList extends ConsumerWidget {
                       final client = clients[index];
                       return ClientCard(
                         client: client,
+<<<<<<< HEAD:lib/src/clients/widgets/client_list.dart
                         onTap: () {
                           onClientTap?.call();
                           // Navigate to client details screen
@@ -62,6 +63,9 @@ class ClientList extends ConsumerWidget {
                             ),
                           );
                         },
+=======
+                        onTap: () => onClientTap?.call(),
+>>>>>>> origin/master:lib/widgets/client_list.dart
                       );
                     },
                   ),

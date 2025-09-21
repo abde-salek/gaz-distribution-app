@@ -3,6 +3,10 @@ import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/Core/responsive.dart';
 
+/// A widget that displays a styled text at the top of a circular area.
+///
+/// [text] is the string to display.
+/// [screenWidth] is used to calculate responsive font size.
 class TopCircleText extends StatelessWidget {
   final String text;
   final double screenWidth;
@@ -26,6 +30,11 @@ class TopCircleText extends StatelessWidget {
   }
 }
 
+/// A widget that displays a circular button with an arrow at the bottom of the screen.
+///
+/// When pressed, it navigates to the [DashboardScreen].
+/// [onPressed] is a callback for additional actions (optional, but required for flexibility).
+/// [screenWidth] is used for responsive sizing.
 class BottomCircleArrow extends StatelessWidget {
   final VoidCallback onPressed;
   final double screenWidth;
@@ -38,9 +47,9 @@ class BottomCircleArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Responsive offset and height using the project's Responsive class
     final double bottomCircleOffset = Responsive.getBottomCircleOffset(context);
     final double screenHeight = Responsive.getScreenHeight(context);
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
     return Positioned(
       bottom: -bottomCircleOffset,
@@ -55,33 +64,30 @@ class BottomCircleArrow extends StatelessWidget {
           alignment: const Alignment(-0.66, -0.5),
           child: Container(
             padding: EdgeInsets.only(left: screenWidth * 0.15),
-            decoration: BoxDecoration(shape: BoxShape.circle),
+            decoration: const BoxDecoration(shape: BoxShape.circle),
             child: Stack(
               children: [
+                // The arrow button, wrapped in a GestureDetector for future extensibility
                 GestureDetector(
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      print('Form validated, proceeding to next step');
-                    }
-                  },
+                  onTap: onPressed,
                   child: Container(
                     padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
-                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
                     child: IconButton(
                       icon: const Icon(
                         Icons.arrow_forward,
                         color: Colors.white,
                         size: 35,
                       ),
+                      // Navigates to DashboardScreen and calls the provided onPressed callback
                       onPressed: () {
-                        //if (_formKey.currentState!.validate()) {
+                        onPressed();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DashboardScreen(),
+                            builder: (context) => const DashboardScreen(),
                           ),
                         );
-                        //}
                       },
                     ),
                   ),

@@ -33,10 +33,10 @@ class Splach extends StatefulWidget {
   const Splach({super.key});
 
   @override
-  _SplachState createState() => _SplachState();
+  SplachState createState() => SplachState();
 }
 
-class _SplachState extends State<Splach> {
+class SplachState extends State<Splach> {
   @override
   void initState() {
     super.initState();

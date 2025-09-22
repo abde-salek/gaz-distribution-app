@@ -116,7 +116,12 @@ class _TruckInventoryCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.secondary.withAlpha(13), // 0.05 * 255 ≈ 13
+            color: Color.fromRGBO(
+              AppColors.secondary.red,
+              AppColors.secondary.green,
+              AppColors.secondary.blue,
+              0.05
+            ), // Using fromRGBO instead of withAlpha
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),

@@ -152,13 +152,13 @@ class LoadingScreen extends StatelessWidget {
           _buildSkeletonText(
             width: isSmall ? 120 : 160,
             height: isSmall ? 28 : 32,
-            color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
+            color: const Color.fromRGBO(255, 255, 255, 0.7), // Using fromRGBO instead of withAlpha
           ),
           const SizedBox(height: 8),
           _buildSkeletonText(
             width: isSmall ? 100 : 120,
             height: 16,
-            color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
+            color: const Color.fromRGBO(255, 255, 255, 0.7), // Using fromRGBO instead of withAlpha
           ),
         ],
       ),

@@ -1,7 +1,7 @@
 /// WelcomeSection widget displays a personalized greeting at the top of the dashboard.///
 library;
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 
 class WelcomeSection extends StatelessWidget {
   const WelcomeSection({super.key});

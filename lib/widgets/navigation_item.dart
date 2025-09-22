@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 
 /// Represents a single navigation item in the [AppNavigationBar].
 class AppNavItem extends StatelessWidget {

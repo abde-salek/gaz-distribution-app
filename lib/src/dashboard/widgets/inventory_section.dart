@@ -116,7 +116,7 @@ class _TruckInventoryCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.secondary.withOpacity(0.05),
+            color: AppColors.secondary.withAlpha(13), // 0.05 * 255 ≈ 13
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),

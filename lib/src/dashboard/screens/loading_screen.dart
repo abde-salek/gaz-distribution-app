@@ -152,13 +152,13 @@ class LoadingScreen extends StatelessWidget {
           _buildSkeletonText(
             width: isSmall ? 120 : 160,
             height: isSmall ? 28 : 32,
-            color: Colors.white.withOpacity(0.7),
+            color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
           ),
           const SizedBox(height: 8),
           _buildSkeletonText(
             width: isSmall ? 100 : 120,
             height: 16,
-            color: Colors.white.withOpacity(0.7),
+            color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
           ),
         ],
       ),
@@ -180,13 +180,13 @@ class LoadingScreen extends StatelessWidget {
                 _buildSkeletonText(
                   width: isSmall ? 80 : 100,
                   height: isSmall ? 20 : 24,
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
                 ),
                 const SizedBox(height: 8),
                 _buildSkeletonText(
                   width: isSmall ? 60 : 80,
                   height: 14,
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
                 ),
               ],
             ),
@@ -205,13 +205,13 @@ class LoadingScreen extends StatelessWidget {
                 _buildSkeletonText(
                   width: isSmall ? 80 : 100,
                   height: isSmall ? 20 : 24,
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
                 ),
                 const SizedBox(height: 8),
                 _buildSkeletonText(
                   width: isSmall ? 60 : 80,
                   height: 14,
-                  color: Colors.white.withOpacity(0.7),
+                  color: Colors.white.withAlpha(179), // 0.7 * 255 ≈ 179
                 ),
               ],
             ),
@@ -339,7 +339,7 @@ class LoadingScreen extends StatelessWidget {
       height: 40,
       decoration: BoxDecoration(
         color: isSelected
-            ? const Color(0xFF1B3F77).withOpacity(0.1)
+            ? const Color(0xFF1B3F77).withAlpha(26) // 0.1 * 255 ≈ 26
             : Colors.transparent,
         borderRadius: BorderRadius.circular(8),
       ),
@@ -347,7 +347,7 @@ class LoadingScreen extends StatelessWidget {
         child: _buildSkeletonCircle(
           24,
           color: isSelected
-              ? const Color(0xFF1B3F77).withOpacity(0.3)
+              ? const Color(0xFF1B3F77).withAlpha(77) // 0.3 * 255 ≈ 77
               : const Color(0xFFD9D9D9),
         ),
       ),
@@ -385,7 +385,7 @@ class LoadingScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withAlpha(13), // 0.05 * 255 ≈ 13
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -475,7 +475,7 @@ class _ShimmerLoadingWidgetState extends State<ShimmerLoadingWidget>
             gradient: LinearGradient(
               colors: [
                 widget.color,
-                widget.color.withOpacity(0.5),
+                widget.color.withAlpha(128), // 0.5 * 255 ≈ 128
                 widget.color,
               ],
               stops: const [0.0, 0.5, 1.0],
@@ -517,7 +517,7 @@ class LoadingCardWidget extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withAlpha(13), // 0.05 * 255 ≈ 13
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),

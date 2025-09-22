@@ -14,8 +14,8 @@ The **Gaz Distribution App** is a comprehensive mobile application built with **
 The project follows a modular, component-based architecture to ensure clarity and maintainability.
 
 * `lib/main.dart`: The main entry point of the app. It must be wrapped in `ProviderScope`.
-* `lib/src/`: Contains all feature-specific code, separated into sub-directories (e.g., `Auth`, `clients`).
-* `lib/src/Auth/`: Contains authentication-related screens and widgets (`login`, `signup`, `splash`).
+* `lib/src/`: Contains all feature-specific code, separated into sub-directories (e.g., `auth`, `clients`).
+* `lib/src/auth/`: Contains authentication-related screens and widgets (`login`, `signup`, `splash`).
 * `lib/src/clients/`: Contains client-related features like the client list UI.
 * `lib/providers/`: Stores all Riverpod provider definitions (e.g., `client_provider.dart`).
 * `lib/models/`: Contains data model classes (e.g., `client.dart`, `transaction.dart`).

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/src/clients/screens/client_details_screen.dart';
 
 /// Gaz Distribution App - Main Entry Point
 /// Comprehensive Flutter app for gas distribution management with delivery tracking,
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
+        fontFamily: 'SpaceGrotesk',
         // Custom theme configuration for professional appearance
         appBarTheme: const AppBarTheme(
           elevation: 0,
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const DashboardScreen(),
+      home: const ClientDetailsScreen(clientId: 2),
     );
   }
 }

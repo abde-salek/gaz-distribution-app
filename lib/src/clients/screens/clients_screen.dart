@@ -1,12 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
-import 'package:gaz/Core/app_colors.dart';
-import 'package:gaz/Core/responsive_ui.dart';
-import 'package:gaz/widgets/client_list.dart';
+import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/src/clients/widgets/client_list.dart';
 // import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
+
+// Clients screen to display a list of clients.//
 
 // CLIENTS SCREEN
 class ClientsScreen extends ConsumerStatefulWidget {
@@ -34,8 +36,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final width = Responsive.width(context);
-    final height = Responsive.height(context);
     // Watch the provider to get the list of clients
     // final clients = ref.watch(clientProvider);
 
@@ -48,7 +48,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: Icon(Icons.people, color: const Color(0xFF1B3F77), size: 20),
+          child: Image.asset('icons/add_client.png', fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -57,8 +57,8 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
       ),
       // BODY
       body: Container(
-        width: width,
-        height: height,
+        width: double.infinity,
+        height: double.infinity,
         decoration: ShapeDecoration(
           color: const Color(0xFFF9F9F9),
           shape: RoundedRectangleBorder(
@@ -437,7 +437,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
         onItemSelected: _onItemTapped,
-        onItemTapped: _onItemTapped,
       ),
     );
   }

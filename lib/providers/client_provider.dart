@@ -7,7 +7,7 @@ import 'package:gaz/services/mock_data.dart';
 // The StateNotifier class that holds and manages the list of clients
 class ClientNotifier extends StateNotifier<List<Client>> {
 
-  ClientNotifier() : super(MockData.clients);
+  ClientNotifier() : super(TempClientData.clients);
 }
 
 // The provider to access the ClientNotifier from your widgets

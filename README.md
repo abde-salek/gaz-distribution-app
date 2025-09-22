@@ -66,7 +66,7 @@ lib/
 ├── core/                    # Core utilities and constants
 │   ├── app_colors.dart     # Color scheme definitions
 │   ├── app_text_styles.dart # Typography system
-│   └── responsive_ui.dart  # Responsive layout utilities
+│   └── responsive.dart  # Responsive layout utilities
 ├── models/                  # Data models
 │   ├── client.dart         # Client data model
 │   ├── transaction.dart    # Transaction data model
@@ -196,7 +196,7 @@ dependencies:
 ### **Configuration**
 - **Assets**: Ensure all icons and images are in the correct folders
 - **Dependencies**: Check `pubspec.yaml` for required packages
-- **Responsive Setup**: Customize breakpoints in `responsive_ui.dart` if needed
+- **Responsive Setup**: Customize breakpoints in `responsive.dart` if needed
 
 ## 📊 Current Implementation Status
 

@@ -19,7 +19,7 @@ The project follows a modular, component-based architecture to ensure clarity an
 * `lib/src/clients/`: Contains client-related features like the client list UI.
 * `lib/providers/`: Stores all Riverpod provider definitions (e.g., `client_provider.dart`).
 * `lib/models/`: Contains data model classes (e.g., `client.dart`, `transaction.dart`).
-* `lib/core/`: Houses global, core logic, and utility classes, such as `responsive_ui.dart`, `app_colors.dart`, and `app_text_styles.dart`.
+* `lib/Core/`: Houses global, core logic, and utility classes, such as `responsive.dart`, `app_colors.dart`, and `app_text_styles.dart`.
 * `lib/services/`: Contains service classes and mock data (e.g., `mock_data.dart`).
 * `lib/widgets/`: Contains reusable widget components (e.g., `client_card.dart`, `app_navigation_bar.dart`).
 

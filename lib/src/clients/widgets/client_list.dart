@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/providers/client_provider.dart';
-import 'package:gaz/widgets/client_card.dart';
-import 'package:gaz/widgets/client_search_bar.dart';
+import 'package:gaz/src/clients/widgets/client_card.dart';
+import 'package:gaz/src/clients/screens/client_details_screen.dart';
+import 'package:gaz/widgets/search_bar.dart';
 
 /// Reusable client list widget that displays a list of clients
 /// with search functionality and responsive design
@@ -49,7 +50,18 @@ class ClientList extends ConsumerWidget {
                       final client = clients[index];
                       return ClientCard(
                         client: client,
-                        onTap: () => onClientTap?.call(),
+                        onTap: () {
+                          onClientTap?.call();
+                          // Navigate to client details screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      ClientDetailsScreen(clientId: client.id),
+                            ),
+                          );
+                        },
                       );
                     },
                   ),

@@ -2,12 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
-import 'package:gaz/services/currency_service.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/providers/dashboard_provider.dart';
+import 'package:gaz/src/Dashboard/widgets/welcome_section.dart';
+import 'package:gaz/src/Dashboard/widgets/dashboard_cards.dart';
+import 'package:gaz/src/Dashboard/widgets/inventory_section.dart';
+import 'package:gaz/services/currency_service.dart';
 
+/// DashboardScreen is the main entry point for the dashboard UI.
+/// It composes the dashboard using modular widgets for maintainability and clarity.
+///
+/// - The main widgets are imported from the dashboard/widgets folder.
+/// - This keeps the screen file concise and focused on layout and navigation.
+/// - All business logic and UI details for sections are in their own files.
 class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
 
@@ -18,9 +26,6 @@ class DashboardScreen extends ConsumerStatefulWidget {
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   int _selectedIndex = 0;
   DisplayUnit _currentUnit = DisplayUnit.dh;
-
-  // Watch dashboard state from provider
-  late final dashboardState = ref.watch(dashboardProvider);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,18 +41,15 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final dashboardState = ref.watch(dashboardProvider);
+
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Dashboard',
-        // Left icon for the app bar: SVG icon from the icons folder
-        // ensure the icon appears smaller regardless of SVG's internal viewBox.
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: SvgPicture.asset(
-            'icons/nfc.svg',
-            fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
-          ),
+          child: SvgPicture.asset('icons/nfc.svg', fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -60,52 +62,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           child: Column(
             children: [
               const SizedBox(height: 16),
-              // Welcome message section
-              Text(
-                'Welcome, Ethan Carter',
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Color(0xFF1B3F77),
-                  fontSize: 22,
-                  fontFamily: 'Futura Hv BT',
-                  fontWeight: FontWeight.w400,
-                  height: 1.09,
-                  letterSpacing: 1,
-                ),
-              ),
-              const SizedBox(height: 12),
-              // Date display section
-              Text(
-                // Display the current system date in a formatted way (e.g., "Monday, 12th August")
-                DateFormat('EEEE, d MMMM').format(DateTime.now()),
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Color(0xFF0C8C96),
-                  fontSize: 16,
-                  fontFamily: 'Space Grotesk',
-                  fontWeight: FontWeight.w400,
-                  height: 1.31,
-                ),
-              ),
-              const SizedBox(height: 12),
-              // Profile or avatar image section
-              Center(
-                child: GestureDetector(
-                  onTap: () {}, //showSyncScreen(context),
-                  child: Container(
-                    width: 47,
-                    height: 47,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage('icons/sync.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              // Welcome section widget (see widgets/welcome_section.dart)
+              const WelcomeSection(),
               const SizedBox(height: 20),
+              // Main dashboard cards widget (see widgets/main_dashboard_cards.dart)
+              MainDashboardCards(
+                dashboardState: dashboardState,
+                displayUnit: _currentUnit,
+              ),
               // Main dashboard card section
               LayoutBuilder(
                 builder: (context, constraints) {
@@ -133,7 +97,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         child: Column(
                           children: [
                             Text(
-                              CurrencyService.formatAmount(
+                              CurrencyService.format(
                                 dashboardState.targetAmount,
                                 _currentUnit,
                               ),
@@ -186,7 +150,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               child: Column(
                                 children: [
                                   Text(
-                                    CurrencyService.formatAmount(
+                                    CurrencyService.format(
                                       dashboardState.collectedAmount,
                                       _currentUnit,
                                     ),
@@ -237,7 +201,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               child: Column(
                                 children: [
                                   Text(
-                                    CurrencyService.formatAmount(
+                                    CurrencyService.format(
                                       dashboardState.owedAmount,
                                       _currentUnit,
                                     ),
@@ -485,6 +449,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   );
                 },
               ),
+              const SizedBox(height: 16),
+              // Truck inventory section widget (see widgets/truck_inventory_section.dart)
+              const TruckInventorySection(),
             ],
           ),
         ),
@@ -492,7 +459,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       bottomNavigationBar: BottomNavBar(
         selectedIndex: _selectedIndex,
         onItemSelected: _onItemTapped,
-        onItemTapped: _onItemTapped,
       ),
     );
   }

@@ -1,29 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/clients/screens/clients_screen.dart';
+import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/src/history/screens/delivery_history_screen.dart';
+import 'package:gaz/src/Settings/screens/settings_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemSelected;
 
-  //BottomNavBar constructor
   const BottomNavBar({
     super.key,
     required this.selectedIndex,
     required this.onItemSelected,
-    required void Function(int index) onItemTapped,
   });
 
   @override
   Widget build(BuildContext context) {
-    // A list of data for each navigation item.
     final List<Map<String, dynamic>> navItems = [
-      {'label': 'Dash', 'icon': Icons.dashboard, 'page': const DashboardScreen()},
-      {'label': 'Clients', 'icon': Icons.groups_2_outlined, 'page': const ClientsScreen()},
-      {'label': 'History', 'icon': Icons.history, 'page': null},
-      {'label': 'Settings', 'icon': Icons.settings_outlined, 'page': null},
+      {
+        'label': 'Dash',
+        'icon': Icons.dashboard,
+        'page': const DashboardScreen(),
+      },
+      {
+        'label': 'Clients',
+        'icon': Icons.groups_2_outlined,
+        'page': const ClientsScreen(),
+      },
+      {
+        'label': 'History',
+        'icon': Icons.history,
+        'page': const DeliveryHistoryScreen(),
+      },
+      {
+        'label': 'Settings',
+        'icon': Icons.settings_outlined,
+        'page': const SettingsScreen(),
+      },
     ];
-    //each item in the navItems list
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 12),
@@ -42,13 +58,10 @@ class BottomNavBar extends StatelessWidget {
               isSelected: selectedIndex == index,
               onTap: () {
                 onItemSelected(index);
-                // Navigate only if the page is not null
-                if (navItems[index]['page'] != null) {
+                if (item['page'] != null) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => navItems[index]['page'],
-                    ),
+                    MaterialPageRoute(builder: (context) => item['page']),
                   );
                 }
               },
@@ -60,7 +73,6 @@ class BottomNavBar extends StatelessWidget {
   }
 }
 
-// Represents a single navigation item in the [AppNavigationBar].
 class _AppNavItem extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -76,7 +88,7 @@ class _AppNavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color selectedBackgroundColor = const Color(0xFFA8D03D);
+    final Color selectedBackgroundColor = AppColors.actions;
     final Color selectedIconColor = Colors.white;
     final Color selectedTextColor = Colors.white;
     final Color unselectedColor = const Color(0xFF66707F);

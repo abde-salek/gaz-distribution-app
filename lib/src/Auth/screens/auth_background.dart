@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
-import 'package:gaz/Core/app_colors.dart';
-import 'package:gaz/Core/responsive_ui.dart';
+import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/core/responsive.dart';
 
 /// A widget that displays a styled text at the top of a circular area.
 ///

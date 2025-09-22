@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/clients/screens/clients_screen.dart';
-import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/src/history/screens/delivery_history_screen.dart';
-import 'package:gaz/src/settings/screens/settings_screen.dart';
+import 'package:gaz/src/Settings/screens/settings_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;

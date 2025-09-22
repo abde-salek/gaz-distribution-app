@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/core/app_colors.dart';
-import 'package:gaz/core/responsive.dart';
 import 'package:gaz/src/clients/widgets/client_list.dart';
 // import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';

@@ -60,7 +60,7 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
     );
   }
 
-  Widget DeliveryList() {
+  Widget deliveryList() {
     return //delivery list section
     ConstrainedBox(
       constraints: BoxConstraints(),

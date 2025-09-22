@@ -5,9 +5,9 @@ import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/providers/dashboard_provider.dart';
-import 'package:gaz/src/dashboard/widgets/welcome_section.dart';
-import 'package:gaz/src/dashboard/widgets/dashboard_cards.dart';
-import 'package:gaz/src/dashboard/widgets/inventory_section.dart';
+import 'package:gaz/src/Dashboard/widgets/welcome_section.dart';
+import 'package:gaz/src/Dashboard/widgets/dashboard_cards.dart';
+import 'package:gaz/src/Dashboard/widgets/inventory_section.dart';
 import 'package:gaz/services/currency_service.dart';
 
 /// DashboardScreen is the main entry point for the dashboard UI.

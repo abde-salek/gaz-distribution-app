@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gaz/Core/app_colors.dart';
-import 'package:gaz/src/auth/screens/signup.dart';
+import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'dart:math';
 
@@ -308,8 +308,13 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                         // Edit Phone Number GETS back to Sign Up first page
                         GestureDetector(
                           onTap: () {
-                            // Navigate back to login
-                            SignupPage();
+                            // Navigate back to sign up
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SignupPage(),
+                              ),
+                            );
                           },
                           child: Text(
                             'Edit phone number?',

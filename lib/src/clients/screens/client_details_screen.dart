@@ -8,7 +8,7 @@ import 'package:gaz/providers/client_details_provider.dart';
 import 'package:gaz/providers/transaction_provider.dart';
 import 'package:gaz/models/transaction.dart';
 import 'package:gaz/models/client.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 
 class ClientDetailsScreen extends ConsumerStatefulWidget {
   final int clientId;

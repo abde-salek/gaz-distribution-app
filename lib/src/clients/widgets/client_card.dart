@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/models/client.dart';
 import 'package:gaz/services/currency_service.dart';
 import 'package:gaz/widgets/currency_switcher.dart';

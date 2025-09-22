@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/Auth/screens/auth_background.dart';
 import 'package:gaz/src/Auth/screens/signup.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
-import 'package:gaz/Core/responsive.dart';
+import 'package:gaz/core/responsive.dart';
 
 /// LoginPage - User Authentication Screen
 ///

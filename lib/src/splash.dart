@@ -75,7 +75,7 @@ class SplachState extends State<Splach> {
           colors: [
             AppColors.secondary,
             AppColors.primary,
-            const Color(0xFFF3F4F6),
+            AppColors.backgroundLight,
           ],
         ),
       ),
@@ -108,7 +108,7 @@ class SplachState extends State<Splach> {
                   TextSpan(
                     text: 'GAZ',
                     style: TextStyle(
-                      color: const Color(0xFFF3F4F6),
+                      color: AppColors.backgroundLight,
                       fontSize: 40,
                       fontFamily: 'Neuton',
                       fontWeight: FontWeight.w700,
@@ -126,7 +126,7 @@ class SplachState extends State<Splach> {
                 Text(
                   'غاز',
                   style: TextStyle(
-                    color: const Color(0xFFF3F4F6),
+                    color: AppColors.backgroundLight,
                     fontSize: 32,
                     fontFamily: 'Reddit Sans',
                     fontWeight: FontWeight.w700,

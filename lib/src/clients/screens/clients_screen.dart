@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/Core/app_assets.dart';
 import 'package:gaz/src/clients/widgets/client_list.dart';
 // import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
@@ -48,7 +49,7 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: Image.asset('icons/add_client.png', fit: BoxFit.contain),
+          child: Image.asset(AppAssets.addClientIcon, fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,

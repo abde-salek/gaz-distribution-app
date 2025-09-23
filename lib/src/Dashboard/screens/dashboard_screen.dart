@@ -306,6 +306,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         height: isNarrow ? 90 : 110,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
+                                            // TODO: Change HardCoded Image (example: 'icons/bottle.png' into 'icons.bottle')
                                             image: AssetImage(
                                               'icons/bottle.png',
                                             ),

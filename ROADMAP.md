@@ -12,9 +12,8 @@
 - Delivery card layout breaks on small screens
 
 ## Next Features
-- Payment system
+
 - Notifications
 
 ## Active Bugs
-- Delivery card layout on small screens
 - Currency formatting issues

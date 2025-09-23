@@ -9,6 +9,9 @@ import 'package:gaz/src/dashboard/widgets/welcome_section.dart';
 import 'package:gaz/src/dashboard/widgets/dashboard_cards.dart';
 import 'package:gaz/src/dashboard/widgets/inventory_section.dart';
 import 'package:gaz/services/currency_service.dart';
+import 'package:gaz/core/app_assets.dart';
+import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// DashboardScreen is the main entry point for the dashboard UI.
 /// It composes the dashboard using modular widgets for maintainability and clarity.
@@ -49,7 +52,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: SvgPicture.asset('icons/nfc.svg', fit: BoxFit.contain),
+          child: SvgPicture.asset(AppAssets.nfcIcon, fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -81,13 +84,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(16),
                         decoration: ShapeDecoration(
-                          color: const Color(0xFF6BC6F0),
+                          color: AppColors.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                           shadows: const [
                             BoxShadow(
-                              color: Color(0xFF66707F),
+                              color: AppColors.cardShadow,
                               blurRadius: 0,
                               offset: Offset(3, 3),
                               spreadRadius: 0,
@@ -102,24 +105,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                 _currentUnit,
                               ),
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: Color(0xFF1B3F77),
-                                fontSize: 40,
-                                fontFamily: 'Space Grotesk',
-                                fontWeight: FontWeight.w600,
-                                height: 0.53,
+                              style: AppTextStyles.dashboardTitle.copyWith(
+                                color: AppColors.text,
                               ),
                             ),
                             const SizedBox(height: 8),
                             const Text(
                               'Target Amount',
                               textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Color(0xFF0F1911),
-                                fontSize: 16,
-                                fontFamily: 'Futura Hv BT',
-                                fontWeight: FontWeight.w400,
-                                height: 1.25,
+                              style: AppTextStyles.cardLabel.copyWith(
+                                color: AppColors.darkText,
                               ),
                             ),
                           ],
@@ -134,13 +129,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const Color(0xFFA8D03D),
+                                color: AppColors.actions,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 shadows: const [
                                   BoxShadow(
-                                    color: Color(0xFF66707F),
+                                    color: AppColors.cardShadow,
                                     blurRadius: 0,
                                     offset: Offset(3, 3),
                                     spreadRadius: 0,
@@ -155,24 +150,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       _currentUnit,
                                     ),
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      color: Color(0xFF1B3F77),
-                                      fontSize: 32,
-                                      fontFamily: 'Space Grotesk',
-                                      fontWeight: FontWeight.w600,
-                                      height: 0.66,
+                                    style: AppTextStyles.cardTitle.copyWith(
+                                      color: AppColors.text,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
-                                  const Text(
+                                  Text(
                                     'Collected',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Color(0xFF0F1911),
-                                      fontSize: 16,
-                                      fontFamily: 'Futura Hv BT',
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.25,
+                                    style: AppTextStyles.cardLabel.copyWith(
+                                      color: AppColors.darkText,
                                     ),
                                   ),
                                 ],
@@ -185,13 +172,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: ShapeDecoration(
-                                color: const Color(0xFFDBDBDB),
+                                color: AppColors.owedCardBackground,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                                 shadows: const [
                                   BoxShadow(
-                                    color: Color(0xFF66707F),
+                                    color: AppColors.cardShadow,
                                     blurRadius: 0,
                                     offset: Offset(3, 3),
                                     spreadRadius: 0,
@@ -206,24 +193,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       _currentUnit,
                                     ),
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      color: Color(0xFF1B3F77),
-                                      fontSize: 32,
-                                      fontFamily: 'Space Grotesk',
-                                      fontWeight: FontWeight.w600,
-                                      height: 0.66,
+                                    style: AppTextStyles.cardTitle.copyWith(
+                                      color: AppColors.text,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
-                                  const Text(
+                                  Text(
                                     'Owed',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: Color(0xFF0F1911),
-                                      fontSize: 16,
-                                      fontFamily: 'Futura Hv BT',
-                                      fontWeight: FontWeight.w400,
-                                      height: 1.25,
+                                    style: AppTextStyles.cardLabel.copyWith(
+                                      color: AppColors.darkText,
                                     ),
                                   ),
                                 ],
@@ -264,12 +243,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               child: Text(
                                 'Truck Inventory',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: const Color(0xFF0F1911),
-                                  fontSize: isVeryNarrow ? 18 : 22,
-                                  fontFamily: 'Space Grotesk',
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.27,
+                                style: (isVeryNarrow 
+                                  ? AppTextStyles.sectionTitleSmall 
+                                  : AppTextStyles.sectionTitle).copyWith(
+                                  color: AppColors.darkText,
                                 ),
                               ),
                             ),
@@ -307,7 +284,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              'icons/bottle.png',
+                                              AppAssets.bottleIcon,
                                             ),
                                             fit: BoxFit.cover,
                                           ),
@@ -319,7 +296,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: AppColors.lightGray,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -330,12 +307,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         child: Text(
                                           '48',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
-                                            fontSize: isNarrow ? 16 : 20,
-                                            fontFamily: 'Space Grotesk',
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.05,
+                                          style: (isNarrow 
+                                            ? AppTextStyles.bottleLabelSmall 
+                                            : AppTextStyles.bottleLabel).copyWith(
+                                            color: AppColors.text,
                                           ),
                                         ),
                                       ),
@@ -356,7 +331,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              'icons/bottle.png',
+                                              AppAssets.bottleIcon,
                                             ),
                                             fit: BoxFit.cover,
                                           ),
@@ -368,7 +343,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: AppColors.lightGray,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -379,12 +354,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         child: Text(
                                           '48',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
-                                            fontSize: isNarrow ? 16 : 20,
-                                            fontFamily: 'Space Grotesk',
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.05,
+                                          style: (isNarrow 
+                                            ? AppTextStyles.bottleLabelSmall 
+                                            : AppTextStyles.bottleLabel).copyWith(
+                                            color: AppColors.text,
                                           ),
                                         ),
                                       ),
@@ -405,7 +378,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              'icons/bottle.png',
+                                              AppAssets.bottleIcon,
                                             ),
                                             fit: BoxFit.cover,
                                           ),
@@ -417,7 +390,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: AppColors.lightGray,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -428,12 +401,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         child: Text(
                                           '48',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: const Color(0xFF1B3F77),
-                                            fontSize: isNarrow ? 16 : 20,
-                                            fontFamily: 'Space Grotesk',
-                                            fontWeight: FontWeight.w500,
-                                            height: 1.05,
+                                          style: (isNarrow 
+                                            ? AppTextStyles.bottleLabelSmall 
+                                            : AppTextStyles.bottleLabel).copyWith(
+                                            color: AppColors.text,
                                           ),
                                         ),
                                       ),

@@ -1,5 +1,6 @@
 // Loading screen to show while the app is loading
 import 'package:flutter/material.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// LoadingScreen widget displays a dashboard loading UI
 /// with placeholder elements and a "Dashboard is loading" message.
@@ -11,14 +12,14 @@ class LoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // The main container mimics the dashboard layout with placeholder elements.
     return Scaffold(
-      backgroundColor: const Color(0xFFF0F0F0),
+      backgroundColor: AppColors.backgroundCard,
       body: Center(
         child: Container(
           width: double.infinity,
           height: double.infinity,
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
-            color: const Color(0xFFF0F0F0),
+            color: const AppColors.backgroundCard,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
@@ -39,7 +40,7 @@ class LoadingScreen extends StatelessWidget {
                     bottom: 8,
                   ),
                   decoration: const BoxDecoration(
-                    color: Color(0xFFF0F0F0),
+                    color: AppColors.backgroundCard,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,7 +65,7 @@ class LoadingScreen extends StatelessWidget {
                             'Dashboard',
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                              color: Color(0xFF1B3F77),
+                              color: AppColors.text,
                               fontSize: 18,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w700,

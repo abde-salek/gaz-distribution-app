@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gaz/src/Dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/clients/screens/clients_screen.dart';
 import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/Core/app_colors.dart';
 import 'package:gaz/src/history/screens/delivery_history_screen.dart';
 import 'package:gaz/src/Settings/screens/settings_screen.dart';
 
@@ -44,8 +45,8 @@ class BottomNavBar extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 12),
       decoration: const BoxDecoration(
-        color: Color(0xFFF9F9F9),
-        border: Border(top: BorderSide(width: 1, color: Color(0xFFE2E2E2))),
+        color: AppColors.gray50,
+        border: Border(top: BorderSide(width: 1, color: AppColors.gray200)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -91,7 +92,7 @@ class _AppNavItem extends StatelessWidget {
     final Color selectedBackgroundColor = AppColors.actions;
     final Color selectedIconColor = Colors.white;
     final Color selectedTextColor = Colors.white;
-    final Color unselectedColor = const Color(0xFF66707F);
+    final Color unselectedColor = AppColors.textMuted;
 
     return GestureDetector(
       onTap: onTap,

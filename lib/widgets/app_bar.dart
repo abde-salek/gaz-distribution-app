@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// A reusable custom app bar widget for consistent styling across the app.
 /// Allows for optional left and right icons, a dynamic title, and a required child widget.
@@ -25,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 16, left: 16, right: 16, bottom: 4),
-      decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
+      decoration: const BoxDecoration(color: AppColors.gray50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,

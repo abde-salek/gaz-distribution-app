@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
-import 'package:gaz/Core/responsive.dart';
+import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/core/responsive.dart';
 import 'package:gaz/src/auth/screens/login.dart';
 import 'package:gaz/src/auth/screens/otp.dart';
 

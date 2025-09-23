@@ -9,6 +9,7 @@ import 'package:gaz/src/dashboard/widgets/welcome_section.dart';
 import 'package:gaz/src/dashboard/widgets/dashboard_cards.dart';
 import 'package:gaz/src/dashboard/widgets/inventory_section.dart';
 import 'package:gaz/services/currency_service.dart';
+import 'package:gaz/core/app_assets.dart';
 
 /// DashboardScreen is the main entry point for the dashboard UI.
 /// It composes the dashboard using modular widgets for maintainability and clarity.
@@ -49,7 +50,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: SvgPicture.asset('icons/nfc.svg', fit: BoxFit.contain),
+          child: SvgPicture.asset(AppAssets.nfc, fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -307,9 +308,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             // TODO: Change HardCoded Image (example: 'icons/bottle.png' into 'icons.bottle')
-                                            image: AssetImage(
-                                              'icons/bottle.png',
-                                            ),
+                                            image: AssetImage(AppAssets.bottle),
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -356,9 +355,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         height: isNarrow ? 70 : 90,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage(
-                                              'icons/bottle.png',
-                                            ),
+                                            image: AssetImage(AppAssets.bottle),
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -405,9 +402,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         height: isNarrow ? 50 : 70,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage(
-                                              'icons/bottle.png',
-                                            ),
+                                            image: AssetImage(AppAssets.bottle),
                                             fit: BoxFit.cover,
                                           ),
                                         ),

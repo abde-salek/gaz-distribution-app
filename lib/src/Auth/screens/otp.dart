@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/auth/screens/signup.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'dart:math';
@@ -381,7 +381,9 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Color(0x1A9E9E9E), // Equivalent to Colors.grey with 10% opacity
+            color: Color(
+              0x1A9E9E9E,
+            ), // Equivalent to Colors.grey with 10% opacity
             spreadRadius: 1,
             blurRadius: 5,
             offset: const Offset(0, 3),

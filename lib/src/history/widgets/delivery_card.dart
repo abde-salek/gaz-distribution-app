@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/core/app_assets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/core/responsive.dart';
 
@@ -178,7 +179,7 @@ class DeliveryCard extends ConsumerWidget {
     return SizedBox(
       width: size,
       height: size,
-      child: Image.asset('icons/bottle.png', fit: BoxFit.contain),
+      child: Image.asset(AppAssets.bottle, fit: BoxFit.contain),
     );
   }
 

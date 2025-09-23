@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/auth/screens/auth_background.dart';
 import 'package:gaz/src/auth/screens/signup.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
-import 'package:gaz/Core/responsive.dart';
+import 'package:gaz/core/responsive.dart';
 
 /// LoginPage - User Authentication Screen
 ///
@@ -47,9 +47,7 @@ class _LoginPageState extends State<LoginPage> {
       // Navigation to dashboard screen after successful validation
       Navigator.push(
         context,
-        MaterialPageRoute(
-          builder: (context) => DashboardScreen(),
-        ),
+        MaterialPageRoute(builder: (context) => DashboardScreen()),
       );
     }
   }
@@ -58,9 +56,7 @@ class _LoginPageState extends State<LoginPage> {
   void _navigateToSignup() {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => const SignupPage(),
-      ),
+      MaterialPageRoute(builder: (context) => const SignupPage()),
     );
   }
 
@@ -127,7 +123,9 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: _handleLogin,
                         child: Container(
                           padding: EdgeInsets.all(screenWidth * 0.88 * 0.02),
-                          decoration: const BoxDecoration(shape: BoxShape.circle),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
                           child: IconButton(
                             icon: const Icon(
                               Icons.arrow_forward,
@@ -175,7 +173,8 @@ class _LoginPageState extends State<LoginPage> {
                       // Name input field
                       Container(
                         constraints: BoxConstraints(
-                          maxWidth: screenWidth > 400 ? 350 : screenWidth * 0.85,
+                          maxWidth:
+                              screenWidth > 400 ? 350 : screenWidth * 0.85,
                         ),
                         child: TextFormField(
                           controller: _nameController,
@@ -230,7 +229,8 @@ class _LoginPageState extends State<LoginPage> {
                       // Phone number input field
                       Container(
                         constraints: BoxConstraints(
-                          maxWidth: screenWidth > 400 ? 350 : screenWidth * 0.85,
+                          maxWidth:
+                              screenWidth > 400 ? 350 : screenWidth * 0.85,
                         ),
                         child: TextFormField(
                           controller: _phoneController,

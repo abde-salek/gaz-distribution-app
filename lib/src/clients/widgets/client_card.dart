@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gaz/Core/app_colors.dart';
+import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/models/client.dart';
 import 'package:gaz/services/currency_service.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
@@ -12,7 +12,7 @@ class ClientCard extends StatelessWidget {
   final DisplayUnit displayUnit;
 
   const ClientCard({
-    super.key, 
+    super.key,
     required this.client,
     this.onTap,
     this.displayUnit = DisplayUnit.dh,
@@ -33,65 +33,65 @@ class ClientCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
           child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      client.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Color(0xFF111416),
+                        fontSize: 16,
+                        fontFamily: 'Space Grotesk',
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Text(
+                      client.address,
+                      style: const TextStyle(
+                        color: Color(0xFF66707F),
+                        fontSize: 14,
+                        fontFamily: 'Space Grotesk',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 16),
+              Row(
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    client.name,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Color(0xFF111416),
-                      fontSize: 16,
+                    CurrencyService.format(client.balance, displayUnit),
+                    style: TextStyle(
+                      color: balanceColor,
+                      fontSize: 20,
                       fontFamily: 'Space Grotesk',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
+                  const SizedBox(width: 4),
                   Text(
-                    client.address,
-                    style: const TextStyle(
-                      color: Color(0xFF66707F),
-                      fontSize: 14,
+                    CurrencyService.getUnitName(displayUnit),
+                    style: TextStyle(
+                      color: balanceColor,
+                      fontSize: 16,
                       fontFamily: 'Space Grotesk',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
               ),
-            ),
-            const SizedBox(width: 16),
-                          Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  CurrencyService.format(client.balance, displayUnit),
-                  style: TextStyle(
-                    color: balanceColor,
-                    fontSize: 20,
-                    fontFamily: 'Space Grotesk',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                const SizedBox(width: 4),
-                Text(
-                  CurrencyService.getUnitName(displayUnit),
-                  style: TextStyle(
-                    color: balanceColor,
-                    fontSize: 16,
-                    fontFamily: 'Space Grotesk',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+            ],
+          ),
         ),
       ),
     );

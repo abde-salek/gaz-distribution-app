@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/core/responsive.dart';
+import 'package:gaz/core/app_assets.dart';
 
 /// DeliveryCard represents a single delivery entry for use in a delivery list.
 /// It is not a list itself and should be used as a single item in a parent ListView or similar.
@@ -178,7 +179,7 @@ class DeliveryCard extends ConsumerWidget {
     return SizedBox(
       width: size,
       height: size,
-      child: Image.asset('icons/bottle.png', fit: BoxFit.contain),
+      child: Image.asset(AppAssets.bottleIcon, fit: BoxFit.contain),
     );
   }
 

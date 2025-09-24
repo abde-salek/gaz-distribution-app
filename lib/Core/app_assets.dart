@@ -15,4 +15,5 @@ class AppAssets {
   static const String home = 'icons/home.svg';
   static const String clients = 'icons/clients.svg';
   static const String history = 'icons/history.svg';
+  static const String search = 'icons/search.svg';
 }

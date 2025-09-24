@@ -11,11 +11,7 @@ class ClientList extends ConsumerWidget {
   final VoidCallback? onClientTap;
   final bool showSearchBar;
 
-  const ClientList({
-    super.key,
-    this.onClientTap,
-    this.showSearchBar = true,
-  });
+  const ClientList({super.key, this.onClientTap, this.showSearchBar = true});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,7 +23,7 @@ class ClientList extends ConsumerWidget {
         if (showSearchBar)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: SearchBar(
+            child: GazSearchBar(
               hintText: 'Search clients',
               // Using (_) instead of () in the onChanged callback is important
               //because the callback receives a parameter (the current text input).

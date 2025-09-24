@@ -40,25 +40,25 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
           onUnitChanged: (unit) {},
         ),
       ),
-      // body:
-      body: CustomScrollView(
-        slivers: [
+      body: Column(
+        children: [
           // Search bar
-          GazSearchBar(
-            // Using (_) instead of () in the onChanged callback is important because the callback receives a parameter (the current text input).
-            // The underscore (_) is a convention in Dart to indicate that the parameter is intentionally unused.
-            // This makes the code clearer to readers and avoids unused variable warnings.
-            hintText: 'Search deliveries',
-            onChanged: (_) {},
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, clientId) => null,
-              //DeliveryCard(clientId: clientId ), //DeliveryCard(),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+            child: GazSearchBar(
+              hintText: 'Search deliveries',
+              // Using (_) instead of () in the onChanged callback is important because the callback receives a parameter (the current text input).
+              onChanged: (_) {},
             ),
           ),
-          SliverToBoxAdapter(
-            //child: DeliveryList(), // Add non-scrollable content
+          // Delivery list
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                // TODO: Replace with actual delivery card
+                return null;
+              },
+            ),
           ),
         ],
       ),

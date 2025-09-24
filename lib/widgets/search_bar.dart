@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/core/app_assets.dart';
+import 'package:flutter_svg/svg.dart';
 
 // Reusable search bar widget for the app searching functionality.//
 class GazSearchBar extends StatefulWidget {
@@ -36,7 +38,6 @@ class GazSearchBarState extends State<GazSearchBar> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,7 +52,8 @@ class GazSearchBarState extends State<GazSearchBar> {
           Container(
             height: double.infinity,
             padding: const EdgeInsets.only(left: 16),
-            child: const Icon(Icons.search, color: Color(0xFF66707F), size: 20),
+            //child: const Icon(Icons.search, color: Color(0xFF66707F), size: 20),
+            child: SvgPicture.asset(AppAssets.search),
           ),
 
           // Flexible search input field

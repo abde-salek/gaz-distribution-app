@@ -420,7 +420,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                               child: ClientList(
                                 onClientTap: () {},
                                 showSearchBar: true,
-                                searchHint: 'Search clients',
                               ),
                             ),
                           ],

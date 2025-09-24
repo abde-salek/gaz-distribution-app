@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-/// Reusable search bar widget for client search functionality
-class ClientSearchBar extends StatefulWidget {
+// Reusable search bar widget for the app searching functionality.//
+class GazSearchBar extends StatefulWidget {
   final String hintText;
   final ValueChanged<String>? onChanged;
   final VoidCallback? onSearch;
   final TextEditingController? controller;
 
-  const ClientSearchBar({
+  const GazSearchBar({
     super.key,
     required this.hintText,
     this.onChanged,
@@ -16,10 +16,10 @@ class ClientSearchBar extends StatefulWidget {
   });
 
   @override
-  State<ClientSearchBar> createState() => _ClientSearchBarState();
+  State<GazSearchBar> createState() => GazSearchBarState();
 }
 
-class _ClientSearchBarState extends State<ClientSearchBar> {
+class GazSearchBarState extends State<GazSearchBar> {
   late TextEditingController _controller;
 
   @override
@@ -36,30 +36,25 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 48,
       decoration: ShapeDecoration(
         color: const Color(0xFFEAEDEF),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       child: Row(
         children: [
-          // Search icon
+          // Leading search icon for visual cue
           Container(
             height: double.infinity,
             padding: const EdgeInsets.only(left: 16),
-            child: const Icon(
-              Icons.search,
-              color: Color(0xFF66707F),
-              size: 20,
-            ),
+            child: const Icon(Icons.search, color: Color(0xFF66707F), size: 20),
           ),
-          
-          // Search input
+
+          // Flexible search input field
           Expanded(
             child: TextField(
               controller: _controller,
@@ -87,23 +82,19 @@ class _ClientSearchBarState extends State<ClientSearchBar> {
               ),
             ),
           ),
-          
-          // Clear button (when text is not empty)
+
+          // Optional clear button for user convenience
           if (_controller.text.isNotEmpty)
             IconButton(
               onPressed: () {
                 _controller.clear();
                 widget.onChanged?.call('');
               },
-              icon: const Icon(
-                Icons.clear,
-                color: Color(0xFF66707F),
-                size: 20,
-              ),
+              icon: const Icon(Icons.clear, color: Color(0xFF66707F), size: 20),
+              tooltip: 'Clear search',
             ),
         ],
       ),
     );
   }
 }
-

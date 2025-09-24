@@ -4,6 +4,7 @@ import 'package:gaz/core/app_assets.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
+import 'package:gaz/widgets/search_bar.dart';
 
 class DeliveryHistoryScreen extends StatefulWidget {
   const DeliveryHistoryScreen({super.key});
@@ -42,7 +43,14 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
       // body:
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(/*...*/),
+          // Search bar
+          GazSearchBar(
+            // Using (_) instead of () in the onChanged callback is important because the callback receives a parameter (the current text input).
+            // The underscore (_) is a convention in Dart to indicate that the parameter is intentionally unused.
+            // This makes the code clearer to readers and avoids unused variable warnings.
+            hintText: 'Search deliveries',
+            onChanged: (_) {},
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, clientId) => null,

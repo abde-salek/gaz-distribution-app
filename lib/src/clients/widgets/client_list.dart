@@ -10,13 +10,11 @@ import 'package:gaz/widgets/search_bar.dart';
 class ClientList extends ConsumerWidget {
   final VoidCallback? onClientTap;
   final bool showSearchBar;
-  final String? searchHint;
 
   const ClientList({
     super.key,
     this.onClientTap,
     this.showSearchBar = true,
-    this.searchHint,
   });
 
   @override
@@ -29,15 +27,16 @@ class ClientList extends ConsumerWidget {
         if (showSearchBar)
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            child: ClientSearchBar(
-              hintText: searchHint ?? 'Search clients',
-              onChanged: (query) {
+            child: SearchBar(
+              hintText: 'Search clients',
+              // Using (_) instead of () in the onChanged callback is important
+              //because the callback receives a parameter (the current text input).
+              onChanged: (_) {
                 // TODO: Implement search functionality
                 // You can add a search provider later
               },
             ),
           ),
-
         // Clients list
         Expanded(
           child:

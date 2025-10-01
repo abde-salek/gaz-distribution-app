@@ -71,6 +71,7 @@ class DeliveryCard extends ConsumerWidget {
     );
   }
 
+  // build client info
   Widget _buildClientInfo(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -115,19 +116,20 @@ class DeliveryCard extends ConsumerWidget {
     );
   }
 
+  // bottles by size and value
   Widget _buildBottleInfo() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 2.75),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           // Bottle icons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildBottleIcon(size: 27.04), // Large
-              _buildBottleIcon(size: 22.12), // Medium
-              _buildBottleIcon(size: 17.20), // Small
+              _buildBottleIcon(size: 300), // Large
+              _buildBottleIcon(size: 80), // Medium
+              _buildBottleIcon(size: 80), // Small
             ],
           ),
           const SizedBox(height: 3.43),
@@ -146,11 +148,13 @@ class DeliveryCard extends ConsumerWidget {
     );
   }
 
+  // build time and date info
   Widget _buildTimeInfo() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        // time
         Text(
           time,
           style: const TextStyle(
@@ -161,6 +165,7 @@ class DeliveryCard extends ConsumerWidget {
             height: 1.5,
           ),
         ),
+        // date
         Text(
           date,
           style: const TextStyle(
@@ -175,14 +180,19 @@ class DeliveryCard extends ConsumerWidget {
     );
   }
 
+  // customize bottle icon
   Widget _buildBottleIcon({required double size}) {
-    return SizedBox(
-      width: size,
-      height: size,
-      child: Image.asset(AppAssets.bottle, fit: BoxFit.contain),
+    return SizedBox.square(
+      dimension: size,
+      child: Image.asset(
+        AppAssets.bottle,
+        fit: BoxFit.contain,
+        filterQuality: FilterQuality.high,
+      ),
     );
   }
 
+  // customize value box
   Widget _buildValueBox(String value) {
     return Container(
       width: 34.33,

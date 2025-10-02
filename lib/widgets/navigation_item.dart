@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// Represents a single navigation item in the [AppNavigationBar].
 class AppNavItem extends StatelessWidget {
@@ -8,7 +9,8 @@ class AppNavItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  const AppNavItem({super.key, 
+  const AppNavItem({
+    super.key,
     required this.label,
     required this.icon,
     required this.isSelected,
@@ -47,7 +49,7 @@ class AppNavItem extends StatelessWidget {
                 style: TextStyle(
                   color: isSelected ? selectedTextColor : unselectedColor,
                   fontSize: 12,
-                  fontFamily: 'Space Grotesk',
+                  fontFamily: AppTextStyles.spaceGroteskFamily,
                   fontWeight: FontWeight.w500,
                   height: 1.50,
                 ),

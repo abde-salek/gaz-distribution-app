@@ -1,5 +1,6 @@
 // Loading screen to show while the app is loading
 import 'package:flutter/material.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// LoadingScreen widget displays a dashboard loading UI
 /// with placeholder elements and a "Dashboard is loading" message.
@@ -38,9 +39,7 @@ class LoadingScreen extends StatelessWidget {
                     right: 16,
                     bottom: 8,
                   ),
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFF0F0F0),
-                  ),
+                  decoration: const BoxDecoration(color: Color(0xFFF0F0F0)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -164,7 +163,7 @@ class LoadingScreen extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 16,
-                              fontFamily: 'Space Grotesk',
+                              fontFamily: AppTextStyles.spaceGroteskFamily,
                               fontWeight: FontWeight.w400,
                               height: 1.31,
                             ),
@@ -220,7 +219,7 @@ class LoadingScreen extends StatelessWidget {
                                           blurRadius: 2,
                                           offset: Offset(1, 1),
                                           spreadRadius: 0,
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -248,7 +247,7 @@ class LoadingScreen extends StatelessWidget {
                                           blurRadius: 2,
                                           offset: Offset(1, 1),
                                           spreadRadius: 0,
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -266,7 +265,7 @@ class LoadingScreen extends StatelessWidget {
                                           blurRadius: 2,
                                           offset: Offset(1, 1),
                                           spreadRadius: 0,
-                                        )
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -307,17 +306,15 @@ class LoadingScreen extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 22,
-                                    fontFamily: 'Space Grotesk',
+                                    fontFamily:
+                                        AppTextStyles.spaceGroteskFamily,
                                     fontWeight: FontWeight.w400,
                                     height: 1.09,
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: 20,
-                              height: 28,
-                            ),
+                            SizedBox(width: 20, height: 28),
                           ],
                         ),
                       ),
@@ -364,7 +361,10 @@ class LoadingScreen extends StatelessWidget {
                 right: 0,
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 36,
+                    vertical: 8,
+                  ),
                   child: Column(
                     children: [
                       Row(
@@ -523,9 +523,7 @@ class LoadingScreen extends StatelessWidget {
                 child: Container(
                   width: 402,
                   height: 95,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFF9F9F9),
-                  ),
+                  decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
                   child: Stack(
                     children: [
                       // Top bar
@@ -580,11 +578,14 @@ class LoadingScreen extends StatelessWidget {
                                       decoration: ShapeDecoration(
                                         color: const Color(0xFFA8D03D),
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(16),
+                                          borderRadius: BorderRadius.circular(
+                                            16,
+                                          ),
                                         ),
                                       ),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: const [
                                           SizedBox(height: 4),
                                           Text(
@@ -592,7 +593,9 @@ class LoadingScreen extends StatelessWidget {
                                             style: TextStyle(
                                               color: Color(0xFF141414),
                                               fontSize: 12,
-                                              fontFamily: 'Space Grotesk',
+                                              fontFamily:
+                                                  AppTextStyles
+                                                      .spaceGroteskFamily,
                                               fontWeight: FontWeight.w500,
                                               height: 1.5,
                                             ),
@@ -612,7 +615,8 @@ class LoadingScreen extends StatelessWidget {
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: const [
                                       SizedBox(height: 4),
                                       Text(
@@ -620,7 +624,8 @@ class LoadingScreen extends StatelessWidget {
                                         style: TextStyle(
                                           color: Color(0xFF66707F),
                                           fontSize: 12,
-                                          fontFamily: 'Space Grotesk',
+                                          fontFamily:
+                                              AppTextStyles.spaceGroteskFamily,
                                           fontWeight: FontWeight.w500,
                                           height: 1.5,
                                         ),
@@ -638,7 +643,8 @@ class LoadingScreen extends StatelessWidget {
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: const [
                                       SizedBox(height: 4),
                                       Text(
@@ -646,7 +652,8 @@ class LoadingScreen extends StatelessWidget {
                                         style: TextStyle(
                                           color: Color(0xFF66707F),
                                           fontSize: 12,
-                                          fontFamily: 'Space Grotesk',
+                                          fontFamily:
+                                              AppTextStyles.spaceGroteskFamily,
                                           fontWeight: FontWeight.w500,
                                           height: 1.5,
                                         ),
@@ -664,7 +671,8 @@ class LoadingScreen extends StatelessWidget {
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: const [
                                       SizedBox(height: 4),
                                       Text(
@@ -672,7 +680,8 @@ class LoadingScreen extends StatelessWidget {
                                         style: TextStyle(
                                           color: Color(0xFF66707F),
                                           fontSize: 12,
-                                          fontFamily: 'Space Grotesk',
+                                          fontFamily:
+                                              AppTextStyles.spaceGroteskFamily,
                                           fontWeight: FontWeight.w500,
                                           height: 1.5,
                                         ),
@@ -695,7 +704,9 @@ class LoadingScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFA8D03D)),
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        Color(0xFFA8D03D),
+                      ),
                     ),
                     SizedBox(height: 24),
                     Text(
@@ -703,7 +714,7 @@ class LoadingScreen extends StatelessWidget {
                       style: TextStyle(
                         color: Color(0xFF66707F),
                         fontSize: 18,
-                        fontFamily: 'Space Grotesk',
+                        fontFamily: AppTextStyles.spaceGroteskFamily,
                         fontWeight: FontWeight.w500,
                         height: 1.5,
                       ),
@@ -718,4 +729,3 @@ class LoadingScreen extends StatelessWidget {
     );
   }
 }
-

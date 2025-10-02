@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart'; // Import Riverpod
 import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/clients/widgets/client_list.dart';
 import 'package:gaz/core/app_assets.dart';
+import 'package:gaz/core/app_text_styles.dart';
 // import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
@@ -158,7 +159,10 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                             style: TextStyle(
                                               color: AppColors.text,
                                               fontSize: 18,
-                                              fontFamily: 'Space Grotesk',
+                                              fontFamily:
+                                                  AppTextStyles
+                                                      .spaceGrotesk
+                                                      .fontFamily,
                                               fontWeight: FontWeight.w700,
                                               height: 1.28,
                                             ),
@@ -192,7 +196,10 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                             style: TextStyle(
                                               color: const Color(0xFF0C111C),
                                               fontSize: 22,
-                                              fontFamily: 'Space Grotesk',
+                                              fontFamily:
+                                                  AppTextStyles
+                                                      .spaceGrotesk
+                                                      .fontFamily,
                                               fontWeight: FontWeight.w400,
                                               height: 1.09,
                                             ),
@@ -393,7 +400,9 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
                                                                   ),
                                                               fontSize: 16,
                                                               fontFamily:
-                                                                  'Space Grotesk',
+                                                                  AppTextStyles
+                                                                      .spaceGrotesk
+                                                                      .fontFamily,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/src/history/widgets/delivery_card.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// Displays a scrollable list of deliveries using [DeliveryCard].
 
@@ -12,11 +13,7 @@ class DeliveryList extends ConsumerWidget {
   /// callback when a delivery is tapped.
   final void Function(int index)? onDeliveryTap;
 
-  const DeliveryList({
-    super.key,
-    required this.deliveries,
-    this.onDeliveryTap,
-  });
+  const DeliveryList({super.key, required this.deliveries, this.onDeliveryTap});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +25,7 @@ class DeliveryList extends ConsumerWidget {
           style: TextStyle(
             color: Color(0xFF66707F),
             fontSize: 16,
-            fontFamily: 'Space Grotesk',
+            fontFamily: AppTextStyles.spaceGroteskFamily,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -45,7 +42,9 @@ class DeliveryList extends ConsumerWidget {
           clientId: singledelivery['clientId'] ?? 0,
           name: singledelivery['name'] ?? '',
           address: singledelivery['address'] ?? '',
-          bottlesValues: List<String>.from(singledelivery['values'] ?? ['0', '0', '0']),
+          bottlesValues: List<String>.from(
+            singledelivery['values'] ?? ['0', '0', '0'],
+          ),
           time: singledelivery['time'] ?? '',
           date: singledelivery['date'] ?? '',
           onTap: onDeliveryTap != null ? () => onDeliveryTap!(index) : null,

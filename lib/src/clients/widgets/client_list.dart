@@ -4,6 +4,7 @@ import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/src/clients/widgets/client_card.dart';
 import 'package:gaz/src/clients/screens/client_details_screen.dart';
 import 'package:gaz/widgets/search_bar.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// Reusable client list widget that displays a list of clients
 /// with search functionality and responsive design
@@ -77,7 +78,8 @@ class ClientList extends ConsumerWidget {
             style: TextStyle(
               color: Color(0xFF66707F),
               fontSize: 18,
-              fontFamily: 'Space Grotesk',
+              // Use the correct fontFamily from AppTextStyles for portfolio consistency
+              fontFamily: AppTextStyles.spaceGroteskFamily,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -87,7 +89,7 @@ class ClientList extends ConsumerWidget {
             style: TextStyle(
               color: Color(0xFF66707F),
               fontSize: 14,
-              fontFamily: 'Space Grotesk',
+              fontFamily: AppTextStyles.spaceGroteskFamily,
               fontWeight: FontWeight.w400,
             ),
           ),

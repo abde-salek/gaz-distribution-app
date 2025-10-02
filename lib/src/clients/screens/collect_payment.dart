@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 class CollectPayment extends StatelessWidget {
   const CollectPayment({super.key});
@@ -75,7 +76,7 @@ class CollectPayment extends StatelessWidget {
                           style: TextStyle(
                             color: const Color(0xFF1B3F77),
                             fontSize: 24,
-                            fontFamily: 'Space Grotesk',
+                            fontFamily: AppTextStyles.spaceGroteskFamily,
                             fontWeight: FontWeight.w700,
                             height: 0.88,
                           ),
@@ -136,7 +137,9 @@ class CollectPayment extends StatelessWidget {
                                                       0xFF66707F,
                                                     ),
                                                     fontSize: 14,
-                                                    fontFamily: 'Space Grotesk',
+                                                    fontFamily:
+                                                        AppTextStyles
+                                                            .spaceGroteskFamily,
                                                     fontWeight: FontWeight.w400,
                                                     height: 1.50,
                                                   ),
@@ -209,7 +212,9 @@ class CollectPayment extends StatelessWidget {
                                               style: TextStyle(
                                                 color: const Color(0xFF1B3F77),
                                                 fontSize: 18,
-                                                fontFamily: 'Space Grotesk',
+                                                fontFamily:
+                                                    AppTextStyles
+                                                        .spaceGroteskFamily,
                                                 fontWeight: FontWeight.w700,
                                                 height: 1.17,
                                               ),

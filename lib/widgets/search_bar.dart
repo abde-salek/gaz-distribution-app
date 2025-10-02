@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 // Reusable search bar widget for the app searching functionality.//
 class GazSearchBar extends StatefulWidget {
@@ -71,7 +72,7 @@ class GazSearchBarState extends State<GazSearchBar> {
                 hintStyle: const TextStyle(
                   color: Color(0xFF66707F),
                   fontSize: 16,
-                  fontFamily: 'Space Grotesk',
+                  fontFamily: AppTextStyles.spaceGroteskFamily,
                   fontWeight: FontWeight.w400,
                 ),
                 border: InputBorder.none,
@@ -83,7 +84,7 @@ class GazSearchBarState extends State<GazSearchBar> {
               style: const TextStyle(
                 color: Color(0xFF111416),
                 fontSize: 16,
-                fontFamily: 'Space Grotesk',
+                fontFamily: AppTextStyles.spaceGroteskFamily,
                 fontWeight: FontWeight.w400,
               ),
             ),

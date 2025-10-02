@@ -3,6 +3,7 @@ import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/models/client.dart';
 import 'package:gaz/services/currency_service.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 // Client card to display a single client.//
 
@@ -48,7 +49,7 @@ class ClientCard extends StatelessWidget {
                       style: const TextStyle(
                         color: Color(0xFF111416),
                         fontSize: 16,
-                        fontFamily: 'Space Grotesk',
+                        fontFamily: AppTextStyles.spaceGroteskFamily,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -57,7 +58,7 @@ class ClientCard extends StatelessWidget {
                       style: const TextStyle(
                         color: Color(0xFF66707F),
                         fontSize: 14,
-                        fontFamily: 'Space Grotesk',
+                        fontFamily: AppTextStyles.spaceGroteskFamily,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -74,7 +75,7 @@ class ClientCard extends StatelessWidget {
                     style: TextStyle(
                       color: balanceColor,
                       fontSize: 20,
-                      fontFamily: 'Space Grotesk',
+                      fontFamily: AppTextStyles.spaceGroteskFamily,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -84,7 +85,7 @@ class ClientCard extends StatelessWidget {
                     style: TextStyle(
                       color: balanceColor,
                       fontSize: 16,
-                      fontFamily: 'Space Grotesk',
+                      fontFamily: AppTextStyles.spaceGroteskFamily,
                       fontWeight: FontWeight.w400,
                     ),
                   ),

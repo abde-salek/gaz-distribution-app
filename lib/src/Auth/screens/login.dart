@@ -4,6 +4,7 @@ import 'package:gaz/src/auth/screens/auth_background.dart';
 import 'package:gaz/src/auth/screens/signup.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/core/responsive.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// LoginPage - User Authentication Screen
 ///
@@ -163,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                           color: AppColors.text,
                           fontSize: subtitleFontSize.clamp(18.0, 28.0),
-                          fontFamily: 'Space Grotesk',
+                          fontFamily: AppTextStyles.spaceGroteskFamily,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -184,7 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                             hintStyle: TextStyle(
                               color: AppColors.secondary,
                               fontSize: inputFontSize.clamp(14.0, 20.0),
-                              fontFamily: 'Space Grotesk',
+                              fontFamily: AppTextStyles.spaceGroteskFamily,
                               fontWeight: FontWeight.w500,
                             ),
                             filled: true,
@@ -241,7 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                             hintStyle: TextStyle(
                               color: AppColors.secondary,
                               fontSize: inputFontSize.clamp(14.0, 20.0),
-                              fontFamily: 'Space Grotesk',
+                              fontFamily: AppTextStyles.spaceGroteskFamily,
                               fontWeight: FontWeight.w500,
                             ),
                             filled: true,

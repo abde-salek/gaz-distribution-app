@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 enum DisplayUnit { dh, riyal }
 
@@ -89,7 +90,7 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                 style: const TextStyle(
                   color: Color(0xFF0C111C),
                   fontSize: 14,
-                  fontFamily: 'Space Grotesk',
+                  fontFamily: AppTextStyles.spaceGroteskFamily,
                   fontWeight: FontWeight.w400,
                   height: 1.0,
                 ),

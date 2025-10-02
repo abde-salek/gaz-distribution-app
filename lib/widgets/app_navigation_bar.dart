@@ -4,6 +4,7 @@ import 'package:gaz/src/clients/screens/clients_screen.dart';
 import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/history/screens/delivery_history_screen.dart';
 import 'package:gaz/src/settings/screens/settings_screen.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -118,7 +119,7 @@ class _AppNavItem extends StatelessWidget {
                 style: TextStyle(
                   color: isSelected ? selectedTextColor : unselectedColor,
                   fontSize: 12,
-                  fontFamily: 'Space Grotesk',
+                  fontFamily: AppTextStyles.spaceGroteskFamily,
                   fontWeight: FontWeight.w500,
                   height: 1.50,
                 ),

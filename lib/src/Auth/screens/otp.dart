@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/auth/screens/signup.dart';
 import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
+import 'package:gaz/core/app_text_styles.dart';
 import 'dart:math';
 
 class OtpVerificationPage extends StatefulWidget {
@@ -229,7 +230,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                             style: TextStyle(
                               color: AppColors.text,
                               fontSize: bodyFontSize * 1.8,
-                              fontFamily: 'Space Grotesk',
+                              fontFamily: AppTextStyles.spaceGroteskFamily,
                               fontWeight: FontWeight.w700,
                             ),
                           ),

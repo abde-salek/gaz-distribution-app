@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gaz/core/app_colors.dart';
+import 'package:gaz/core/app_assets.dart';
+import 'package:gaz/core/app_text_styles.dart';
+import 'package:gaz/widgets/currency_switcher.dart';
 
 /// A reusable custom app bar widget for consistent styling across the app.
 /// Allows for optional left and right icons, a dynamic title, and a required child widget.
@@ -32,8 +35,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           // Left Icon (can be null)
           SizedBox(
-            width: 36,
-            height: 36,
+            width: 24,
+            height: 24,
             child: leftIcon ?? const SizedBox.shrink(),
           ),
           // Centered Title
@@ -53,14 +56,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ),
+
           // Right Icon (can be null)
-          SizedBox(
-            width: 36,
-            height: 36,
-            child: rightIcon ?? const SizedBox.shrink(),
-          ),
+          _currencySwitcher(),
         ],
       ),
     );
   }
+}
+
+Widget _currencySwitcher() {
+  return GestureDetector(
+    onTap: () {},
+    child: Column(
+      children: [
+        //SizedBox(height: 3),
+        Text(
+          'Riyal',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+            fontFamily: AppTextStyles.spaceGroteskFamily,
+          ),
+        ),
+        Image.asset(AppAssets.arrow, fit: BoxFit.contain),
+      ],
+    ),
+  );
 }

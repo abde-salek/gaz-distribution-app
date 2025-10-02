@@ -5,8 +5,7 @@ class AppAssets {
   // PNGs
   static const String bottle = 'icons/bottle.png';
   static const String addClient = 'icons/add_client.png';
-  static const String gasTruck = 'icons/right_arrow.png';
-  static const String arrow = 'icons/left_arrow.png';
+  static const String arrow = 'icons/double_arrow.png';
   static const String sync = 'icons/sync.png';
 
   // SVGs

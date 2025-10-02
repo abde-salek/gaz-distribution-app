@@ -10,6 +10,7 @@ import 'package:gaz/src/dashboard/widgets/dashboard_cards.dart';
 import 'package:gaz/src/dashboard/widgets/inventory_section.dart';
 import 'package:gaz/services/currency_service.dart';
 import 'package:gaz/core/app_assets.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// DashboardScreen is the main entry point for the dashboard UI.
 /// It composes the dashboard using modular widgets for maintainability and clarity.
@@ -106,7 +107,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               style: const TextStyle(
                                 color: Color(0xFF1B3F77),
                                 fontSize: 40,
-                                fontFamily: 'Space Grotesk',
+                                fontFamily: AppTextStyles.spaceGroteskFamily,
                                 fontWeight: FontWeight.w600,
                                 height: 0.53,
                               ),
@@ -159,7 +160,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     style: const TextStyle(
                                       color: Color(0xFF1B3F77),
                                       fontSize: 32,
-                                      fontFamily: 'Space Grotesk',
+                                      fontFamily:
+                                          AppTextStyles.spaceGroteskFamily,
                                       fontWeight: FontWeight.w600,
                                       height: 0.66,
                                     ),
@@ -210,7 +212,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     style: const TextStyle(
                                       color: Color(0xFF1B3F77),
                                       fontSize: 32,
-                                      fontFamily: 'Space Grotesk',
+                                      fontFamily:
+                                          AppTextStyles.spaceGroteskFamily,
                                       fontWeight: FontWeight.w600,
                                       height: 0.66,
                                     ),
@@ -268,7 +271,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                 style: TextStyle(
                                   color: const Color(0xFF0F1911),
                                   fontSize: isVeryNarrow ? 18 : 22,
-                                  fontFamily: 'Space Grotesk',
+                                  fontFamily:
+                                      AppTextStyles.spaceGrotesk.fontFamily,
                                   fontWeight: FontWeight.w700,
                                   height: 1.27,
                                 ),
@@ -333,7 +337,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           style: TextStyle(
                                             color: const Color(0xFF1B3F77),
                                             fontSize: isNarrow ? 16 : 20,
-                                            fontFamily: 'Space Grotesk',
+                                            fontFamily:
+                                                AppTextStyles
+                                                    .spaceGrotesk
+                                                    .fontFamily,
                                             fontWeight: FontWeight.w500,
                                             height: 1.05,
                                           ),
@@ -380,7 +387,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           style: TextStyle(
                                             color: const Color(0xFF1B3F77),
                                             fontSize: isNarrow ? 16 : 20,
-                                            fontFamily: 'Space Grotesk',
+                                            fontFamily:
+                                                AppTextStyles
+                                                    .spaceGrotesk
+                                                    .fontFamily,
                                             fontWeight: FontWeight.w500,
                                             height: 1.05,
                                           ),
@@ -427,7 +437,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                           style: TextStyle(
                                             color: const Color(0xFF1B3F77),
                                             fontSize: isNarrow ? 16 : 20,
-                                            fontFamily: 'Space Grotesk',
+                                            fontFamily:
+                                                AppTextStyles
+                                                    .spaceGrotesk
+                                                    .fontFamily,
                                             fontWeight: FontWeight.w500,
                                             height: 1.05,
                                           ),

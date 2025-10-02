@@ -3,6 +3,7 @@ import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/core/responsive.dart';
 import 'package:gaz/src/auth/screens/login.dart';
 import 'package:gaz/src/auth/screens/otp.dart';
+import 'package:gaz/core/app_text_styles.dart';
 
 /// SignupPage - User Registration Screen
 ///
@@ -191,7 +192,7 @@ class _SignupPageState extends State<SignupPage> {
                           style: TextStyle(
                             color: AppColors.text,
                             fontSize: subtitleFontSize.clamp(18.0, 28.0),
-                            fontFamily: 'Space Grotesk',
+                            fontFamily: AppTextStyles.spaceGroteskFamily,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -212,7 +213,7 @@ class _SignupPageState extends State<SignupPage> {
                               hintStyle: TextStyle(
                                 color: AppColors.secondary,
                                 fontSize: inputFontSize.clamp(14.0, 20.0),
-                                fontFamily: 'Space Grotesk',
+                                fontFamily: AppTextStyles.spaceGroteskFamily,
                                 fontWeight: FontWeight.w500,
                               ),
                               filled: true,
@@ -269,7 +270,7 @@ class _SignupPageState extends State<SignupPage> {
                               hintStyle: TextStyle(
                                 color: AppColors.secondary,
                                 fontSize: inputFontSize.clamp(14.0, 20.0),
-                                fontFamily: 'Space Grotesk',
+                                fontFamily: AppTextStyles.spaceGroteskFamily,
                                 fontWeight: FontWeight.w500,
                               ),
                               filled: true,

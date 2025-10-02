@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/src/history/screens/delivery_history_screen.dart';
 
@@ -7,6 +8,12 @@ import 'package:gaz/src/history/screens/delivery_history_screen.dart';
 /// client management, and payment collection features.
 
 void main() {
+  assert(() {
+    debugPaintSizeEnabled = true;
+    debugPaintBaselinesEnabled = true;
+    debugPaintLayerBordersEnabled = true;
+    return true;
+  }());
   runApp(const ProviderScope(child: MyApp()));
 }
 

@@ -1,7 +1,6 @@
 // Client details screen to display the details of a client.//
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/providers/client_details_provider.dart';
@@ -91,10 +90,6 @@ class ClientHeader extends StatelessWidget {
         onPressed: () => Navigator.of(context).pop(),
         icon: Icon(Icons.arrow_back, color: Color(0xFF0D121C)),
         padding: EdgeInsets.zero,
-      ),
-      rightIcon: CurrencySwitcher(
-        initialUnit: DisplayUnit.dh,
-        onUnitChanged: (unit) {},
       ),
     );
   }

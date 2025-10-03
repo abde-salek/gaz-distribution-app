@@ -4,10 +4,8 @@ import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/src/clients/widgets/client_list.dart';
 import 'package:gaz/core/app_assets.dart';
 import 'package:gaz/core/app_text_styles.dart';
-// import 'package:gaz/providers/client_provider.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
-import 'package:gaz/widgets/currency_switcher.dart';
 
 // Clients screen to display a list of clients.//
 
@@ -21,17 +19,10 @@ class ClientsScreen extends ConsumerStatefulWidget {
 
 class _ClientsScreenState extends ConsumerState<ClientsScreen> {
   int _selectedIndex = 1; // Set to 1 for clients tab
-  DisplayUnit _currentUnit = DisplayUnit.dh;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    });
-  }
-
-  void _onUnitChanged(DisplayUnit unit) {
-    setState(() {
-      _currentUnit = unit;
     });
   }
 
@@ -50,10 +41,6 @@ class _ClientsScreenState extends ConsumerState<ClientsScreen> {
           height: 10,
           width: 10,
           child: Image.asset(AppAssets.addClient, fit: BoxFit.contain),
-        ),
-        rightIcon: CurrencySwitcher(
-          initialUnit: _currentUnit,
-          onUnitChanged: _onUnitChanged,
         ),
       ),
       // BODY

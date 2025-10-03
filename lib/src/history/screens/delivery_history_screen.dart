@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gaz/core/app_assets.dart';
+import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
-import 'package:gaz/widgets/currency_switcher.dart';
 import 'package:gaz/widgets/search_bar.dart';
 import 'package:gaz/widgets/delivery_card.dart';
 import 'package:gaz/services/mock_delivery_data.dart';
@@ -27,6 +27,7 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: CustomAppBar(
         title: 'Delivery History',
         leftIcon: SizedBox(
@@ -37,10 +38,7 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
             fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
           ),
         ),
-        rightIcon: CurrencySwitcher(
-          initialUnit: DisplayUnit.dh,
-          onUnitChanged: (unit) {},
-        ),
+        
       ),
       body: Column(
         children: [

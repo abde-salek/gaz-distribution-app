@@ -35,12 +35,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     });
   }
 
-  void _onUnitChanged(DisplayUnit unit) {
-    setState(() {
-      _currentUnit = unit;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final dashboardState = ref.watch(dashboardProvider);
@@ -52,10 +46,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           height: 10,
           width: 10,
           child: SvgPicture.asset(AppAssets.nfc, fit: BoxFit.contain),
-        ),
-        rightIcon: CurrencySwitcher(
-          initialUnit: _currentUnit,
-          onUnitChanged: _onUnitChanged,
         ),
       ),
       body: SingleChildScrollView(
@@ -75,7 +65,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               // Main dashboard card section
               LayoutBuilder(
                 builder: (context, constraints) {
-                  //final isNarrow = constraints.maxWidth < 500;
                   return Column(
                     children: [
                       // Target amount section

@@ -61,23 +61,23 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _toggleCurrency,
-      child: Container(
-        padding: const EdgeInsets.all(4),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+    return Container(
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.1),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: GestureDetector(
+        onTap: _toggleCurrency,
+        child: Row(
+          mainAxisSize: MainAxisSize.values.first,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -91,12 +91,12 @@ class _CurrencySwitcherState extends State<CurrencySwitcher>
                   color: Color(0xFF0C111C),
                   fontSize: 14,
                   fontFamily: AppTextStyles.spaceGroteskFamily,
-                  fontWeight: FontWeight.w400,
-                  height: 1.0,
+                  fontWeight: FontWeight.bold,
+                  height: 1.5,
                 ),
               ),
             ),
-            const SizedBox(height: 1),
+            const SizedBox(width: 8),
             SizedBox(
               width: 8,
               height: 8,

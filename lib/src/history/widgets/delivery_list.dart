@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/src/history/widgets/delivery_card.dart';
 import 'package:gaz/core/app_text_styles.dart';
+import 'package:gaz/services/mock_delivery_data.dart';
+import 'package:gaz/models/delivery.dart';
 
 /// Displays a scrollable list of deliveries using [DeliveryCard].
 
 class DeliveryList extends ConsumerWidget {
-  /// List of deliveries, each as a map with keys:
-  /// name, address, iconUrls, values, time, date
-  final List<Map<String, dynamic>> deliveries;
-
-  /// callback when a delivery is tapped.
+  /// List of deliveries, each as a map
   final void Function(int index)? onDeliveryTap;
-
-  const DeliveryList({super.key, required this.deliveries, this.onDeliveryTap});
+  final List<Delivery> deliveries = MockDeliveryData.getAllDeliveries();
+  DeliveryList({super.key, this.onDeliveryTap});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -32,21 +30,12 @@ class DeliveryList extends ConsumerWidget {
       );
     }
     // Deliveries exist
-    return ListView.separated(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
+    return ListView.builder(
       itemCount: deliveries.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 8),
       itemBuilder: (context, index) {
         final singledelivery = deliveries[index];
         return DeliveryCard(
-          clientId: singledelivery['clientId'] ?? 0,
-          name: singledelivery['name'] ?? '',
-          address: singledelivery['address'] ?? '',
-          bottlesValues: List<String>.from(
-            singledelivery['values'] ?? ['0', '0', '0'],
-          ),
-          time: singledelivery['time'] ?? '',
-          date: singledelivery['date'] ?? '',
+          delivery: singledelivery,
           onTap: onDeliveryTap != null ? () => onDeliveryTap!(index) : null,
         );
       },

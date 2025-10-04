@@ -1,61 +1,55 @@
 import 'package:gaz/models/delivery.dart';
 
+
 /// Mock delivery data service for testing and development
 class MockDeliveryData {
   static final List<Delivery> deliveries = [
     Delivery(
-      id: 1,
+      deliveryId: 1,
       clientName: 'Anonymous',
       address: '123 Main St, Anytown',
-      cylinders: [
-        GasCylinderDelivery(size: 'large', quantity: 48),
-        GasCylinderDelivery(size: 'medium', quantity: 48),
-        GasCylinderDelivery(size: 'small', quantity: 48),
+      bottles: [
+        Bottles(large: 48, medium: 48, small: 48),
       ],
       timestamp: DateTime.now().subtract(const Duration(hours: 2)),
       isSelected: true, // First item is selected as shown in Figma
     ),
     Delivery(
-      id: 2,
+      deliveryId: 2,
       clientName: 'Sarah Johnson',
       address: '123 Main St, Anytown',
-      cylinders: [
-        GasCylinderDelivery(size: 'large', quantity: 48),
-        GasCylinderDelivery(size: 'medium', quantity: 48),
-        GasCylinderDelivery(size: 'small', quantity: 48),
+      bottles: [
+        Bottles(large: 48, medium: 48, small: 48),
       ],
       timestamp: DateTime.now().subtract(const Duration(hours: 1)),
       isSelected: false,
     ),
     Delivery(
-      id: 3,
+      deliveryId: 3,
       clientName: 'Michael Brown',
       address: '456 Oak Avenue, Springfield',
-      cylinders: [
-        GasCylinderDelivery(size: 'large', quantity: 24),
-        GasCylinderDelivery(size: 'medium', quantity: 12),
+      bottles: [
+        Bottles(large: 24, medium: 12, small: 0),
       ],
       timestamp: DateTime.now().subtract(const Duration(minutes: 30)),
       isSelected: false,
     ),
     Delivery(
-      id: 4,
+      deliveryId: 4,
       clientName: 'Emily Davis',
       address: '789 Pine Street, Riverside',
-      cylinders: [
-        GasCylinderDelivery(size: 'small', quantity: 36),
-        GasCylinderDelivery(size: 'medium', quantity: 18),
+      bottles: [
+        Bottles(large: 0, medium: 36, small: 36),
       ],
       timestamp: DateTime.now().subtract(const Duration(minutes: 15)),
       isSelected: false,
     ),
     Delivery(
-      id: 5,
+      deliveryId: 5,
       clientName: 'David Wilson',
       address: '321 Elm Drive, Lakeside',
-      cylinders: [
-        GasCylinderDelivery(size: 'large', quantity: 60),
-        GasCylinderDelivery(size: 'small', quantity: 30),
+      bottles: [
+        Bottles(large: 60, medium: 0, small: 30),
       ],
       timestamp: DateTime.now().subtract(const Duration(minutes: 5)),
       isSelected: false,
@@ -70,7 +64,7 @@ class MockDeliveryData {
   /// Get delivery by ID
   static Delivery? getDeliveryById(int id) {
     try {
-      return deliveries.firstWhere((delivery) => delivery.id == id);
+      return deliveries.firstWhere((delivery) => delivery.deliveryId == id);
     } catch (e) {
       return null;
     }

@@ -1,44 +1,82 @@
 /// Model representing a delivery record
 class Delivery {
-  final int id;
+  final int deliveryId;
   final String clientName;
   final String address;
-  final List<GasCylinderDelivery> cylinders;
+  final List<Bottles> bottles;
   final DateTime timestamp;
   final bool isSelected;
 
+
   Delivery({
-    required this.id,
+    required this.deliveryId,
     required this.clientName,
     required this.address,
-    required this.cylinders,
+    required this.bottles,
     required this.timestamp,
     this.isSelected = false,
   });
 
   Delivery copyWith({
-    int? id,
+    int? deliveryId,
     String? clientName,
     String? address,
-    List<GasCylinderDelivery>? cylinders,
     DateTime? timestamp,
     bool? isSelected,
   }) {
     return Delivery(
-      id: id ?? this.id,
+      deliveryId: deliveryId ?? this.deliveryId,
       clientName: clientName ?? this.clientName,
       address: address ?? this.address,
-      cylinders: cylinders ?? this.cylinders,
+      bottles: bottles.map((bottle) => bottle.copyWith()).toList(),
       timestamp: timestamp ?? this.timestamp,
       isSelected: isSelected ?? this.isSelected,
     );
   }
 }
 
-/// Model representing gas cylinder delivery details
-class GasCylinderDelivery {
-  final String size; // 'large', 'medium', 'small'
-  final int quantity;
+/// Model representing bottles delivery details
+/// Model representing the count of bottles of each size for a single delivery.
+/// Sizes are: 'L' (large), 'M' (medium), 'S' (small).
+/// All counts default to 0 if not specified.
+class Bottles {
+  /// Number of bottles
+  final int large;
+  final int medium;
+  final int small;
 
-  GasCylinderDelivery({required this.size, required this.quantity});
+  /// Creates a [Bottles] instance with optional counts for each size.
+  /// All counts default to 0.
+  const Bottles({
+    this.large = 0,
+    this.medium = 0,
+    this.small = 0,
+  });
+
+  /// Return a copy of [Bottles] with updated values.
+  Bottles copyWith({
+    int? large,
+    int? medium,
+    int? small,
+  }) {
+    return Bottles(
+      large: large ?? this.large,
+      medium: medium ?? this.medium,
+      small: small ?? this.small,
+    );
+  }
+
+  /// Return the count for a given size code ('L', 'M', 'S').
+  int countForSize(String size) {
+    switch (size) {
+      case 'L':
+        return large;
+      case 'M':
+        return medium;
+      case 'S':
+        return small;
+      default:
+        return 0;
+    }
+  }
 }

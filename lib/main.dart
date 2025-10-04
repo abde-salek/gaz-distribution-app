@@ -9,9 +9,9 @@ import 'package:gaz/src/history/screens/delivery_history_screen.dart';
 
 void main() {
   assert(() {
-    debugPaintSizeEnabled = true;
+    //debugPaintSizeEnabled = true;
     debugPaintBaselinesEnabled = true;
-    debugPaintLayerBordersEnabled = true;
+    //debugPaintLayerBordersEnabled = true;
     return true;
   }());
   runApp(const ProviderScope(child: MyApp()));

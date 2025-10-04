@@ -1,8 +1,12 @@
 import '../models/client.dart';
 import '../models/transaction.dart';
-import '../src/history/widgets/delivery_card.dart';
+import '../models/delivery.dart';
 
-// Temporary transaction data
+/// ---------------------------------------------------------------------------
+/// MOCK DATA FOR PORTFOLIO DEMO
+/// ---------------------------------------------------------------------------
+
+/// Temporary transaction data for demonstration purposes.
 class TempTransactionData {
   static final List<Transaction> transactions = [
     Transaction(
@@ -53,7 +57,7 @@ class TempTransactionData {
   ];
 }
 
-// Temporary client data
+/// Temporary client data for demonstration purposes.
 class TempClientData {
   static final List<Client> clients = [
     Client(
@@ -97,44 +101,6 @@ class TempClientData {
       phoneNumber: [0987654321],
       balance: 120.00,
       address: '123 XYZ street',
-    ),
-  ];
-}
-
-class TempDeliveryData {
-  static final List<DeliveryCard> deliveries = [
-    DeliveryCard(
-      // Removed the 'key' parameter as DeliveryCard is used for mock data and the Key class is not imported here.
-      clientId: 1,
-      name: 'Mohammed Ali',
-      address: '123 XYZ street',
-      bottlesValues: ['1', '2', '3'],
-      time: '17:06',
-      date: '11 Sept.',
-    ),
-    DeliveryCard(
-      clientId: 2,
-      name: 'Hassan Belmokhtar',
-      address: '123 XYZ street',
-      bottlesValues: ['1', '2', '3'],
-      time: '17:06',
-      date: '11 Sept.',
-    ),
-    DeliveryCard(
-      clientId: 3,
-      name: 'Fatima Zahra',
-      address: '123 XYZ street',
-      bottlesValues: ['1', '2', '3'],
-      time: '17:06',
-      date: '11 Sept.',
-    ),
-    DeliveryCard(
-      clientId: 4,
-      name: 'Aicha Koudia',
-      address: '123 XYZ street',
-      bottlesValues: ['1', '2', '3'],
-      time: '17:06',
-      date: '11 Sept.',
     ),
   ];
 }

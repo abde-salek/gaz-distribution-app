@@ -3,39 +3,40 @@ import 'package:gaz/core/app_assets.dart';
 import 'package:gaz/core/app_text_styles.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/core/responsive.dart';
+import 'package:intl/intl.dart';
+import 'package:gaz/models/delivery.dart';
 
 /// DeliveryCard represents a single delivery entry for use in a delivery list.
 /// It is not a list itself and should be used as a single item in a parent ListView or similar.
 
 class DeliveryCard extends ConsumerWidget {
-  final int clientId;
-  final String name;
-  final String address;
-  final List<String> bottlesValues; // [small, medium, large]
-  final String time;
-  final String date;
+
+  final Delivery delivery;
   final VoidCallback? onTap;
 
-  const DeliveryCard({
-    super.key,
-    required this.clientId,
-    required this.name,
-    required this.address,
-    required this.bottlesValues,
-    required this.time,
-    required this.date,
-    this.onTap,
-  });
+  const DeliveryCard({super.key, required this.delivery, this.onTap});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 72),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: const BoxDecoration(color: Color(0xFFF9F9F9)),
-        child: IntrinsicHeight(
+      child: Container(margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border:
+              delivery.isSelected
+                  ? Border.all(color: const Color(0xFF6BC6F0), width: 1)
+                  : null,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -52,7 +53,7 @@ class DeliveryCard extends ConsumerWidget {
               ),
 
               // Bottle Info (Icons + Values)
-              Expanded(flex: 3, child: _buildBottleInfo()),
+              Expanded(flex: 3, child: _buildBottlesCard()),
 
               // Vertical Divider
               const VerticalDivider(
@@ -64,12 +65,11 @@ class DeliveryCard extends ConsumerWidget {
               ),
 
               // Time Info
-              Expanded(flex: 1, child: _buildTimeInfo()),
+              Expanded(flex: 1, child: _buildTimestamp()),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   // build client info
@@ -83,7 +83,7 @@ class DeliveryCard extends ConsumerWidget {
             maxWidth: Responsive.width(context) * 0.2,
           ),
           child: Text(
-            name,
+            delivery.clientName,
             style: const TextStyle(
               color: Color(0xFF111416),
               fontSize: 16,
@@ -101,7 +101,7 @@ class DeliveryCard extends ConsumerWidget {
             maxWidth: Responsive.width(context) * 0.2,
           ),
           child: Text(
-            address,
+            delivery.address,
             style: const TextStyle(
               color: Color(0xFF66707F),
               fontSize: 14,
@@ -117,102 +117,60 @@ class DeliveryCard extends ConsumerWidget {
     );
   }
 
-  // bottles by size and value
-  Widget _buildBottleInfo() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 2.75),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          // Bottle icons
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildBottleIcon(size: 300), // Large
-              _buildBottleIcon(size: 80), // Medium
-              _buildBottleIcon(size: 80), // Small
-            ],
-          ),
-          const SizedBox(height: 3.43),
-
-          // Value boxes
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildValueBox(bottlesValues[0]), // Small value
-              _buildValueBox(bottlesValues[1]), // Medium value
-              _buildValueBox(bottlesValues[2]), // Large value
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  // build time and date info
-  Widget _buildTimeInfo() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+  // bottles Card section
+  Widget _buildBottlesCard() {
+    return Table(
+      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+      columnWidths: const <int, TableColumnWidth>{
+        0: FixedColumnWidth(80), // bottleWidth
+        1: FixedColumnWidth(80),
+        2: FixedColumnWidth(80),
+      },
       children: [
-        // time
-        Text(
-          time,
-          style: const TextStyle(
-            color: Color(0xFF111416),
-            fontSize: 16,
-            fontFamily: AppTextStyles.spaceGroteskFamily,
-            fontWeight: FontWeight.w500,
-            height: 1.5,
-          ),
-        ),
-        // date
-        Text(
-          date,
-          style: const TextStyle(
-            color: Color(0xFF66707F),
-            fontSize: 14,
-            fontFamily: AppTextStyles.spaceGroteskFamily,
-            fontWeight: FontWeight.w400,
-            height: 1.5,
-          ),
+        TableRow(
+          children: [
+            //each bottle icon
+            _buildBottleIcon(100),
+            _buildBottleIcon(60),
+            _buildBottleIcon(60),
+          ],
         ),
       ],
     );
   }
 
-  // customize bottle icon
-  Widget _buildBottleIcon({required double size}) {
-    return SizedBox.square(
-      dimension: size,
-      child: Image.asset(
-        AppAssets.bottle,
-        fit: BoxFit.contain,
-        filterQuality: FilterQuality.high,
-      ),
+  /// Builds the timestamp section
+  Widget _buildTimestamp() {
+    final timeFormat = DateFormat('HH:mm');
+    final dateFormat = DateFormat('d MMM');
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Text(
+          timeFormat.format(delivery.timestamp),
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF1B3F77),
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          dateFormat.format(delivery.timestamp),
+          style: const TextStyle(fontSize: 12, color: Color(0xFF6B7280)),
+        ),
+      ],
     );
   }
 
-  // customize value box
-  Widget _buildValueBox(String value) {
-    return Container(
-      width: 34.33,
-      height: 17.17,
-      decoration: BoxDecoration(
-        color: const Color(0xFFD9D9D9),
-        borderRadius: BorderRadius.circular(4.67),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        value,
-        style: TextStyle(
-          color: Color(0xFF1B3F77),
-          fontSize: 11.60,
-          fontFamily: AppTextStyles.spaceGroteskFamily,
-          fontWeight: FontWeight.w500,
-          height: 1.05,
-        ),
-      ),
+  // build bottle icon
+  Widget _buildBottleIcon(double size) {
+    return SizedBox(
+      width: size,
+      height: size,
+      child: Image.asset(AppAssets.bottle),
     );
   }
+
 }

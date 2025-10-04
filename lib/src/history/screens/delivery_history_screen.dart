@@ -5,8 +5,7 @@ import 'package:gaz/core/app_colors.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/search_bar.dart';
-import 'package:gaz/widgets/delivery_card.dart';
-import 'package:gaz/services/mock_delivery_data.dart';
+import 'package:gaz/src/history/widgets/delivery_list.dart';
 
 class DeliveryHistoryScreen extends StatefulWidget {
   const DeliveryHistoryScreen({super.key});
@@ -38,7 +37,6 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
             fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
           ),
         ),
-        
       ),
       body: Column(
         children: [
@@ -49,20 +47,12 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
               onChanged: (_) {},
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: MockDeliveryData.getAllDeliveries().length,
-              itemBuilder: (context, index) {
-                final delivery = MockDeliveryData.getAllDeliveries()[index];
-                return DeliveryCard(
-                  delivery: delivery,
-                  onTap: () {
-                    // Handle delivery card tap
-                    // TODO: Navigate to delivery details or handle selection
-                  },
-                );
-              },
-            ),
+          DeliveryList(
+            onDeliveryTap: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
           ),
         ],
       ),

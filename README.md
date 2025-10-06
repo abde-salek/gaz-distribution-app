@@ -256,30 +256,13 @@ dependencies:
 - **Professional Naming**: Industry-standard naming conventions
 - **Documentation**: Comprehensive code documentation
 
-## 🤝 Contributing
-
-### **Development Process**
-1. Fork the repository
-2. Create a feature branch
-3. Follow the coding guidelines
-4. Implement responsive design
-5. Add comprehensive documentation
-6. Submit a pull request
-
-### **Code Review Checklist**
-- [ ] Responsive design implemented
-- [ ] Professional naming conventions used
-- [ ] Code properly documented
-- [ ] No hardcoded dimensions
-- [ ] Follows Flutter best practices
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
-**Your Name**
+**Abdelghani Salek**
 - GitHub: [](https://github.com/abde-salek)
 - LinkedIn: [](https://linkedin.com/in/abde-salek)
 
@@ -295,5 +278,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 
 

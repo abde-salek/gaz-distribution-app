@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gaz/src/dashboard/screens/dashboard_screen.dart';
 import 'package:gaz/src/history/screens/delivery_history_screen.dart';
+import 'package:gaz/src/splash.dart';
 
 /// Gaz Distribution App - Main Entry Point
 /// Comprehensive Flutter app for gas distribution management with delivery tracking,
 /// client management, and payment collection features.
-
 void main() {
   assert(() {
     //debugPaintSizeEnabled = true;
@@ -48,7 +49,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const DeliveryHistoryScreen(),
+      initialRoute: '/SplashScreen',
+      routes: {
+        '/SplashScreen': (context) => const SplashScreen(),
+        '/dashboard': (context) => const DashboardScreen(),
+        '/history': (context) => const DeliveryHistoryScreen(),
+      },
     );
   }
 }

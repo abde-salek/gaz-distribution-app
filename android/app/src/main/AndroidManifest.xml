@@ -3,6 +3,9 @@
         android:label="gaz"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <uses-permission android:name="android.permission.NFC" />
+        <uses-permission android:name="android.permission.NFC_NDEF_READ" />
+        <uses-feature android:name="android.hardware.nfc" android:required="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

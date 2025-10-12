@@ -20,7 +20,10 @@ class DeliveryCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: Container(
+        width: Responsive.width(context),
+        height: 60,
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,

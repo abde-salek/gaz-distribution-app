@@ -1,4 +1,11 @@
 // Client details screen to display the details of a client.//
+/* Including the following features:
+- Client header
+- Contact info
+- Balance section
+- Transactions section
+- Order button
+*/
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gaz/widgets/app_bar.dart';

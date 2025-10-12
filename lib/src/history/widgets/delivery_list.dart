@@ -30,15 +30,20 @@ class DeliveryList extends ConsumerWidget {
       );
     }
     // Deliveries exist
-    return ListView.builder(
-      itemCount: deliveries.length,
-      itemBuilder: (context, index) {
-        final singledelivery = deliveries[index];
-        return DeliveryCard(
-          delivery: singledelivery,
-          onTap: onDeliveryTap != null ? () => onDeliveryTap!(index) : null,
-        );
-      },
+    return CustomScrollView(
+      slivers: [
+        SliverList.builder(
+          itemCount: deliveries.length,
+          itemBuilder: (context, index) {
+            final singledelivery = deliveries[index];
+            return DeliveryCard(
+              delivery: singledelivery,
+              onTap: onDeliveryTap != null ? () => onDeliveryTap!(index) : null,
+            );
+          },
+        ),
+      ],
     );
   }
 }
+

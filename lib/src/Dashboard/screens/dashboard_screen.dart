@@ -27,7 +27,7 @@ class DashboardScreen extends ConsumerStatefulWidget {
 
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   int _selectedIndex = 0;
-  DisplayUnit _currentUnit = DisplayUnit.dh;
+  final DisplayUnit _currentUnit = DisplayUnit.dh;
 
   void _onItemTapped(int index) {
     setState(() {

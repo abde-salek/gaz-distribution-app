@@ -32,7 +32,6 @@ A modern Flutter application designed for gas distribution management, featuring
 - **Currency Support**: Multi-currency display with real-time conversion
 
 ### 👥 **Client Management**
-=======
 A comprehensive Flutter application designed for gas distribution management, featuring modern UI/UX design and robust functionality for delivery tracking, client management, and payment collection.
 
 ## 📱 Features
@@ -53,7 +52,7 @@ A comprehensive Flutter application designed for gas distribution management, fe
 - **Consistent Navigation**: Same app bar and navigation as dashboard
 
 ### 💱 **Currency System**
-- **Multi-Currency Support**: DH (Dirham), USD, EUR
+- **Multi-Currency Support**: DH (Dirham), Riyal
 - **Real-time Conversion**: Dynamic currency switching across the app
 - **Professional UI**: Clean currency switcher in the app bar
 - **Responsive Design**: Works perfectly on all screen sizes
@@ -278,6 +277,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 
 
 

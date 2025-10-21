@@ -112,7 +112,7 @@ dependencies:
   flutter_riverpod: ^2.4.0          # State management
   intl: ^0.18.0                     # Internationalization
   flutter_svg: ^2.0.0               # SVG support
-  # Add other dependencies as needed
+  nfc_manager: ^3.5.0
 ```
 
 ### **Development Tools**
@@ -277,6 +277,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 
 
 

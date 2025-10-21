@@ -3,7 +3,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Delivery model for demonstration purposes.
-/// In a real app, this should be moved to a dedicated model file.
 class Delivery {
   final String name;
   final String address;
@@ -84,3 +83,4 @@ final deliveryProvider =
     StateNotifierProvider<DeliveryNotifier, List<Delivery>>((ref) {
       return DeliveryNotifier();
     });
+

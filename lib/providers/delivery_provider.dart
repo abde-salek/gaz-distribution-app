@@ -50,7 +50,6 @@ class DeliveryNotifier extends StateNotifier<List<Delivery>> {
 }
 
 // Example initial data for demonstration.
-// In a real app, this would come from a backend or local storage.
 final List<Delivery> _initialDeliveries = [
   Delivery(
     name: 'Ali Ben Salah',
@@ -83,4 +82,5 @@ final deliveryProvider =
     StateNotifierProvider<DeliveryNotifier, List<Delivery>>((ref) {
       return DeliveryNotifier();
     });
+
 

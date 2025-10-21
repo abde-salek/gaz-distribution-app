@@ -115,14 +115,6 @@ dependencies:
   nfc_manager: ^3.5.0
 ```
 
-### **Development Tools**
-- **BLoC Pattern**: For complex state management
-- **Repository Pattern**: For data access abstraction
-
-### Data Layer
-- **RESTful API**: Integration with backend services
-- **Shared Preferences**: User preferences and settings
-
 ## 🛠️ Technologies Used
 
 ### Frontend
@@ -142,7 +134,6 @@ dependencies:
 
 ## 📱 Screens & Features
 
-
 ### **Dashboard Overview**
 - **Welcome Section**: Personalized greeting with current date
 - **Financial Cards**: Beautiful cards showing target, collected, and owed amounts
@@ -159,12 +150,6 @@ dependencies:
 - **Tablet Support**: Enhanced layouts for medium screens
 - **Desktop Ready**: Professional desktop experience
 - **Adaptive Components**: All widgets automatically adjust to screen size
-=======
-### Main Features
-- **Dashboard**: Overview of deliveries, clients, and payments
-- **Delivery Tracking**: Real-time GPS tracking with status updates
-- **Client Management**: Comprehensive client database
-- **Payment Collection**: Multiple payment methods with invoice generation
 
 ## 🚀 Getting Started
 
@@ -208,7 +193,7 @@ dependencies:
 - Responsive design system
 - Professional code structure
 
-### **🔄 In Progress**
+### **🔄 In Progress (DELAYED)**
 - Enhanced client search functionality
 - Additional dashboard metrics
 - More currency options
@@ -236,7 +221,7 @@ dependencies:
 - **Adaptive Components**: All widgets should work on any screen size
 
 ### **Best Practices**
-- **Documentation**: Comprehensive code comments for portfolio
+- **Documentation**: Comprehensive code comments
 - **Error Handling**: Graceful error handling and user feedback
 - **Performance**: Optimize for smooth animations and fast loading
 - **Accessibility**: Ensure app is accessible to all users
@@ -273,13 +258,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Riverpod team for excellent state management
 - Open source community for various packages
 - Flutter community for best practices and guidance
-
----
-
-⭐ **Star this repository if you found it helpful!**
-
-
-
-
-
-
+⭐

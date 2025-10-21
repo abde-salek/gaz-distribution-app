@@ -1,6 +1,6 @@
 # 🚀 Gaz Distribution App
-
-A modern Flutter application designed for gas distribution management, featuring a beautiful responsive UI, comprehensive dashboard, client management, and currency switching capabilities. Built with Flutter 3.x and following professional development practices.
+A modern Flutter application built for efficient gas distribution management.
+It features a sleek, fully responsive UI, an interactive analytics dashboard, intelligent client management, and real-time multi-currency support. Developed with Flutter 3.x using scalable architecture and clean code practices for performance, maintainability, and a seamless user experience.
 
 ## ✨ What's New (Latest Updates)
 
@@ -277,6 +277,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
 
 
 

@@ -9,6 +9,8 @@ import 'package:gaz/src/Dashboard/widgets/welcome_section.dart';
 import 'package:gaz/src/Dashboard/widgets/dashboard_cards.dart';
 import 'package:gaz/src/Dashboard/widgets/inventory_section.dart';
 import 'package:gaz/services/currency_service.dart';
+import 'package:gaz/Core/app_assets.dart';
+import 'package:gaz/Core/app_colors.dart';
 
 /// DashboardScreen is the main entry point for the dashboard UI.
 /// It composes the dashboard using modular widgets for maintainability and clarity.
@@ -49,7 +51,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         leftIcon: SizedBox(
           height: 10,
           width: 10,
-          child: SvgPicture.asset('icons/nfc.svg', fit: BoxFit.contain),
+          child: SvgPicture.asset(AppAssets.nfcIcon, fit: BoxFit.contain),
         ),
         rightIcon: CurrencySwitcher(
           initialUnit: _currentUnit,
@@ -81,13 +83,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         width: double.infinity,
                         padding: const EdgeInsets.all(16),
                         decoration: ShapeDecoration(
-                          color: const Color(0xFF6BC6F0),
+                          color: AppColors.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                           shadows: const [
                             BoxShadow(
-                              color: Color(0xFF66707F),
+                              color: AppColors.textMuted,
                               blurRadius: 0,
                               offset: Offset(3, 3),
                               spreadRadius: 0,
@@ -103,7 +105,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               ),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
-                                color: Color(0xFF1B3F77),
+                                color: AppColors.text,
                                 fontSize: 40,
                                 fontFamily: 'Space Grotesk',
                                 fontWeight: FontWeight.w600,
@@ -115,7 +117,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                               'Target Amount',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Color(0xFF0F1911),
+                                color: AppColors.gray900,
                                 fontSize: 16,
                                 fontFamily: 'Futura Hv BT',
                                 fontWeight: FontWeight.w400,
@@ -307,7 +309,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              'icons/bottle.png',
+                                              AppAssets.bottleIcon,
                                             ),
                                             fit: BoxFit.cover,
                                           ),
@@ -319,7 +321,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: AppColors.gray300,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -356,7 +358,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              'icons/bottle.png',
+                                              AppAssets.bottleIcon,
                                             ),
                                             fit: BoxFit.cover,
                                           ),
@@ -368,7 +370,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: AppColors.gray300,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,
@@ -405,7 +407,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
                                             image: AssetImage(
-                                              'icons/bottle.png',
+                                              AppAssets.bottleIcon,
                                             ),
                                             fit: BoxFit.cover,
                                           ),
@@ -417,7 +419,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       width: isNarrow ? 80 : 100,
                                       height: isNarrow ? 25 : 29,
                                       decoration: ShapeDecoration(
-                                        color: const Color(0xFFD9D9D9),
+                                        color: AppColors.gray300,
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                             8,

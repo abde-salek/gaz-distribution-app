@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gaz/core/app_assets.dart';
 import 'package:gaz/widgets/app_bar.dart';
 import 'package:gaz/widgets/app_navigation_bar.dart';
 import 'package:gaz/widgets/currency_switcher.dart';
@@ -29,7 +30,7 @@ class _DeliveryHistoryScreenState extends State<DeliveryHistoryScreen> {
           height: 10,
           width: 10,
           child: SvgPicture.asset(
-            'icons/nfc.svg',
+            AppAssets.nfcIcon,
             fit: BoxFit.contain, // Ensures the SVG scales to fit the SizedBox
           ),
         ),
